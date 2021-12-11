@@ -17,52 +17,66 @@
     <script src='main.js'></script>
     <script>
 
-            
-        function initCanvas()
-            {
-                var canvas = $('#canvGameArea');
-                canvas.focus();
-                canvas.width = document.body.clientWidth; //document.width is obsolete
-                canvas.height = document.body.clientHeight; //document.height is obsolete
+        var TickFrequency = 100; //100ms per tick or 10 ticks per second (effectively 10fps)
+        var tick = 0;
+        var startTime = Date.now();
+        var lastTick = Date.now();
 
-                var handlekeydown=function(e){
-                    alert('keycode: '+ e.keyCode);
-                    return false;
-                    //TODO: canvas.blur(); on esc
-                };
-                
-                canvas.keydown(handlekeydown);     
-
-            
-                if( canvas.getContext )
-                {
-                    setup();
-                    setInterval( run , 33 );
-                }
-
-                $(window).bind("resize", function(){
-                    resizeCanvas(canvas);
-                });
-
-                resizeCanvas(canvas);
-
-                $(canvas)[0].webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT); //Chrome
-                $(canvas)[0].mozRequestFullScreen(); //Firefox
-            }
-
-            function resizeCanvas(canvas)
-            {                
-                    var w = $(window).width();
-                    var h = $(window).height();
-
-                    $(canvas).css("width", w + "px");
-                    $(canvas).css("height", h + "px"); 
-            }
 
         $(function() {            
             initCanvas();
+            setInterval(Tick, TickFrequency);//10 ticks per second
             //drawFocusIfNeeded()
         });
+            
+        function initCanvas(){
+            var canvas = $('#canvGameArea');
+            canvas.focus();
+            canvas.width = document.body.clientWidth; //document.width is obsolete
+            canvas.height = document.body.clientHeight; //document.height is obsolete
+
+            var handlekeydown = function(e){
+                alert('keycode: '+ e.keyCode);
+                return false;
+                //TODO: canvas.blur(); on esc
+            };
+            
+            canvas.keydown(handlekeydown);
+
+            $(window).bind("resize", function(){
+                resizeCanvas(canvas);
+            });
+
+            resizeCanvas(canvas);
+
+            if( canvas.getContext )
+            {
+                var ctx = canvas.getContext("2d");
+                
+                ctx.fillStyle = "blue";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            //$(canvas)[0].webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT); //Chrome
+            //$(canvas)[0].mozRequestFullScreen(); //Firefox
+        }
+
+        function resizeCanvas(canvas)
+        {                
+            var w = $(window).width();
+            var h = $(window).height();
+
+            $(canvas).css("width", w + "px");
+            $(canvas).css("height", h + "px"); 
+        }
+
+        function Tick(){
+            //TODO: Handle delta
+            var delta = (Date.now() - lastTick)/TickFrequency;
+            lastTick = Date.now();
+            tick++;
+            console.log("tick: " + tick + " delta: " + delta + " time: " + Date.now());
+        }
     </script>
     <div id='divCanvas'>
     <canvas  id='canvGameArea' width="500" height="500" tabindex='1'>  
