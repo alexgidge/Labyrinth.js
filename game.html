@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Labyrinth | Audio Game</title>
+</head>
+<body>
+    <style>
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow:hidden;
+    }
+    </style>
+    <script src='node_modules/jquery/dist/jquery.min.js'></script>
+    <script src='main.js'></script>
+    <script>
+
+            
+        function initCanvas()
+            {
+                var canvas = $('#canvGameArea');
+                canvas.focus();
+                canvas.width = document.body.clientWidth; //document.width is obsolete
+                canvas.height = document.body.clientHeight; //document.height is obsolete
+
+                var handlekeydown=function(e){
+                    alert('keycode: '+ e.keyCode);
+                    return false;
+                    //TODO: canvas.blur(); on esc
+                };
+                
+                canvas.keydown(handlekeydown);     
+
+            
+                if( canvas.getContext )
+                {
+                    setup();
+                    setInterval( run , 33 );
+                }
+
+                $(window).bind("resize", function(){
+                    resizeCanvas(canvas);
+                });
+
+                resizeCanvas(canvas);
+
+                $(canvas)[0].webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT); //Chrome
+                $(canvas)[0].mozRequestFullScreen(); //Firefox
+            }
+
+            function resizeCanvas(canvas)
+            {                
+                    var w = $(window).width();
+                    var h = $(window).height();
+
+                    $(canvas).css("width", w + "px");
+                    $(canvas).css("height", h + "px"); 
+            }
+
+        $(function() {            
+            initCanvas();
+            //drawFocusIfNeeded()
+        });
+    </script>
+    <div id='divCanvas'>
+    <canvas  id='canvGameArea' width="500" height="500" tabindex='1'>  
+        Please upgrade your browser to support HTML5.
+    </canvas>
+</div>
+</body>
+</html>
