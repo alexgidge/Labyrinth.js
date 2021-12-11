@@ -6,10 +6,25 @@
         <title>Labyrinth | Audio Game</title>
 </head>
 <body>
-    <script src='packages/howler.core.min.js'></script>
-    <script src='packages/howler.min.js'></script>
-    <script src='packages/howler.spatial.min.js'></script>
+    <style>
+        p {
+        color: black;
+        }
+    </style>
+    <script src='node_modules/jquery/dist/jquery.min.js'></script>
     <script src='main.js'></script>
-
+    <script>
+        $(function() {
+            $('#txtGameTitle').text("Labyrinth");//TODO: load from json
+            $('#btnStart').click(function(evt)
+            {
+                window.location.href = 'game.html';
+            });
+        });
+    </script>
+    <p id='txtGameTitle'></p>   
+    <button id='btnStart'>Start</button>
+    <br>
+    <button id='btnSettings'>Settings</button> 
 </body>
 </html>
