@@ -2,31 +2,63 @@ class World {
     constructor(map) {
         this.currentMap = map;
         //TODO: Spawn etc.
-        this.CharacterTransforms = new [];
-        this.SpawnMapCharacters()
+        this.FillMap();
+        this.SpawnMapCharacters();
+    }
+    FillMap() {
+        this.grid = [];
+        this.currentMap.Tiles.forEach(element => {
+            this.SpawnTile(new Vector2(element.x, element.y), element.tileType);
+        })
     }
     SpawnMapCharacters() {
-        this.currentMap.Characters.forEach(element => {
+        this.CharacterTransforms = [];
+        this.currentMap.SpawnPoints.forEach(element => {
             this.SpawnCharacter(element.CharacterType, element.X, element.Y)
         })
+    }
+    SpawnTile(position, tileType) {
+        var tile = new Tile(position, tileType);
+
+        if (this.grid && this.grid.length && this.grid.length > 0) {
+            this.grid.push(tile);//TODO: GameObjects
+        }
+        else {
+            this.grid = [tile];
+        }
     }
     SpawnCharacter(characterType, _x, _y) {
         var character;
         switch (characterType) {
             case CharacterType.Player:
-                character = new Player();
+                character = new Player(this);
                 break;
             case CharacterType.NPC:
                 //TODO: NPC
                 break;
         }
         var position = new Vector2(_x, _y);
-        this.CharacterTransforms += new CharacterTransform(position, character);//TODO: GameObjects
+        var transform = new CharacterTransform(position, character);
+        if (this.CharacterTransforms && this.CharacterTransforms.length && this.CharacterTransforms.length > 0) {
+            this.CharacterTransforms.push(transform);//TODO: GameObjects
+        }
+        else {
+            this.CharacterTransforms = [transform];
+        }
     };
-    GetCharacterAtTile(_x, _y) {
+    GetPlayerCharacter() {
+        var returnCharacter;
+        this.CharacterTransforms.forEach(element => {
+            if (element && element.Character && element.Character.Type && CharacterType.Compare(element.Character.Type, CharacterType.Player)) {
+                returnCharacter = element.Character;
+            }
+        });
+        return returnCharacter;
+    }
+    GetCharacterAtTile(position) {
         this.CharacterTransforms.forEach(element => {
             if (element && element.Position && element.Position.x && element.Position.y) {
-                if (element.Position.x == _x && element.Position.y == _y) {
+                if (element.Position.x == position.x && element.Position.y == position.y) {
                     return element.Character;
                 }
             }
@@ -46,34 +78,49 @@ class World {
         });
     }
     GetCharacterTransform(characterID) {
+        var returnTransform;
         this.CharacterTransforms.forEach(element => {
-            if (element && element.Identifier == characterID) {
-                return element;
+            if (element && element.Character.Identifier == characterID) {
+                returnTransform = element;
             }
             else {
                 //TODO: Not found
             }
         });
+        return returnTransform;
     }
-    GetTile(_x, _y) {
-        this.currentMap.Tiles.forEach(element => {
-            if (element && element.x && element.y) {
+    GetTile(position) {
+        var returnTile;
+        this.grid.forEach(element => {
+            if (element && element.Position.x == position.x && element.Position.y == position.y) {
                 if (!element.TileType) {
                     element.TileType = TileType.Null;
                 }
-                return element;
+                returnTile = element;
             }
             else {
                 //TODO: Invalid character/position
             }
-        })
+        });
+        return returnTile;
     }
-    CanMoveCharacter(newX, newY) {
-        var tile = this.GetTile(newX, newY);
+    // GetCharacterPosition(identifier) {
+    //     var returnPosition;
+    //     if (this.CharacterTransforms) {
+    //         this.CharacterTransforms.forEach(element => {
+    //             if (element && element.Character && element.Character.Identifier && element.Character.Identifier == identifier) {
+    //                 returnPosition = element.Position;
+    //             }//TODO: Else invalid id
+    //         });
+    //     }
+    //     return returnPosition;
+    // }
+    IsTileClear(position) {
+        var tile = this.GetTile(position);
         if (!tile || tile.TileType != TileType.Floor) {
             //TODO: Handle wall collision here or in Character?
             return false;
-        } else if (this.GetCharacterAtTile(newX, newY)) {
+        } else if (this.GetCharacterAtTile(position.x, position.y)) {
             //TODO: Character collision here or in Character?
             return false;
         }
@@ -81,11 +128,11 @@ class World {
             return true;
         }
     }
-    MoveCharacter(CharacterTransform, newX, newY) {
-        if (this.CanMoveCharacter(newX, newY)) {
-            CharacterTransform.Position.x = newX;
-            CharacterTransform.Position.y = newY;
-            console.log("Character moved: " + Character.Identifier + " to [" + newX, ", " + newY + "]")
+    MoveCharacter(CharacterTransform, position) {
+        if (this.IsTileClear(position)) {
+            CharacterTransform.Position.x = position.x;
+            CharacterTransform.Position.y = position.y;
+            console.log("Character moved: " + Character.Identifier + " to [" + position.x, ", " + position.y + "]")
             return true;
         }
 

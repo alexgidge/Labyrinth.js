@@ -21,6 +21,5 @@ class Engine {
         this.lastTick = Date.now();
         var delta = (this.lastTick - this.startTime) / this.tickFrequency;
         this.game.OnEngineTick(delta);//TODO: Injected game tick/events
-        console.log("tick: " + this.tick + " delta: " + delta + " time: " + this.lastTick);
     }
 }

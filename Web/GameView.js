@@ -6,14 +6,22 @@ var playerInput;
 var engineInput;
 var canvas;//TODO: Move to graphics
 var game;
+var player;
 
 $(function () {
+    //TODO: Move into engine
     canvas = initCanvas();
-    game = new Game(Maps.GetRandomMap());
-    playerInput = new PlayerInput()
+    tileMaps = new TileMaps();
+    game = new Game(tileMaps.GetRandomMap());
+    game.InitialiseGame();
+    player = game.World.GetPlayerCharacter();
+
+    playerInput = new PlayerInput(player)
     engineInput = new EngineInput(playerInput);
+
     engine = new Engine(game, TickFrequency);
     input = new WebInput(engineInput);
+
     canvas.keydown(CanvasKeydown);
     setInterval(EngineTick, TickFrequency);//10 ticks per second
     //drawFocusIfNeeded()

@@ -2,17 +2,17 @@
     "LabyrinthMap" : {
         "LabyrinthRooms" : [{
             "Tiles" : [
-                {"x":0, "y":0, "TileType": "FLOOR_TILE"},
-                {"x":0, "y":1, "TileType": "FLOOR_TILE"},
-                {"x":0, "y":2, "TileType": "FLOOR_TILE"},
-                {"x":0, "y":3, "TileType": "FLOOR_TILE"},
-                {"x":0, "y":4, "TileType": "FLOOR_TILE"},
-                {"x":0, "y":5, "TileType": "FLOOR_TILE"},
-                {"x":0, "y":6, "TileType": "FLOOR_TILE"},
-                {"x":1, "y":6, "TileType": "FLOOR_TILE"},
-                {"x":2, "y":6, "TileType": "FLOOR_TILE"},
-                {"x":3, "y":6, "TileType": "FLOOR_TILE"},
-                {"x":4, "y":6, "TileType": "FLOOR_TILE"}
+                {"X":0, "Y":0, "TileType": "FLOOR_TILE"},
+                {"X":0, "Y":1, "TileType": "FLOOR_TILE"},
+                {"X":0, "Y":2, "TileType": "FLOOR_TILE"},
+                {"X":0, "Y":3, "TileType": "FLOOR_TILE"},
+                {"X":0, "Y":4, "TileType": "FLOOR_TILE"},
+                {"X":0, "Y":5, "TileType": "FLOOR_TILE"},
+                {"X":0, "Y":6, "TileType": "FLOOR_TILE"},
+                {"X":1, "Y":6, "TileType": "FLOOR_TILE"},
+                {"X":2, "Y":6, "TileType": "FLOOR_TILE"},
+                {"X":3, "Y":6, "TileType": "FLOOR_TILE"},
+                {"X":4, "Y":6, "TileType": "FLOOR_TILE"}
             ]
         }],
         "CharacterSpawns" : [{

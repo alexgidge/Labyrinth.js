@@ -1,10 +1,21 @@
 class Character extends Identifiable {
 
     static CharacterCount;
+    constructor(world) {
+        super();
+        this.World = world;
+    }
 
     Move(direction) {
-        if (CharacterStateType.Compare(this.CharacterState, CharacterStateType.Alive)) {
-            //TODO: Call grid and attempt to move
+        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+            console.log("Char move (" + direction.x + "," + direction.y + ")");
+
+            var transform = this.World.GetCharacterTransform(this.Identifier);
+            var targetLocation = new Vector2(transform.Position.x + direction.x, transform.Position.y + direction.y)
+            if (this.World.IsTileClear(targetLocation)) {
+                this.World.MoveCharacter(transform, targetLocation);
+            }
+            //TODO: Handle collision
         }
     }
 }

@@ -1,5 +1,7 @@
 class Tile extends Identifiable {
-    constructor(value) {
+    constructor(position, value) {
+        super();
+        this.Position = position;
         this.TileType = value;
     }
 }

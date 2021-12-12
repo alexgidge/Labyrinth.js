@@ -3,11 +3,12 @@ class Game {
     //TODO: Inject a logger for console.log
     //TODO: Inject all dependencies for clear separation between Web, Engine & Game
 
-    constructor() {
+    constructor(tileMap) {
         this.GameState = GameStateType.Null;
         this.TurnLength = 1;//Seconds per turn. Will max out at the engine's FPS
         this.CurrentTurn = 0;
         this.LastTurnTime = 0;
+        this.TileMap = tileMap;
     }
 
     OnEngineTick(_delta, _gameDelta) {//called by engine on each engine tick e.g. 1fps would call every 60 seconds
@@ -17,8 +18,8 @@ class Game {
     InitialiseGame() {
         if (this.GameState == GameStateType.Null) {
             this.GameState = GameStateType.New;
-            Maps.GetMaps();
-            this.World = new World()
+            this.World = new World(this.TileMap);
+
             //TODO: grid.Spawn(Enemy spawnObjects)
         }//TODO: Else
     }
@@ -49,7 +50,6 @@ class Game {
             CurrentTurn++;
             //TODO: Process enemy movement
             //TODO: Turn noise?
-            console.log("Turn: " + CurrentTurn);
         }
     }
 }
