@@ -1,4 +1,7 @@
-var timer = 0;
+var TickFrequency = 100; //100ms per tick or 10 ticks per second (effectively 10fps)
+var tick = 0;
+var startTime = Date.now();
+var lastTick = Date.now();
 
 var CurrentText = "Labyrinth Game" //TODO: Text queue & display
 
@@ -22,4 +25,12 @@ function PlaySound(SoundFile, volume = 1, looping = false)//TODO: Sound library 
 
 function SetScreenText(text) {
     CurrentText = text;
+}
+
+function Tick() {
+    //TODO: Handle delta
+    var delta = (Date.now() - lastTick) / TickFrequency;
+    lastTick = Date.now();
+    tick++;
+    console.log("tick: " + tick + " delta: " + delta + " time: " + Date.now());
 }
