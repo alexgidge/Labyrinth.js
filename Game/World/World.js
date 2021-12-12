@@ -116,17 +116,19 @@ class World {
     //     return returnPosition;
     // }
     IsTileClear(position) {
+        var returnVal;
         var tile = this.GetTile(position);
         if (!tile || tile.TileType != TileType.Floor) {
             //TODO: Handle wall collision here or in Character?
-            return false;
+            returnVal = false;
         } else if (this.GetCharacterAtTile(position.x, position.y)) {
             //TODO: Character collision here or in Character?
-            return false;
+            returnVal = false;
         }
         else {
-            return true;
+            returnVal = true;
         }
+        return returnVal;
     }
     MoveCharacter(CharacterTransform, position) {
         if (this.IsTileClear(position)) {
@@ -135,7 +137,6 @@ class World {
             console.log("Character moved: " + Character.Identifier + " to [" + position.x, ", " + position.y + "]")
             return true;
         }
-
         return false;
     }
 }

@@ -4,3 +4,4 @@ class CharacterTransform {//TODO: Build a better world object structure
         this.Character = _character;
     }
 }
+
