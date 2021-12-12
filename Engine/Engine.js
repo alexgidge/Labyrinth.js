@@ -1,36 +1,26 @@
-var TickFrequency = 100; //100ms per tick or 10 ticks per second (effectively 10fps)
-var tick = 0;
-var startTime = Date.now();
-var lastTick = Date.now();
+class Engine {
+    static Current;
 
-var CurrentText = "Labyrinth Game" //TODO: Text queue & display
+    constructor(_game, _tickFrequency) {
+        Engine.Current = this;
+        this.tickFrequency = _tickFrequency
+        this.game = _game;
+        this.tick = 0;
+        this.lastTick = Date.now();
+        this.startTime = Date.now();
+    }
 
-function Start() {
-    //TODO: generate map & narrative scenes
-    //TODO: Game.Initialise
-}
+    StartGame() {
+        //TODO: generate map & narrative scenes
+        this.game.Start();
+    }
 
-function Update(delta)//Called on tick/update/timer from main
-{
-    //Game.tick(delta);
-    timer += delta;
-}
-
-function PlaySound(SoundFile, volume = 1, looping = false)//TODO: Sound library instead of passing file path
-{
-    //TODO: Validation
-    //TODO: Howler.play audio
-    alert("Play audio: " + SoundFile)
-}
-
-function SetScreenText(text) {
-    CurrentText = text;
-}
-
-function Tick() {
-    //TODO: Handle delta
-    var delta = (Date.now() - lastTick) / TickFrequency;
-    lastTick = Date.now();
-    tick++;
-    console.log("tick: " + tick + " delta: " + delta + " time: " + Date.now());
+    Tick() {//TODO: Queue ticks? 
+        //TODO: Handle delta
+        this.tick++;
+        this.lastTick = Date.now();
+        var delta = (this.lastTick - this.startTime) / this.tickFrequency;
+        this.game.OnEngineTick(delta);//TODO: Injected game tick/events
+        console.log("tick: " + this.tick + " delta: " + delta + " time: " + this.lastTick);
+    }
 }

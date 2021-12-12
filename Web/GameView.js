@@ -1,22 +1,37 @@
+TickFrequency = 100; //100ms per tick or 10 ticks per second. The game can then handle each tick as it needs
+
+var engine;
+var webInput;
+var playerInput;
+var engineInput;
+var canvas;//TODO: Move to graphics
+var game;
+
 $(function () {
-    initCanvas();
-    setInterval(Tick, TickFrequency);//10 ticks per second
+    canvas = initCanvas();
+    game = new Game(Maps.GetRandomMap());
+    playerInput = new PlayerInput()
+    engineInput = new EngineInput(playerInput);
+    engine = new Engine(game, TickFrequency);
+    input = new WebInput(engineInput);
+    canvas.keydown(CanvasKeydown);
+    setInterval(EngineTick, TickFrequency);//10 ticks per second
     //drawFocusIfNeeded()
 });
+
+function CanvasKeydown(e) {
+    input.OnButtonDown(e)
+}
+
+function EngineTick() {
+    engine.Tick();
+}
 
 function initCanvas() {
     var canvas = $('#canvGameArea');
     canvas.focus();
     canvas.width = document.body.clientWidth; //document.width is obsolete
     canvas.height = document.body.clientHeight; //document.height is obsolete
-
-    var handlekeydown = function (e) {
-        alert('keycode: ' + e.keyCode);
-        return false;
-        //TODO: canvas.blur(); on esc
-    };
-
-    canvas.keydown(handlekeydown);
 
     $(window).bind("resize", function () {
         resizeCanvas(canvas);
@@ -33,6 +48,7 @@ function initCanvas() {
 
     //$(canvas)[0].webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT); //Chrome
     //$(canvas)[0].mozRequestFullScreen(); //Firefox
+    return canvas;
 }
 
 function resizeCanvas(canvas) {
