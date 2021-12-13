@@ -108,10 +108,10 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     IsTileClear(position) {
         var returnVal;
         var tile = this.GetTile(position);
-        if (!tile || tile.TileType != TileType.Floor) {
+        if (!tile || tile.Module.TileType != TileType.Floor) {
             //TODO: Handle wall collision here or in Character?
             returnVal = false;
-        } else if (this.GetCharacterAtTile(position.x, position.y)) {
+        } else if (this.GetEntityAtTile(position.x, position.y)) {
             //TODO: Character collision here or in Character?
             returnVal = false;
         }

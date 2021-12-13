@@ -7,14 +7,20 @@ class Player extends Character {
     }
 
     OnCollision(tile) {
-        EngineAudio.PlaySound();
+        if (!tile || !tile.TileType || tile.TileType == TileType.Wall || tile.TileType == TileType.Null) {
+            var filename = AssetDataAccess.GetAudioAsset('BounceOffWall').filename;
+            var location = "../Assets/Audio/" + filename;
+            EngineAudio.PlaySound(location);
+        }
     }
 
     OnMove(tile) {
-        EngineAudio.PlayMoveSound();
+        var filename = AssetDataAccess.GetAudioAsset('HumanFootsteps').filename;
+        var location = "../Assets/Audio/" + filename;
+        EngineAudio.PlaySound(location);//TODO: What am I even doing? This is so lazy.
     }
 
     OnEnemyCollide(characterAtTarget) {
-        EngineAudio.PlaySound();
+        //TODO: Enemy collision
     }
 }

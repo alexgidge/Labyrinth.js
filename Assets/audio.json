@@ -35,31 +35,31 @@
         "name": "SwordHitWall",
         "filename": "zapsplat_impacts_swoosh_into_metal_thud_hit_002_43406.mp3"
     },
-    "": {
+    "BounceOffWall": {
         "name": "BounceOffWall",
         "filename": "zapsplat_sport_basket_ball_hard_bounce_x1_on_asphalt_concrete_008_71152.mp3"
     },
-    "": {
+    "EnemyFootsteps": {
         "name": "EnemyFootsteps",
         "filename": "animals_mouse_or_other_rodent_scuttle_across_carpet(short).mp3"
     },
-    "": {
+    "MonsterRoar": {
         "name": "MonsterRoar",
         "filename": "horror_monster_ill_or_dying_moan.mp3"
     },
-    "": {
+    "MonsterDeath": {
         "name": "MonsterDeath",
         "filename": "articulated_MONSTER+Yeti+roar+12.mp3"
     },
-    "": {
+    "MonsterStabbed": {
         "name": "MonsterStabbed",
         "filename": "johnj_human_impact_weapon_body_fall_sword_or_bat.mp3"
     },
-    "": {
+    "Denied1": {
         "name": "Denied1",
         "filename": "zapsplat_multimedia_game_error_tone_007_24925.mp3"
     },
-    "": {
+    "Denied2": {
         "name": "Denied2",
         "filename": "zapsplat_multimedia_game_error_tone_006_24924.mp3"
     }

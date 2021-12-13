@@ -19,6 +19,7 @@ class Game {
         if (this.GameState == GameStateType.Null) {
             this.GameState = GameStateType.New;
             this.World = new World(this.TileMap);
+            AssetDataAccess.Initialise();
 
             //TODO: grid.Spawn(Enemy spawnObjects)
         }//TODO: Else

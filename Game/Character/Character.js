@@ -27,7 +27,7 @@ class Character extends WorldModule {
             } else if (targetTile && targetTile.Module.TileType == TileType.Floor) {
                 this.World.MoveEntity(entity, targetLocation);
                 this.onMove(targetTile);
-            } else if (!targetTile || targetTile.TileType == TileType.Null || targetTile.TileType == TileType.Wall) {
+            } else if (!targetTile || targetTile.TileType == TileType.Null || targetTile.TileType == TileType.Wall) {//TODO: Refactor. I don't like this collision check being here
                 this.onCollision(targetTile);
             }
 
