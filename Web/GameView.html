@@ -13,29 +13,38 @@
         overflow:hidden;
     }
     </style>
-        <!-- TODO: modules and import -->
-        <script src='../node_modules/howler/dist/howler.core.min.js'></script>
-        <script src='../node_modules/howler/dist/howler.spatial.min.js'></script>
-
+    <!-- TODO: modules and import -->
+    <script src='../node_modules/howler/dist/howler.core.min.js'></script>
+    <script src='../node_modules/howler/dist/howler.spatial.min.js'></script>
     <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+
+    <!--Common-->
+    <script src='../common/Mafs.js'></script> 
+    <script src='../common/Identifiable.js'></script> 
+    <script src='../common/NamedRange.js'></script> 
+    <script src='../common/Directions.js'></script> 
+    <!--POCO-->
+    <script src='../Engine/World/Entity.js'></script>
+    <script src='../Engine/World/GameWorld.js'></script>
+    <script src='../Engine/World/Module.js'></script>
+    <script src='../Engine/World/Tile.js'></script>
+    <script src='../Engine/World/Transform.js'></script>
+    <!--DATA-->
     <script src='../Assets/TileMaps.js'></script>
-    <script src='../Game/common/NamedRange.js'></script> 
-    <script src='../Game/common/Mafs.js'></script> 
-    <script src='../Game/common/Identifiable.js'></script> 
-    <script src='../Game/common/Directions.js'></script> 
+    <!--Game-->
     <script src='../Game/Character/Character.js'></script> 
-    <script src='../Game/World/Transforms.js'></script> 
     <script src='../Game/World/Tile.js'></script> 
     <script src='../Game/World/World.js'></script> 
     <script src='../Game/Player/Player.js'></script> 
     <script src='../Game/Player/PlayerInput.js'></script> 
     <script src='../Game/Game.js'></script> 
-
+    <!--Engine-->
+    <!--IOC needed to reorder these-->
     <script src='../Engine/Engine.js'></script>
     <script src='../Engine/Audio.js'></script>
     <script src='../Engine/Graphics.js'></script>
     <script src='../Engine/Input.js'></script>
-
+    <!--Web View-->
     <script src='WebInput.js'></script>
     <script src='GameView.js'></script>
 

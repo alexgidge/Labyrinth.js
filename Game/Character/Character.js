@@ -1,12 +1,13 @@
-class Character extends Identifiable {
-
-    static CharacterCount;
+class Character extends WorldModule {
     constructor(world) {
         super();
         this.World = world;
+        //Defaults: overridden in extended classes
+        this.Type = CharacterType.Null;
+        this.State = CharacterStateType.Null;
     }
 
-    CharacterEvents(onCollision, onMove, onEnemyCollide) {
+    CharacterEvents(onCollision, onMove, onEnemyCollide) {//TODO: Better method than param injection for events? CharacterEvents that checks the IDs then queries the World's character list to call relevant methods?
         this.onMove = onMove;
         this.onCollision = onCollision;
         this.onEnemyCollide = onEnemyCollide;
@@ -14,18 +15,19 @@ class Character extends Identifiable {
 
     Move(direction) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
-            console.log("Char move (" + direction.x + "," + direction.y + ")");
 
-            var transform = this.World.GetCharacterTransform(this.Identifier);//TODO: Attach together in gameObject class
-            var targetLocation = new Vector2(transform.Position.x + direction.x, transform.Position.y + direction.y);
+            //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
+            var entity = this.World.GetEntity(this.Identifier);
+            var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
             var targetTile = this.World.GetTile(targetLocation);
-            var characterAtTarget = this.World.GetCharacterAtTile(targetLocation)
-            if (characterAtTarget) {
-                this.onEnemyCollide(characterAtTarget);//TODO: ColliderTypes
-            } else if (targetTile && targetTile.TileType == TileType.Floor) {
-                this.World.MoveCharacter(transform, targetLocation);
+            var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
+
+            if (entityAtTargetLoc) {
+                this.onEnemyCollide(entityAtTargetLoc);//TODO: ColliderTypes
+            } else if (targetTile && targetTile.Module.TileType == TileType.Floor) {
+                this.World.MoveEntity(entity, targetLocation);
                 this.onMove(targetTile);
-            } else if (!targetTile || targetTile.TileType == TileType.Wall) {
+            } else if (!targetTile || targetTile.TileType == TileType.Null || targetTile.TileType == TileType.Wall) {
                 this.onCollision(targetTile);
             }
 
@@ -34,12 +36,13 @@ class Character extends Identifiable {
 }
 
 class CharacterType extends NamedRange {
-    static Player = new CharacterType("PLAYER")
-    static NPC = new CharacterType("NPC")
+    static Null = new CharacterType("NULL-CHARACTER");
+    static Player = new CharacterType("PLAYER");
+    static Eyeman = new CharacterType("EYE");
 }
 
 class CharacterStateType extends NamedRange {
-    static Null = new CharacterStateType("NULL")
-    static Alive = new CharacterStateType("ALIVE")
-    static Dead = new CharacterStateType("DEAD")
+    static Null = new CharacterStateType("NULL");
+    static Alive = new CharacterStateType("ALIVE");
+    static Dead = new CharacterStateType("DEAD");
 }

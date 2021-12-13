@@ -1,4 +1,4 @@
-class World {
+class World {//TODO: Rename, refactor & separate populate from running logic.
     constructor(map) {
         this.currentMap = map;
         //TODO: Spawn etc.
@@ -12,20 +12,10 @@ class World {
         })
     }
     SpawnMapCharacters() {
-        this.CharacterTransforms = [];
+        this.CharacterEntities = [];
         this.currentMap.SpawnPoints.forEach(element => {
             this.SpawnCharacter(element.CharacterType, element.X, element.Y)
         })
-    }
-    SpawnTile(position, tileType) {
-        var tile = new Tile(position, tileType);
-
-        if (this.grid && this.grid.length && this.grid.length > 0) {
-            this.grid.push(tile);//TODO: GameObjects
-        }
-        else {
-            this.grid = [tile];
-        }
     }
     SpawnCharacter(characterType, _x, _y) {
         var character;
@@ -38,28 +28,41 @@ class World {
                 break;
         }
         var position = new Vector2(_x, _y);
-        var transform = new CharacterTransform(position, character);
-        if (this.CharacterTransforms && this.CharacterTransforms.length && this.CharacterTransforms.length > 0) {
-            this.CharacterTransforms.push(transform);//TODO: GameObjects
+        var transform = new WorldTransform(position)
+        var entity = new WorldEntity(transform, character);
+        if (this.CharacterEntities && this.CharacterEntities.length && this.CharacterEntities.length > 0) {
+            this.CharacterEntities.push(entity);//TODO: GameObjects
         }
         else {
-            this.CharacterTransforms = [transform];
+            this.CharacterEntities = [entity];
         }
     };
-    GetPlayerCharacter() {
+    SpawnTile(position, tileType) {
+        var tile = new Tile(tileType);
+        var transform = new WorldTransform(position);
+        var entity = new WorldEntity(transform, tile);
+
+        if (this.grid && this.grid.length && this.grid.length > 0) {
+            this.grid.push(entity);//TODO: GameObjects
+        }
+        else {
+            this.grid = [entity];
+        }
+    }
+    GetPlayerEntity() {
         var returnCharacter;
-        this.CharacterTransforms.forEach(element => {
-            if (element && element.Character && element.Character.Type && CharacterType.Compare(element.Character.Type, CharacterType.Player)) {
-                returnCharacter = element.Character;
+        this.CharacterEntities.forEach(element => {
+            if (element && element.Module && element.Module.Type && CharacterType.Compare(element.Module.Type, CharacterType.Player)) {
+                returnCharacter = element.Module;
             }
         });
         return returnCharacter;
     }
-    GetCharacterAtTile(position) {
-        this.CharacterTransforms.forEach(element => {
-            if (element && element.Position && element.Position.x && element.Position.y) {
-                if (element.Position.x == position.x && element.Position.y == position.y) {
-                    return element.Character;
+    GetEntityAtTile(position) {
+        this.CharacterEntities.forEach(element => {
+            if (element && element.Transform.Position && element.Transform.Position.x && element.Transform.Position.y) {
+                if (element.Transform.Position.x == position.x && element.Transform.Position.y == position.y) {
+                    return element.Module;
                 }
             }
             else {
@@ -67,34 +70,21 @@ class World {
             }
         });
     }
-    GetCharacter(characterID) {
-        this.CharacterTransforms.forEach(element => {
-            if (element && element.Identifier == characterID) {
-                return element.Character;
-            }
-            else {
-                //TODO: Not found
+    GetEntity(characterID) {
+        var returnEntity;
+        this.CharacterEntities.forEach(element => {
+            if (element && element.Module.Identifier == characterID) {
+                returnEntity = element;
             }
         });
-    }
-    GetCharacterTransform(characterID) {
-        var returnTransform;
-        this.CharacterTransforms.forEach(element => {
-            if (element && element.Character.Identifier == characterID) {
-                returnTransform = element;
-            }
-            else {
-                //TODO: Not found
-            }
-        });
-        return returnTransform;
+        return returnEntity;
     }
     GetTile(position) {
         var returnTile;
         this.grid.forEach(element => {
-            if (element && element.Position.x == position.x && element.Position.y == position.y) {
-                if (!element.TileType) {
-                    element.TileType = TileType.Null;
+            if (element && element.Transform.Position.x == position.x && element.Transform.Position.y == position.y) {
+                if (!element.Module.TileType) {
+                    element.Module.TileType = TileType.Null;
                 }
                 returnTile = element;
             }
@@ -106,9 +96,9 @@ class World {
     }
     // GetCharacterPosition(identifier) {
     //     var returnPosition;
-    //     if (this.CharacterTransforms) {
-    //         this.CharacterTransforms.forEach(element => {
-    //             if (element && element.Character && element.Character.Identifier && element.Character.Identifier == identifier) {
+    //     if (this.CharacterEntities) {
+    //         this.CharacterEntities.forEach(element => {
+    //             if (element && element.Module && element.Module.Identifier && element.Module.Identifier == identifier) {
     //                 returnPosition = element.Position;
     //             }//TODO: Else invalid id
     //         });
@@ -130,11 +120,12 @@ class World {
         }
         return returnVal;
     }
-    MoveCharacter(CharacterTransform, position) {
+    MoveEntity(entity, position) {
         if (this.IsTileClear(position)) {
-            CharacterTransform.Position.x = position.x;
-            CharacterTransform.Position.y = position.y;
-            console.log("Character moved: " + Character.Identifier + " to [" + position.x, ", " + position.y + "]")
+            //TODO: Move logic in engine?
+            entity.Transform.Position.x = position.x;
+            entity.Transform.Position.y = position.y;
+            console.log("Entity moved: " + entity.Module.Identifier + " to [" + position.x, ", " + position.y + "]")
             return true;
         }
         return false;

@@ -1,8 +1,7 @@
-class Tile extends Identifiable {
-    constructor(position, value) {
-        super();
-        this.Position = position;
-        this.TileType = value;
+class Tile extends WorldTile {
+    constructor(position, tileType) {
+        super(position);
+        this.TileType = tileType;
     }
 }
 

@@ -7,14 +7,14 @@ class Player extends Character {
     }
 
     OnCollision(tile) {
-        AudioManager.PlaySound();//TODO: Spatial
+        AudioManager.PlaySound();
     }
 
     OnMove(tile) {
-        AudioManager.PlayMoveSound();//TODO: Spatial
+        AudioManager.PlayMoveSound();
     }
 
     OnEnemyCollide(characterAtTarget) {
-        AudioManager.PlaySound();//TODO: Spatial
+        AudioManager.PlaySound();
     }
 }

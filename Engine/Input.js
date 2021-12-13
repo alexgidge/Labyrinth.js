@@ -11,7 +11,10 @@ class EngineInput {
     }
 }
 
-class InputType extends NamedRange {//TODO: Load from map json & link with web keycodes
+//TODO: JSON File with web keycodes connected.
+//TODO: Controller input HTML5 Gamepad
+//TODO: Touch? Other?
+class InputType extends NamedRange {
     static MoveForward = new InputType('MOVE-FORWARD');
     static MoveLeft = new InputType('MOVE-LEFT');
     static MoveRight = new InputType('MOVE-RIGHT');

@@ -1,9 +1,9 @@
-//TODO: Refactor. I don't like this method, even when JSON is working.
+//TODO: Refactor! I don't like this method, even when JSON is working.
 class TileMaps {
 
-    static MapsFile = 'maps.json'
+    static MapsFile = '../Assets/maps.json'
     GetMaps() {
-        console.log(this.MapsFile);
+        console.log(TileMaps.MapsFile);
 
         var tileBlueprints = [
             new TileBlueprint(0, 0, TileType.Floor),

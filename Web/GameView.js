@@ -14,7 +14,7 @@ $(function () {
     tileMaps = new TileMaps();
     game = new Game(tileMaps.GetRandomMap());
     game.InitialiseGame();
-    player = game.World.GetPlayerCharacter();
+    player = game.World.GetPlayerEntity();
 
     playerInput = new PlayerInput(player)
     engineInput = new EngineInput(playerInput);

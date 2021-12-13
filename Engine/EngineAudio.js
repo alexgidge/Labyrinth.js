@@ -1,4 +1,4 @@
-class AudioManager {
+class EngineAudio {
 
 
     static PlaySound(SoundFile, volume = 1, looping = false)//TODO: Sound library instead of passing file path
