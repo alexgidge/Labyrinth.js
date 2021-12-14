@@ -1,0 +1,5 @@
+#project files
+node_modules/
+dist/
+*.code-workspace
+Labyrinth.js.zip
