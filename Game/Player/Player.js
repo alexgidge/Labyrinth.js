@@ -15,12 +15,33 @@ class Player extends Character {
     }
 
     OnMove(tile) {
+        //TODO: refactor
         var filename = AssetDataAccess.GetAudioAsset('HumanFootsteps').filename;
         var location = "../Assets/Audio/" + filename;
-        EngineAudio.PlaySound(location);//TODO: What am I even doing? This is so lazy.
+        EngineAudio.PlaySound(location);
     }
 
     OnEnemyCollide(characterAtTarget) {
         //TODO: Enemy collision
+    }
+
+    OnAttackMiss(tileHit) {
+        if (tileHit && tileHit.Module.TileType == TileType.Floor.Value) {
+            var filename = AssetDataAccess.GetAudioAsset('SwingSword').filename;
+            var location = "../Assets/Audio/" + filename;
+            EngineAudio.PlaySound(location);
+        }
+        else {
+            var filename = AssetDataAccess.GetAudioAsset('SwordHitWall').filename;
+            var location = "../Assets/Audio/" + filename;
+            EngineAudio.PlaySound(location, 0.5);
+        }
+    }
+
+    OnAttackHit() {
+        //TODO: Refactor audio loading into game/engine audio components.
+        var filename = AssetDataAccess.GetAudioAsset('MonsterStabbed').filename;
+        var location = "../Assets/Audio/" + filename;
+        EngineAudio.PlaySound(location);
     }
 }

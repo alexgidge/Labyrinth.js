@@ -19,16 +19,16 @@ class PlayerInput {
                 this.Player.Move(new Vector2(1, 0));
                 break;
             case InputType.ActionForward:
-                this.Player.Action(new Vector2(0, 1));
+                this.Player.Attack(new Vector2(0, 1));
                 break;
             case InputType.ActionLeft:
-                this.Player.Action(new Vector2(-1, 0));
+                this.Player.Attack(new Vector2(-1, 0));
                 break;
             case InputType.ActionBack:
-                this.Player.Action(new Vector2(0, -1));
+                this.Player.Attack(new Vector2(0, -1));
                 break;
             case InputType.ActionRight:
-                this.Player.Action(new Vector2(-1, 0));
+                this.Player.Attack(new Vector2(-1, 0));
                 break;
         }
     }

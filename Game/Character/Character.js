@@ -12,7 +12,6 @@ class Character extends WorldModule {
         this.onCollision = onCollision;
         this.onEnemyCollide = onEnemyCollide;
     }
-
     Move(direction) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
 
@@ -29,6 +28,24 @@ class Character extends WorldModule {
                 this.onMove(targetTile);
             } else if (!targetTile || targetTile.TileType == TileType.Null.Value || targetTile.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
                 this.onCollision(targetTile);
+            }
+
+        }
+    }
+    Attack(direction) {
+        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+
+            //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
+            var entity = this.World.GetEntity(this.Identifier);//Get self //TODO: Refactor into property on class set at constructor;
+            var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
+            var targetTile = this.World.GetTile(targetLocation);
+            var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
+
+            if (entityAtTargetLoc) {
+                this.OnAttackHit();
+                //TODO: Damage other entity
+            } else {
+                this.OnAttackMiss(targetTile);
             }
 
         }
