@@ -4,11 +4,14 @@ class EngineAudio {
         this.AudioAssets = audioAssetsJSON;
     }
 
-    static PlaySound(SoundFile, volume = 1, looping = false)//TODO: Sound library instead of passing file path
+    static PlaySound(SoundName, volume = 1, looping = false)//TODO: Sound library instead of passing file path
     {
         try {
+            var filename = AssetDataAccess.GetAudioAsset(SoundName).filename;
+            var location = "../Assets/Audio/" + filename;
+
             var sound = new Howl({
-                src: [SoundFile]
+                src: [location]
             });
 
             var walking = sound.play();//TODO: Rewrite to properly use the package. 
@@ -22,6 +25,6 @@ class EngineAudio {
 
         //TODO: Validation
         //TODO: Move to Audio.play();
-        console.log("Audio: " + SoundFile);//TODO: Proper logging
+        console.log("Audio: " + SoundName);//TODO: Proper logging
     }
 }

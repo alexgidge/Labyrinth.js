@@ -6,12 +6,6 @@ class Character extends WorldModule {
         this.Type = CharacterType.Null;
         this.State = CharacterStateType.Null;
     }
-
-    CharacterEvents(onCollision, onMove, onEnemyCollide) {//TODO: Better method than param injection for events? CharacterEvents that checks the IDs then queries the World's character list to call relevant methods?
-        this.onMove = onMove;
-        this.onCollision = onCollision;
-        this.onEnemyCollide = onEnemyCollide;
-    }
     Move(direction) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
 
@@ -22,12 +16,12 @@ class Character extends WorldModule {
             var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
 
             if (entityAtTargetLoc) {//TODO: Move logic?
-                this.onEnemyCollide(entityAtTargetLoc);//TODO: ColliderTypes
+                this.OnEnemyCollide(entityAtTargetLoc);//TODO: ColliderTypes
             } else if (targetTile && targetTile.Module.TileType == TileType.Floor.Value) {
                 this.World.MoveEntity(entity, targetLocation);
-                this.onMove(targetTile);
+                this.OnMove(targetTile);
             } else if (!targetTile || targetTile.TileType == TileType.Null.Value || targetTile.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
-                this.onCollision(targetTile);
+                this.OnCollision(targetTile);
             }
 
         }
@@ -50,6 +44,38 @@ class Character extends WorldModule {
 
         }
     }
+
+
+
+    OnCollision(tile) {
+        if (!tile || !tile.TileType || tile.TileType == TileType.Wall || tile.TileType == TileType.Null) {
+            EngineAudio.PlaySound('BounceOffWall');
+        }
+    }
+
+    OnMove() {
+        EngineAudio.PlaySound('HumanFootsteps');
+    }
+
+    OnEnemyCollide(characterAtTarget) {
+        //TODO: Enemy collision
+    }
+
+    OnAttackMiss(tileHit) {
+        if (tileHit && tileHit.Module.TileType == TileType.Floor.Value) {
+            EngineAudio.PlaySound('SwingSword');
+        }
+        else {
+            EngineAudio.PlaySound('SwordHitWall', 0.5);
+        }
+    }
+
+    OnAttackHit() {
+        EngineAudio.PlaySound('MonsterStabbed');
+    }
+
+
+
 }
 
 class CharacterType extends NamedRange {
