@@ -6,24 +6,25 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         this.SpawnMapCharacters();
     }
     FillMap() {
+        //TODO: Tiled supportable
         this.grid = [];
-        this.currentMap.Tiles.forEach(element => {
-            this.SpawnTile(new Vector2(element.x, element.y), element.tileType);
+        this.currentMap.Room.Tiles.forEach(element => {
+            this.SpawnTile(new Vector2(element.x, element.y), element.TileType);
         })
     }
     SpawnMapCharacters() {
         this.CharacterEntities = [];
-        this.currentMap.SpawnPoints.forEach(element => {
+        this.currentMap.Room.Spawns.forEach(element => {
             this.SpawnCharacter(element.CharacterType, element.X, element.Y)
         })
     }
     SpawnCharacter(characterType, _x, _y) {
         var character;
         switch (characterType) {
-            case CharacterType.Player:
+            case CharacterType.Player.Value:
                 character = new Player(this);
                 break;
-            case CharacterType.NPC:
+            case CharacterType.NPC.Value:
                 //TODO: NPC
                 break;
         }
@@ -108,7 +109,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     IsTileClear(position) {
         var returnVal;
         var tile = this.GetTile(position);
-        if (!tile || tile.Module.TileType != TileType.Floor) {
+        if (!tile || tile.Module.TileType != TileType.Floor.Value) {
             //TODO: Handle wall collision here or in Character?
             returnVal = false;
         } else if (this.GetEntityAtTile(position.x, position.y)) {

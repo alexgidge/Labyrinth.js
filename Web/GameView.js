@@ -9,10 +9,14 @@ var game;
 var player;
 
 $(function () {
+    InitialiseGame().then(StartGame);
+});
+async function InitialiseGame() {
     //TODO: Move into engine
     canvas = initCanvas();
-    tileMaps = new TileMaps();
-    game = new Game(tileMaps.GetRandomMap());
+    await AssetDataAccess.Initialise();
+    map = AssetDataAccess.GetMap("LabyrinthMap");//TODO: Param passed from level select.
+    game = new Game(map);
     game.InitialiseGame();
     player = game.World.GetPlayerEntity();
 
@@ -25,7 +29,10 @@ $(function () {
     canvas.keydown(CanvasKeydown);
     setInterval(EngineTick, TickFrequency);//10 ticks per second
     //drawFocusIfNeeded()
-});
+}
+async function StartGame() {
+    setInterval(EngineTick, TickFrequency);//10 ticks per second
+}
 
 function CanvasKeydown(e) {
     input.OnButtonDown(e)

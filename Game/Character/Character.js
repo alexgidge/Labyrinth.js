@@ -22,12 +22,12 @@ class Character extends WorldModule {
             var targetTile = this.World.GetTile(targetLocation);
             var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
 
-            if (entityAtTargetLoc) {
+            if (entityAtTargetLoc) {//TODO: Move logic?
                 this.onEnemyCollide(entityAtTargetLoc);//TODO: ColliderTypes
-            } else if (targetTile && targetTile.Module.TileType == TileType.Floor) {
+            } else if (targetTile && targetTile.Module.TileType == TileType.Floor.Value) {
                 this.World.MoveEntity(entity, targetLocation);
                 this.onMove(targetTile);
-            } else if (!targetTile || targetTile.TileType == TileType.Null || targetTile.TileType == TileType.Wall) {//TODO: Refactor. I don't like this collision check being here
+            } else if (!targetTile || targetTile.TileType == TileType.Null.Value || targetTile.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
                 this.onCollision(targetTile);
             }
 
