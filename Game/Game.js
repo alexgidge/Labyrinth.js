@@ -1,5 +1,7 @@
 class Game {
 
+    static Current;
+
     //TODO: Inject a logger for console.log
     //TODO: Inject all dependencies for clear separation between Web, Engine & Game
 
@@ -9,10 +11,8 @@ class Game {
         this.CurrentTurn = 0;
         this.LastTurnTime = 0;
         this.TileMap = tileMap;
-    }
-
-    OnEngineTick(_delta, _gameDelta) {//called by engine on each engine tick e.g. 1fps would call every 60 seconds
-        GameTick(_delta, _gameDelta);//TODO: Scene/Story deltas
+        this.TurnManager = new TurnManager();
+        Game.Current = this;
     }
 
     InitialiseGame() {
@@ -25,7 +25,7 @@ class Game {
     }
 
     GameStart() {
-        if (GameState.Compare(this.GameState, GameStateType.New)) {
+        if (GameStateType.Compare(this.GameState, GameStateType.New)) {
             this.GameState = GameStateType.Playing;
             //TODO: Start ambience FX 
             //TODO: Start game/story/scenario
@@ -36,21 +36,14 @@ class Game {
 
     OnEngineTick(gameDelta) {
         if (GameStateType.Compare(this.GameState, GameStateType.Playing)) {
-            //TODO: Add tick to queue of ticks
-            processTurns(gameDelta);
+            this.TurnManager.Tick(gameDelta);
+            this.World.CharacterEntities.forEach(element => {
+                if (element.Module.Type && element.Module.Type != CharacterType.Player) {//TODO: boolean on character for playable? All I need here is to check if they're an npc
+                    element.Module.Tick();
+                }
+            });
             //TODO: Where do I lock player input? Change game state to cinematic?
-
         }//TODO: Else
-    }
-
-    processTurns(gameDelta) {
-        var timeSinceLastTurn = gameDelta - lastTurnTime;
-        if (timeSinceLastTurn > TurnLength) {
-            lastTurnTime = gameDelta;
-            CurrentTurn++;
-            //TODO: Process enemy movement
-            //TODO: Turn noise?
-        }
     }
 }
 

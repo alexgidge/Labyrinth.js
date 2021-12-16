@@ -11,46 +11,64 @@ class Character extends WorldModule {
         this.CurrentHealth = maxHealth;
         this.TurnsPerMove = turnsPerMove;
         this.TurnsPerAttack = turnsPerAttack;
+        this.LastMoveTurn = 0;
+        this.LastAttackTurn = 0;
     }
     Move(direction) {
-        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+        if (this.CanMove()) {
+            this.LastMoveTurn = Game.Current.TurnManager.CurrentTurn;
+            if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+                //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
+                var entity = this.World.GetEntity(this.Identifier);
+                var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
+                var targetTile = this.World.GetTile(targetLocation);
+                var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
 
-            //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
-            var entity = this.World.GetEntity(this.Identifier);
-            var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
-            var targetTile = this.World.GetTile(targetLocation);
-            var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
+                if (entityAtTargetLoc) {//TODO: Move logic?
+                    this.OnEnemyCollide(entityAtTargetLoc);//TODO: ColliderTypes
+                } else if (targetTile && targetTile.Module.TileType == TileType.Floor.Value) {
+                    this.World.MoveEntity(entity, targetLocation);
+                    this.OnMove(targetTile);
+                } else if (!targetTile || targetTile.TileType == TileType.Null.Value || targetTile.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
+                    this.OnCollision(targetTile);
+                }
 
-            if (entityAtTargetLoc) {//TODO: Move logic?
-                this.OnEnemyCollide(entityAtTargetLoc);//TODO: ColliderTypes
-            } else if (targetTile && targetTile.Module.TileType == TileType.Floor.Value) {
-                this.World.MoveEntity(entity, targetLocation);
-                this.OnMove(targetTile);
-            } else if (!targetTile || targetTile.TileType == TileType.Null.Value || targetTile.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
-                this.OnCollision(targetTile);
             }
-
+        }
+        else {
+            EngineAudio.PlaySound('Denied1', 0.6);//TODO: Volume
         }
     }
     Attack(direction) {
-        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+        if (this.CanAttack()) {
+            this.LastAttackTurn = Game.Current.TurnManager.CurrentTurn;
+            if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
 
-            //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
-            var entity = this.World.GetEntity(this.Identifier);//Get self //TODO: Refactor into property on class set at constructor;
-            var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
-            var targetTile = this.World.GetTile(targetLocation);
-            var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
+                //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
+                var entity = this.World.GetEntity(this.Identifier);//Get self //TODO: Refactor into property on class set at constructor;
+                var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
+                var targetTile = this.World.GetTile(targetLocation);
+                var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
 
-            if (entityAtTargetLoc) {
-                this.OnAttackHit();
-                entityAtTargetLoc.Module.TakeDamage(this.CalculateDamage());
-            } else {
-                this.OnAttackMiss(targetTile);
+                if (entityAtTargetLoc) {
+                    this.OnAttackHit();
+                    entityAtTargetLoc.Module.TakeDamage(this.CalculateDamage());
+                } else {
+                    this.OnAttackMiss(targetTile);
+                }
+
             }
-
+        }
+        else {
+            EngineAudio.PlaySound('Denied2', 0.6);//TODO: Volume
         }
     }
-
+    CanMove() {
+        return (this.LastMoveTurn + this.TurnsPerMove < Game.Current.TurnManager.CurrentTurn);
+    }
+    CanAttack() {
+        return (this.LastAttackTurn + this.TurnsPerAttack < Game.Current.TurnManager.CurrentTurn);
+    }
     CalculateDamage() {
         return Math.floor((Math.random() * this.MaxDamage) + this.MinDamage);
     }

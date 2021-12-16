@@ -22,7 +22,7 @@ async function InitialiseGame() {
     await AssetDataAccess.Initialise();
     map = AssetDataAccess.GetMap("LabyrinthMap");//TODO: Param passed from level select.
     game = new Game(map);
-    game.InitialiseGame();
+    Game.Current.InitialiseGame();
     player = game.World.GetPlayerEntity();
 
     playerInput = new PlayerInput(player)
@@ -31,12 +31,13 @@ async function InitialiseGame() {
     engine = new Engine(game, TickFrequency);
     input = new WebInput(engineInput);
 
-    canvas.keydown(CanvasKeydown);
+    canvas.keyup(CanvasKeydown);
     setInterval(EngineTick, TickFrequency);//10 ticks per second
     //drawFocusIfNeeded()
 }
 async function StartGame() {
     console.log("--------------------------GAME STARTING---------------------------");
+    Game.Current.GameStart();
     setInterval(EngineTick, TickFrequency);//10 ticks per second
 }
 
