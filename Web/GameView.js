@@ -9,9 +9,14 @@ var game;
 var player;
 
 $(function () {
-    InitialiseGame().then(StartGame);
+    StartUp();
 });
+async function StartUp() {
+    await InitialiseGame();
+    await StartGame();
+}
 async function InitialiseGame() {
+    console.log("--------------------------INITIALISING---------------------------");
     //TODO: Move into engine
     canvas = initCanvas();
     await AssetDataAccess.Initialise();
@@ -31,6 +36,7 @@ async function InitialiseGame() {
     //drawFocusIfNeeded()
 }
 async function StartGame() {
+    console.log("--------------------------GAME STARTING---------------------------");
     setInterval(EngineTick, TickFrequency);//10 ticks per second
 }
 

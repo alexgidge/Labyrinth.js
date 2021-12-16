@@ -15,17 +15,17 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     SpawnMapCharacters() {
         this.CharacterEntities = [];
         this.currentMap.Room.Spawns.forEach(element => {
-            this.SpawnCharacter(element.CharacterType, element.X, element.Y)
+            this.SpawnCharacter(element.CharacterType, element.x, element.y, element.minDamage, element.maxDamage, element.maxHealth, element.turnsPerMove, element.turnsPerAttack)
         })
     }
-    SpawnCharacter(characterType, _x, _y) {
+    SpawnCharacter(characterType, _x, _y, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
         var character;
         switch (characterType) {
             case CharacterType.Player.Value:
-                character = new Player(this);
+                character = new Player(this, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);
                 break;
-            case CharacterType.NPC.Value:
-                //TODO: NPC
+            case CharacterType.Eyeman.Value:
+                character = new Enemy(this, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);//TODO: Load different enemy types
                 break;
         }
         var position = new Vector2(_x, _y);
@@ -37,6 +37,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         else {
             this.CharacterEntities = [entity];
         }
+        console.log("Spawned " + characterType + " at (" + entity.Transform.Position.x + "," + entity.Transform.Position.y + ")");
     };
     SpawnTile(position, tileType) {
         var tile = new Tile(tileType);
@@ -60,16 +61,15 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         return returnCharacter;
     }
     GetEntityAtTile(position) {
+        var returnEntity;
         this.CharacterEntities.forEach(element => {
             if (element && element.Transform.Position && element.Transform.Position.x && element.Transform.Position.y) {
                 if (element.Transform.Position.x == position.x && element.Transform.Position.y == position.y) {
-                    return element.Module;
+                    returnEntity = element;
                 }
             }
-            else {
-                //TODO: Invalid character/position
-            }
         });
+        return returnEntity;
     }
     GetEntity(characterID) {
         var returnEntity;

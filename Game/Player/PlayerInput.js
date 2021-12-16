@@ -28,7 +28,7 @@ class PlayerInput {
                 this.Player.Attack(new Vector2(0, -1));
                 break;
             case InputType.ActionRight:
-                this.Player.Attack(new Vector2(-1, 0));
+                this.Player.Attack(new Vector2(1, 0));
                 break;
         }
     }

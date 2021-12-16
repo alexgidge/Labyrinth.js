@@ -1,10 +1,16 @@
 class Character extends WorldModule {
-    constructor(world) {
+    constructor(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
         super();
         this.World = world;
         //Defaults: overridden in extended classes
         this.Type = CharacterType.Null;
         this.State = CharacterStateType.Null;
+        this.MinDamage = minDamage;
+        this.MaxDamage = maxDamage;
+        this.MaxHealth = maxHealth;
+        this.CurrentHealth = maxHealth;
+        this.TurnsPerMove = turnsPerMove;
+        this.TurnsPerAttack = turnsPerAttack;
     }
     Move(direction) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
@@ -37,12 +43,33 @@ class Character extends WorldModule {
 
             if (entityAtTargetLoc) {
                 this.OnAttackHit();
-                //TODO: Damage other entity
+                entityAtTargetLoc.Module.TakeDamage(this.CalculateDamage());
             } else {
                 this.OnAttackMiss(targetTile);
             }
 
         }
+    }
+
+    CalculateDamage() {
+        return Math.floor((Math.random() * this.MaxDamage) + this.MinDamage);
+    }
+
+    TakeDamage(damage) {
+        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+            this.CurrentHealth -= damage;
+            if (this.CurrentHealth <= 0) {
+                this.Death();
+            }
+            else {
+                EngineAudio.PlaySound('MonsterRoar');
+            }
+        }
+    }
+
+    Death() {
+        this.State = CharacterStateType.Dead;
+        EngineAudio.PlaySound('MonsterDeath');
     }
 
 
@@ -70,8 +97,8 @@ class Character extends WorldModule {
         }
     }
 
-    OnAttackHit() {
-        EngineAudio.PlaySound('MonsterStabbed');
+    OnAttackHit(otherCharacter) {
+        EngineAudio.PlaySound('SwingSword');
     }
 
 

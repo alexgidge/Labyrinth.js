@@ -26,7 +26,21 @@
             "Spawns" : [{
                 "CharacterType" : "PLAYER",
                 "x" : 0,
-                "y" : 0
+                "y" : 0,
+                "minDamage" : 10,
+                "maxDamage" : 10,
+                "maxHealth" : 50,
+                "turnsPerMove" : 4,
+                "turnsPerAttack" : 2
+            },{
+                "CharacterType" : "EYE",
+                "x" : 4,
+                "y" : 15,
+                "minDamage" : 25,
+                "maxDamage" : 25,
+                "maxHealth" : 50,
+                "turnsPerMove" : 3,
+                "turnsPerAttack" : 7
             }]
         }
     }

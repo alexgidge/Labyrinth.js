@@ -1,6 +1,6 @@
 class Player extends Character {
-    constructor(world) {
-        super(world);
+    constructor(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
+        super(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);
         this.Type = CharacterType.Player;
         this.State = CharacterStateType.Alive;
     }
