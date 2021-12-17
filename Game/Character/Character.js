@@ -54,7 +54,6 @@ class Character extends WorldModule {
         if (this.CanAttack()) {
             this.LastAttackTurn = Game.Current.TurnManager.CurrentTurn;
             if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
-
                 //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
                 var entity = this.World.GetEntity(this.Identifier);//Get self //TODO: Refactor into property on class set at constructor;
                 var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
@@ -75,10 +74,14 @@ class Character extends WorldModule {
         }
     }
     CanMove() {
-        return (this.LastMoveTurn + this.TurnsPerMove < Game.Current.TurnManager.CurrentTurn);
+        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+            return (this.LastMoveTurn + this.TurnsPerMove < Game.Current.TurnManager.CurrentTurn);
+        }
     }
     CanAttack() {
-        return (this.LastAttackTurn + this.TurnsPerAttack < Game.Current.TurnManager.CurrentTurn);
+        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+            return (this.LastAttackTurn + this.TurnsPerAttack < Game.Current.TurnManager.CurrentTurn);
+        }
     }
     CalculateDamage() {
         return Math.floor((Math.random() * this.MaxDamage) + this.MinDamage);
