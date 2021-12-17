@@ -6,4 +6,7 @@ class Player extends Character {
     }
     //TODO: A player has player input? Not a game has player input. Would allow easier multiplayer
     //TODO: Could you get a different output source per player for splitear play
+    OnEnemyCollide(targetLocation, characterAtTarget) {
+        EngineAudio.PlaySound(this.World, this.Type, this.bounceOffWallSound, 1, false, targetLocation.x, targetLocation.y);//TODO: Change to different bounce sound. bump ?
+    }
 }

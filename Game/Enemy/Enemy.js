@@ -6,6 +6,7 @@ class Enemy extends Character {
     }
     Tick() {
         this.ProcessMovement();
+        this.ProcessAttacks();
     }
     ProcessMovement() {
         if (this.CanMove()) {
@@ -24,7 +25,15 @@ class Enemy extends Character {
     }
     ProcessAttacks() {
         //TODO: Check turns and attack if possible
+        if (this.CanAttack()) {
+            var direction = Vector2.GetRandomDirection();
+            var entity = this.World.GetEntity(this.Identifier);
+            var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
 
+
+        }
     }
-
+    OnEnemyCollide(targetLocation, characterAtTarget) {
+        console.log("AI attempted to move into an occupied square. Should be okay but here's a log just incase");
+    }//Should never happen for enemy AI unless player moves before AI moves in the same turn. Or async threads running on multiple AIs
 }

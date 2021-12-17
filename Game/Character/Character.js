@@ -117,10 +117,6 @@ class Character extends WorldModule {
         EngineAudio.PlaySound(this.World, this.Type, this.footStepsSound, 0.5, false, targetLocation.x, targetLocation.y);
     }
 
-    OnEnemyCollide(characterAtTarget) {
-        //TODO: Enemy collision
-    }
-
     OnAttackMiss(targetLocation, tileHit) {
         if (tileHit && tileHit.Module.TileType == TileType.Floor.Value) {
             EngineAudio.PlaySound(this.World, this.Type, this.swingWeaponSound, 1, false, targetLocation.x, targetLocation.y);
