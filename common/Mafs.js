@@ -7,6 +7,25 @@ class Vector2 {
         this.x += vector2Add.x;
         this.y += vector2Add.y;
     }
+    static GetRandomDirection() {
+        var rand = GetRandomIntFromInterval(1, 4);
+        var direction = new Vector2(0, 0);
+        switch (rand) {
+            case 1:
+                direction = new Vector2(0, 1);
+                break;
+            case 2:
+                direction = new Vector2(1, 0);
+                break;
+            case 3:
+                direction = new Vector2(0, -1);
+                break;
+            case 4:
+                direction = new Vector2(-1, 0);
+                break;
+        }
+        return direction;
+    }
 }
 
 function GetRandomIntFromInterval(min, max) {//Inclusive

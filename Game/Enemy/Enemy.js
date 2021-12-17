@@ -5,28 +5,21 @@ class Enemy extends Character {
         this.State = CharacterStateType.Alive;
     }
     Tick() {
-        //TODO: movement and actions
-        //this.ProcessMovement();
+        this.ProcessMovement();
     }
     ProcessMovement() {
         if (this.CanMove()) {
-            var rand = GetRandomIntFromInterval(1, 4);
-            var direction = new Vector2(0, 0);
-            switch (rand) {
-                case 1:
-                    direction = new Vector2(0, 1);
-                    break;
-                case 2:
-                    direction = new Vector2(1, 0);
-                    break;
-                case 3:
-                    direction = new Vector2(0, -1);
-                    break;
-                case 4:
-                    direction = new Vector2(-1, 0);
-                    break;
+
+
+            var direction = Vector2.GetRandomDirection();
+
+            var entity = this.World.GetEntity(this.Identifier);
+            var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
+            //var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);//TODO: Player collision? here or in Move();
+
+            if (this.World.IsTileClear(targetLocation)) {
+                this.Move(direction);//TODO: Some form of pathfinding & basic AI
             }
-            this.Move(direction);
         }
     }
     ProcessActions() {

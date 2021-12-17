@@ -49,8 +49,8 @@
                 "minDamage" : 10,
                 "maxDamage" : 10,
                 "maxHealth" : 50,
-                "turnsPerMove" : 4,
-                "turnsPerAttack" : 2
+                "turnsPerMove" : 8,
+                "turnsPerAttack" : 4
             },{
                 "CharacterType" : "EYE",
                 "x" : 4,
@@ -58,8 +58,8 @@
                 "minDamage" : 25,
                 "maxDamage" : 25,
                 "maxHealth" : 50,
-                "turnsPerMove" : 3,
-                "turnsPerAttack" : 7
+                "turnsPerMove" : 16,
+                "turnsPerAttack" : 34
             }]
         }
     }

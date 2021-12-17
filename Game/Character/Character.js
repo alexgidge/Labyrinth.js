@@ -35,6 +35,7 @@ class Character extends WorldModule {
                 var targetTile = this.World.GetTile(targetLocation);
                 var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
 
+                //TODO: One method to get entity at location
                 if (entityAtTargetLoc) {//TODO: Move logic?
                     this.OnEnemyCollide(entityAtTargetLoc);//TODO: ColliderTypes
                 } else if (targetTile && targetTile.Module.TileType == TileType.Floor.Value) {
