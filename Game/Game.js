@@ -5,13 +5,15 @@ class Game {
     //TODO: Inject a logger for console.log
     //TODO: Inject all dependencies for clear separation between Web, Engine & Game
 
-    constructor(tileMap) {
+    constructor(tileMap, onRestart) {
         this.GameState = GameStateType.Null;
         this.TurnLength = 1;//Seconds per turn. Will max out at the engine's FPS
         this.CurrentTurn = 0;
         this.LastTurnTime = 0;
         this.TileMap = tileMap;
         this.TurnManager = new TurnManager();
+        this.Restart = onRestart;
+        this.gameOverAudio = 'GameOver';
         Game.Current = this;
     }
 
@@ -19,7 +21,6 @@ class Game {
         if (this.GameState == GameStateType.Null) {
             this.GameState = GameStateType.New;
             this.World = new World(this.TileMap);
-
             //TODO: grid.Spawn(Enemy spawnObjects)
         }//TODO: Else
     }
@@ -45,6 +46,14 @@ class Game {
             //TODO: Where do I lock player input? Change game state to cinematic?
         }//TODO: Else
     }
+
+    GameOver(gameState) {
+        this.GameState = gameState;
+        var player = this.World.GetPlayerEntity();
+        EngineAudio.PlaySound(this.World, "GAME", this.gameOverAudio, 0.1, false, player.Transform.Position.x, player.Transform.Position.y);
+        setTimeout(this.Restart, 3500);
+    }
+
 }
 
 class GameStateType extends NamedRange {

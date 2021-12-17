@@ -9,4 +9,8 @@ class Player extends Character {
     OnEnemyCollide(targetLocation, characterAtTarget) {
         EngineAudio.PlaySound(this.World, this.Type, this.bounceOffWallSound, 1, false, targetLocation.x, targetLocation.y);//TODO: Change to different bounce sound. bump ?
     }
+
+    OnDeath() {
+        Game.Current.GameOver(GameStateType.Dead.Value);
+    }
 }

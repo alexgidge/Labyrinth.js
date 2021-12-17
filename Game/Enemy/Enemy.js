@@ -36,4 +36,8 @@ class Enemy extends Character {
     OnEnemyCollide(targetLocation, characterAtTarget) {
         console.log("AI attempted to move into an occupied square. Should be okay but here's a log just incase");
     }//Should never happen for enemy AI unless player moves before AI moves in the same turn. Or async threads running on multiple AIs
+
+    OnDeath() {
+        //TODO: Handle enenmy deaths
+    }
 }

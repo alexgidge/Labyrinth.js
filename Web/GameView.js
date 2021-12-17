@@ -21,7 +21,7 @@ async function InitialiseGame() {
     canvas = initCanvas();
     await AssetDataAccess.Initialise();
     map = AssetDataAccess.GetMap("LabyrinthMap");//TODO: Param passed from level select.
-    game = new Game(map);
+    game = new Game(map, function () { location.reload() });
     Game.Current.InitialiseGame();
     player = game.World.GetPlayerEntity();
 

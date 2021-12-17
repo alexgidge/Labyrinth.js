@@ -4,6 +4,7 @@ class Character extends WorldModule {
     deathSound = 'CharacterDeath';
     damageTakenSound = 'DamageTakenAudio';
     damageGivenSound = 'CharacterDoesDamage';
+    killDealtSound = 'CharacterDoesDamage';
     denied1Sound = 'Denied1';
     denied2Sound = 'Denied2';
     bounceOffWallSound = 'BounceOffWall';
@@ -105,6 +106,7 @@ class Character extends WorldModule {
             EngineAudio.PlaySound(this.World, this.Type, this.deathSound, 1, false, location.x, location.y);
             //TODO: Handle player death (fade all sounds & restart)
             this.State = CharacterStateType.Dead;
+            this.OnDeath();
         }
     }
 
@@ -137,6 +139,9 @@ class Character extends WorldModule {
         EngineAudio.PlaySound(this.World, this.Type, this.damageGivenSound, 0.6, false, targetLocation.x, targetLocation.y);
     }
 
+    OnAttackKilled(targetLocation, otherCharacter) {
+        EngineAudio.PlaySound(this.World, this.Type, this.killDealtSound, 0.6, false, targetLocation.x, targetLocation.y);
+    }
 
 
 }
