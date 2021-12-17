@@ -54,7 +54,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     GetPlayerEntity() {
         var returnCharacter;
         this.CharacterEntities.forEach(element => {
-            if (element && element.Module && element.Module.Type && CharacterType.Compare(element.Module.Type, CharacterType.Player)) {
+            if (element && element.Module && element.Module.Type && element.Module.Type == CharacterType.Player.Value) {
                 returnCharacter = element;
             }
         });

@@ -58,7 +58,7 @@
                 "minDamage" : 25,
                 "maxDamage" : 25,
                 "maxHealth" : 50,
-                "turnsPerMove" : 8,
+                "turnsPerMove" : 80,
                 "turnsPerAttack" : 34
             }]
         }
