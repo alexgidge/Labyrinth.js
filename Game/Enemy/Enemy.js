@@ -22,8 +22,8 @@ class Enemy extends Character {
             }
         }
     }
-    ProcessActions() {
-        //TODO: Check turns and move if possible
+    ProcessAttacks() {
+        //TODO: Check turns and attack if possible
 
     }
 

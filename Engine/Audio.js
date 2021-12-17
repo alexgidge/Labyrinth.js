@@ -4,21 +4,34 @@ class EngineAudio {
         this.AudioAssets = audioAssetsJSON;
     }
 
-    static PlaySound(SoundName, volume = 1, looping = false)//TODO: Sound library instead of passing file path
+    static PlaySound(world, SoundName, volumeMultiplier = 1, looping = false, audioX = 0, audioY = 0, audioZ = 0)//TODO: Sound library instead of passing file path
     {
         try {
+            var playerPosition = world.GetPlayerEntity().Transform.Position;
             var filename = AssetDataAccess.GetAudioAsset(SoundName).filename;
             var location = "../Assets/Audio/" + filename;
 
+            var distance = 1;
+            var diffX = audioX - playerPosition.x;
+            var diffY = 0//audioY - playerPosition.y;
+            var diffZ = audioY - playerPosition.y;
+
+            var soundVolume = (1 * volumeMultiplier * distance);
+
             var sound = new Howl({
-                src: [location]
+                src: [location],
+                volume: soundVolume
             });
 
-            var walking = sound.play();//TODO: Rewrite to properly use the package. 
-            sound.stereo(1, walking);
-            sound.pos(5, 0, 0, walking);
 
-            sound.play();
+            var walking = sound.play();//TODO: Rewrite to properly use the package. 
+
+            sound.stereo(soundVolume, walking);//TODO: Why is volume needed twice? I'm just slightly confused but it's working
+            sound.pos(diffX, diffY, diffZ, walking);
+
+            sound.on('end', function () {
+                console.log('Finished!');
+            });
         } catch (err) {
             //TODO: Error handling & logging
         }

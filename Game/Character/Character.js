@@ -26,52 +26,52 @@ class Character extends WorldModule {
         this.LastAttackTurn = 0;
     }
     Move(direction) {
+        var entity = this.World.GetEntity(this.Identifier);
+        var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
         if (this.CanMove()) {
             this.LastMoveTurn = Game.Current.TurnManager.CurrentTurn;
             if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
                 //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
-                var entity = this.World.GetEntity(this.Identifier);
-                var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
                 var targetTile = this.World.GetTile(targetLocation);
                 var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
 
                 //TODO: One method to get entity at location
                 if (entityAtTargetLoc) {//TODO: Move logic?
-                    this.OnEnemyCollide(entityAtTargetLoc);//TODO: ColliderTypes
+                    this.OnEnemyCollide(targetLocation, entityAtTargetLoc);//TODO: ColliderTypes
                 } else if (targetTile && targetTile.Module.TileType == TileType.Floor.Value) {
                     this.World.MoveEntity(entity, targetLocation);
-                    this.OnMove(targetTile);
+                    this.OnMove(targetLocation, targetTile);
                 } else if (!targetTile || targetTile.TileType == TileType.Null.Value || targetTile.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
-                    this.OnCollision(targetTile);
+                    this.OnCollision(targetLocation, targetTile);
                 }
 
             }
         }
         else {
-            EngineAudio.PlaySound(this.denied1Sound, 0.6);//TODO: Volume
+            EngineAudio.PlaySound(this.World, this.denied1Sound, 0.3, false, targetLocation.x, targetLocation.y);
         }
     }
     Attack(direction) {
+        var entity = this.World.GetEntity(this.Identifier);//Get self //TODO: Refactor into property on class set at constructor;
+        var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
         if (this.CanAttack()) {
             this.LastAttackTurn = Game.Current.TurnManager.CurrentTurn;
             if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
                 //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
-                var entity = this.World.GetEntity(this.Identifier);//Get self //TODO: Refactor into property on class set at constructor;
-                var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
                 var targetTile = this.World.GetTile(targetLocation);
                 var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
 
                 if (entityAtTargetLoc) {
-                    this.OnAttackHit();
-                    entityAtTargetLoc.Module.TakeDamage(this.CalculateDamage());
+                    this.OnAttackHit(targetLocation);
+                    entityAtTargetLoc.Module.TakeDamage(targetLocation, this.CalculateDamage());
                 } else {
-                    this.OnAttackMiss(targetTile);
+                    this.OnAttackMiss(targetLocation, targetTile);
                 }
 
             }
         }
         else {
-            EngineAudio.PlaySound(this.denied2Sound, 0.6);//TODO: Volume
+            EngineAudio.PlaySound(this.World, this.denied2Sound, 0.3, false, targetLocation.x, targetLocation.y);
         }
     }
     CanMove() {
@@ -88,50 +88,51 @@ class Character extends WorldModule {
         return Math.floor((Math.random() * this.MaxDamage) + this.MinDamage);
     }
 
-    TakeDamage(damage) {
+    TakeDamage(location, damage) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             this.CurrentHealth -= damage;
             if (this.CurrentHealth <= 0) {
-                this.Death();
+                this.Death(location);
             }
             else {
-                EngineAudio.PlaySound(this.damageTakenSound);
+                EngineAudio.PlaySound(this.World, this.damageTakenSound, 1, false, location.x, location.y);
             }
         }
     }
 
-    Death() {
+    Death(location) {
         this.State = CharacterStateType.Dead;
-        EngineAudio.PlaySound(this.deathSound);
+        EngineAudio.PlaySound(this.World, this.deathSound, 1, false, location.x, location.y);
     }
 
 
 
-    OnCollision(tile) {
-        if (!tile || !tile.TileType || tile.TileType == TileType.Wall || tile.TileType == TileType.Null) {
-            EngineAudio.PlaySound(this.bounceOffWallSound);
+    OnCollision(targetLocation, targetTile) {
+        if (!targetTile || !targetTile.TileType || targetTile.TileType == TileType.Wall || targetTile.TileType == TileType.Null) {
+            EngineAudio.PlaySound(this.World, this.bounceOffWallSound, 1, false, targetLocation.x, targetLocation.y);
         }
     }
 
-    OnMove() {
-        EngineAudio.PlaySound(this.footStepsSound);
+    OnMove(targetLocation) {
+        EngineAudio.PlaySound(this.World, this.footStepsSound, 1, false, targetLocation.x, targetLocation.y);
     }
 
     OnEnemyCollide(characterAtTarget) {
         //TODO: Enemy collision
     }
 
-    OnAttackMiss(tileHit) {
+    OnAttackMiss(targetLocation, tileHit) {
         if (tileHit && tileHit.Module.TileType == TileType.Floor.Value) {
-            EngineAudio.PlaySound(this.swingWeaponSound);
+            EngineAudio.PlaySound(this.World, this.swingWeaponSound, 1, false, targetLocation.x, targetLocation.y);
         }
         else {
-            EngineAudio.PlaySound(this.weaponClashedSound, 0.5);
+            EngineAudio.PlaySound(this.World, this.weaponClashedSound, 0.5, false, targetLocation.x, targetLocation.y);
         }
     }
 
-    OnAttackHit(otherCharacter) {
-        EngineAudio.PlaySound(this.swingWeaponSound);
+    OnAttackHit(targetLocation, otherCharacter) {
+        //TODO: Other character
+        EngineAudio.PlaySound(this.World, this.weaponClashedSound, 0.5, false, targetLocation.x, targetLocation.y);
     }
 
 
