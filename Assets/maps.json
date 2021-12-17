@@ -44,8 +44,8 @@
             ],
             "Spawns" : [{
                 "CharacterType" : "PLAYER",
-                "x" : 0,
-                "y" : 0,
+                "x" : 4,
+                "y" : 13,
                 "minDamage" : 10,
                 "maxDamage" : 10,
                 "maxHealth" : 50,
@@ -58,8 +58,8 @@
                 "minDamage" : 25,
                 "maxDamage" : 25,
                 "maxHealth" : 50,
-                "turnsPerMove" : 80,
-                "turnsPerAttack" : 34
+                "turnsPerMove" : 8,
+                "turnsPerAttack" : 16
             }]
         }
     }

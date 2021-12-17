@@ -28,10 +28,6 @@ class EngineAudio {
 
             sound.stereo(soundVolume, walking);//TODO: Why is volume needed twice? I'm just slightly confused but it's working
             sound.pos(diffX, diffY, diffZ, walking);
-
-            sound.on('end', function () {
-                console.log('Finished!');
-            });
         } catch (err) {
             //TODO: Error handling & logging
         }

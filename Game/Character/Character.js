@@ -1,12 +1,13 @@
 class Character extends WorldModule {
 
     //TODO: Method for having different values for diff character types
-    deathSound = 'MonsterDeath';
-    damageTakenSound = 'MonsterRoar';
+    deathSound = 'CharacterDeath';
+    damageTakenSound = 'DamageTakenAudio';
+    damageGivenSound = 'CharacterDoesDamage';
     denied1Sound = 'Denied1';
     denied2Sound = 'Denied2';
     bounceOffWallSound = 'BounceOffWall';
-    footStepsSound = 'HumanFootsteps';
+    footStepsSound = 'CharacterFootsteps';
     swingWeaponSound = 'SwingSword';
     weaponClashedSound = 'SwordHitWall';
 
@@ -26,11 +27,11 @@ class Character extends WorldModule {
         this.LastAttackTurn = 0;
     }
     Move(direction) {
-        var entity = this.World.GetEntity(this.Identifier);
-        var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
-        if (this.CanMove()) {
-            this.LastMoveTurn = Game.Current.TurnManager.CurrentTurn;
-            if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+            var entity = this.World.GetEntity(this.Identifier);
+            var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
+            if (this.CanMove()) {
+                this.LastMoveTurn = Game.Current.TurnManager.CurrentTurn;
                 //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
                 var targetTile = this.World.GetTile(targetLocation);
                 var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
@@ -44,19 +45,18 @@ class Character extends WorldModule {
                 } else if (!targetTile || targetTile.TileType == TileType.Null.Value || targetTile.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
                     this.OnCollision(targetLocation, targetTile);
                 }
-
             }
-        }
-        else {
-            EngineAudio.PlaySound(this.World, this.Type, this.denied1Sound, 0.3, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
+            else {
+                EngineAudio.PlaySound(this.World, this.Type, this.denied1Sound, 0.05, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
+            }
         }
     }
     Attack(direction) {
-        var entity = this.World.GetEntity(this.Identifier);//Get self //TODO: Refactor into property on class set at constructor;
-        var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
-        if (this.CanAttack()) {
-            this.LastAttackTurn = Game.Current.TurnManager.CurrentTurn;
-            if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+            var entity = this.World.GetEntity(this.Identifier);//Get self //TODO: Refactor into property on class set at constructor;
+            var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
+            if (this.CanAttack()) {
+                this.LastAttackTurn = Game.Current.TurnManager.CurrentTurn;
                 //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
                 var targetTile = this.World.GetTile(targetLocation);
                 var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
@@ -69,9 +69,9 @@ class Character extends WorldModule {
                 }
 
             }
-        }
-        else {
-            EngineAudio.PlaySound(this.World, this.Type, this.denied2Sound, 0.3, false, targetLocation.x, targetLocation.y);
+            else {
+                EngineAudio.PlaySound(this.World, this.Type, this.denied2Sound, 0.05, false, targetLocation.x, targetLocation.y);
+            }
         }
     }
     CanMove() {
@@ -101,15 +101,21 @@ class Character extends WorldModule {
     }
 
     Death(location) {
-        this.State = CharacterStateType.Dead;
-        EngineAudio.PlaySound(this.World, this.Type, this.deathSound, 1, false, location.x, location.y);
+        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+            EngineAudio.PlaySound(this.World, this.Type, this.deathSound, 1, false, location.x, location.y);
+            //TODO: Handle player death (fade all sounds & restart)
+            this.State = CharacterStateType.Dead;
+        }
     }
 
 
 
     OnCollision(targetLocation, targetTile) {
-        if (!targetTile || !targetTile.TileType || targetTile.TileType == TileType.Wall || targetTile.TileType == TileType.Null) {
-            EngineAudio.PlaySound(this.World, this.Type, this.bounceOffWallSound, 1, false, targetLocation.x, targetLocation.y);
+
+        if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
+            if (!targetTile || !targetTile.TileType || targetTile.TileType == TileType.Wall || targetTile.TileType == TileType.Null) {
+                EngineAudio.PlaySound(this.World, this.Type, this.bounceOffWallSound, 1, false, targetLocation.x, targetLocation.y);
+            }
         }
     }
 
@@ -128,7 +134,7 @@ class Character extends WorldModule {
 
     OnAttackHit(targetLocation, otherCharacter) {
         //TODO: Other character
-        EngineAudio.PlaySound(this.World, this.Type, this.weaponClashedSound, 0.3, false, targetLocation.x, targetLocation.y);//TODO: Weapon clashed? Why did I put that in hit?
+        EngineAudio.PlaySound(this.World, this.Type, this.damageGivenSound, 0.6, false, targetLocation.x, targetLocation.y);
     }
 
 

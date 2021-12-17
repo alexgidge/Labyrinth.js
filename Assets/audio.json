@@ -15,64 +15,59 @@
         "EYE": "zapsplat_human_male_breathing_out_exhale_single_fast_happy_relief_002_75264.mp3"
     },
     "Ticking": {
-        "name": "Ticking",
+        "name": "Ambient",
         "PLAYER": "tspt_alarm_clock_ticking_loop_002.mp3",
         "EYE": "tspt_alarm_clock_ticking_loop_002.mp3"
     },
     "SwingSword": {
         "name": "SwingSword",
         "PLAYER": "warfare_medieval_katana_sword_swing_001.mp3",
-        "EYE": "warfare_medieval_katana_sword_swing_001.mp3"
+        "EYE": "zapsplat_foley_wood_bambo_swoosh_through_air_002.mp3"
     },
     "UnshealthSword": {
         "name": "UnshealthSword",
         "PLAYER": "warfare_sword_pulled_from_sheath_british_naval_cutlass_19thc_002.mp3",
         "EYE": "warfare_sword_pulled_from_sheath_british_naval_cutlass_19thc_002.mp3"
     },
-    "HumanFootsteps": {
-        "name": "HumanFootsteps",
+    "CharacterFootsteps": {
+        "name": "CharacterFootsteps",
         "PLAYER": "zapsplat_foley_footsteps_football_boots_running_on_grass_75689Short.mp3",
         "EYE": "animals_mouse_or_other_rodent_scuttle_across_carpet(short).mp3"
     },
     "ICanSeeYouFast": {
         "name": "ICanSeeYouFast",
         "PLAYER": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_003_58858.mp3",
-        "EYE": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_003_58858.mp3"
+        "EYE": "articulated_MONSTER+Yeti+roar+12.mp3"
     },
     "ICanSeeYouSlow": {
         "name": "ICanSeeYouSlow",
         "PLAYER": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_004_58859.mp3",
-        "EYE": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_004_58859.mp3"
+        "EYE": "articulated_MONSTER+Yeti+roar+12.mp3"
     },
     "SwordHitWall": {
         "name": "SwordHitWall",
         "PLAYER": "zapsplat_impacts_swoosh_into_metal_thud_hit_002_43406.mp3",
-        "EYE": "zapsplat_impacts_swoosh_into_metal_thud_hit_002_43406.mp3"
+        "EYE": "zapsplat_foley_clothing_body_hit_punch_72693.mp3"
     },
     "BounceOffWall": {
         "name": "BounceOffWall",
         "PLAYER": "zapsplat_sport_basket_ball_hard_bounce_x1_on_asphalt_concrete_008_71152.mp3",
         "EYE": "zapsplat_sport_basket_ball_hard_bounce_x1_on_asphalt_concrete_008_71152.mp3"
     },
-    "EnemyFootsteps": {
-        "name": "EnemyFootsteps",
-        "PLAYER": "animals_mouse_or_other_rodent_scuttle_across_carpet(short).mp3",
-        "EYE": "animals_mouse_or_other_rodent_scuttle_across_carpet(short).mp3"
+    "DamageTakenAudio": {
+        "name": "DamageTakenAudio",
+        "PLAYER": "zapsplat_human_male_vocalisation_hit_pain_short_001_66499.mp3",
+        "EYE": "zapsplat_animals_bear_grunt_002_17144.mp3"
     },
-    "MonsterRoar": {
-        "name": "MonsterRoar",
-        "PLAYER": "horror_monster_ill_or_dying_moan.mp3",
+    "CharacterDeath": {
+        "name": "CharacterDeath",
+        "PLAYER": "johnj_human_impact_weapon_body_fall_sword_or_bat.mp3",
         "EYE": "horror_monster_ill_or_dying_moan.mp3"
     },
-    "MonsterDeath": {
-        "name": "MonsterDeath",
-        "PLAYER": "articulated_MONSTER+Yeti+roar+12.mp3",
-        "EYE": "articulated_MONSTER+Yeti+roar+12.mp3"
-    },
-    "MonsterStabbed": {
-        "name": "MonsterStabbed",
-        "PLAYER": "johnj_human_impact_weapon_body_fall_sword_or_bat.mp3",
-        "EYE": "johnj_human_impact_weapon_body_fall_sword_or_bat.mp3"
+    "CharacterDoesDamage": {
+        "name": "CharacterDoesDamage",
+        "PLAYER": "zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3",
+        "EYE": "audio_mangler_whoosh_fee_10_072.mp3"
     },
     "Denied1": {
         "name": "Denied1",

@@ -56,6 +56,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         this.CharacterEntities.forEach(element => {
             if (element && element.Module && element.Module.Type && element.Module.Type == CharacterType.Player.Value) {
                 returnCharacter = element;
+
             }
         });
         return returnCharacter;
@@ -65,7 +66,10 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         this.CharacterEntities.forEach(element => {
             if (element && element.Transform.Position && element.Transform.Position.x && element.Transform.Position.y) {
                 if (element.Transform.Position.x == position.x && element.Transform.Position.y == position.y) {
-                    returnEntity = element;
+
+                    if (CharacterStateType.Compare(element.Module.State, CharacterStateType.Alive)) {
+                        returnEntity = element;
+                    }
                 }
             }
         });
@@ -75,7 +79,10 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         var returnEntity;
         this.CharacterEntities.forEach(element => {
             if (element && element.Module.Identifier == characterID) {
-                returnEntity = element;
+
+                if (CharacterStateType.Compare(element.Module.State, CharacterStateType.Alive)) {
+                    returnEntity = element;
+                }
             }
         });
         return returnEntity;

@@ -29,8 +29,8 @@ class Enemy extends Character {
             var direction = Vector2.GetRandomDirection();
             var entity = this.World.GetEntity(this.Identifier);
             var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
-
-
+            var entityAtLocation = this.World.GetEntityAtTile(targetLocation);
+            this.Attack(direction);
         }
     }
     OnEnemyCollide(targetLocation, characterAtTarget) {
