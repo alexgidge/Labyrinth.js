@@ -1,4 +1,15 @@
 class Character extends WorldModule {
+
+    //TODO: Method for having different values for diff character types
+    deathSound = 'MonsterDeath';
+    damageTakenSound = 'MonsterRoar';
+    denied1Sound = 'Denied1';
+    denied2Sound = 'Denied2';
+    bounceOffWallSound = 'BounceOffWall';
+    footStepsSound = 'HumanFootsteps';
+    swingWeaponSound = 'SwingSword';
+    weaponClashedSound = 'SwordHitWall';
+
     constructor(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
         super();
         this.World = world;
@@ -36,7 +47,7 @@ class Character extends WorldModule {
             }
         }
         else {
-            EngineAudio.PlaySound('Denied1', 0.6);//TODO: Volume
+            EngineAudio.PlaySound(this.denied1Sound, 0.6);//TODO: Volume
         }
     }
     Attack(direction) {
@@ -60,7 +71,7 @@ class Character extends WorldModule {
             }
         }
         else {
-            EngineAudio.PlaySound('Denied2', 0.6);//TODO: Volume
+            EngineAudio.PlaySound(this.denied2Sound, 0.6);//TODO: Volume
         }
     }
     CanMove() {
@@ -80,26 +91,26 @@ class Character extends WorldModule {
                 this.Death();
             }
             else {
-                EngineAudio.PlaySound('MonsterRoar');
+                EngineAudio.PlaySound(this.damageTakenSound);
             }
         }
     }
 
     Death() {
         this.State = CharacterStateType.Dead;
-        EngineAudio.PlaySound('MonsterDeath');
+        EngineAudio.PlaySound(this.deathSound);
     }
 
 
 
     OnCollision(tile) {
         if (!tile || !tile.TileType || tile.TileType == TileType.Wall || tile.TileType == TileType.Null) {
-            EngineAudio.PlaySound('BounceOffWall');
+            EngineAudio.PlaySound(this.bounceOffWallSound);
         }
     }
 
     OnMove() {
-        EngineAudio.PlaySound('HumanFootsteps');
+        EngineAudio.PlaySound(this.footStepsSound);
     }
 
     OnEnemyCollide(characterAtTarget) {
@@ -108,15 +119,15 @@ class Character extends WorldModule {
 
     OnAttackMiss(tileHit) {
         if (tileHit && tileHit.Module.TileType == TileType.Floor.Value) {
-            EngineAudio.PlaySound('SwingSword');
+            EngineAudio.PlaySound(this.swingWeaponSound);
         }
         else {
-            EngineAudio.PlaySound('SwordHitWall', 0.5);
+            EngineAudio.PlaySound(this.weaponClashedSound, 0.5);
         }
     }
 
     OnAttackHit(otherCharacter) {
-        EngineAudio.PlaySound('SwingSword');
+        EngineAudio.PlaySound(this.swingWeaponSound);
     }
 
 

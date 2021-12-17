@@ -1,4 +1,8 @@
 {
+    "Example": {
+        "PLAYER": "123.mp3",
+        "EYE": "456.mp3"
+    },
     "SwordClash": {
         "name": "SwordClash",
         "filename": "warfare_swords_x_2_hit_001.mp3"

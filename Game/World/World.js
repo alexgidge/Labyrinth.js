@@ -25,7 +25,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
                 character = new Player(this, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);
                 break;
             case CharacterType.Eyeman.Value:
-                character = new Enemy(this, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);//TODO: Load different enemy types
+                character = new Enemy(this, characterType, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);//TODO: Load different enemy types
                 break;
         }
         var position = new Vector2(_x, _y);
