@@ -48,7 +48,7 @@ class Character extends WorldModule {
                 }
             }
             else {
-                EngineAudio.PlaySound(this.World, this.Type, this.denied1Sound, 0.05, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
+                EngineAudio.PlaySound(this.World, this.Type, this.denied1Sound, 0.08, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
             }
         }
     }
@@ -71,7 +71,7 @@ class Character extends WorldModule {
 
             }
             else {
-                EngineAudio.PlaySound(this.World, this.Type, this.denied2Sound, 0.05, false, targetLocation.x, targetLocation.y);
+                EngineAudio.PlaySound(this.World, this.Type, this.denied2Sound, 0.1, false, targetLocation.x, targetLocation.y);
             }
         }
     }
@@ -114,18 +114,18 @@ class Character extends WorldModule {
 
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             if (!targetTile || !targetTile.TileType || targetTile.TileType == TileType.Wall || targetTile.TileType == TileType.Null) {
-                EngineAudio.PlaySound(this.World, this.Type, this.bounceOffWallSound, 1, false, targetLocation.x, targetLocation.y);
+                EngineAudio.PlaySound(this.World, this.Type, this.bounceOffWallSound, 0.6, false, targetLocation.x, targetLocation.y);
             }
         }
     }
 
     OnMove(targetLocation) {
-        EngineAudio.PlaySound(this.World, this.Type, this.footStepsSound, 0.5, false, targetLocation.x, targetLocation.y);
+        EngineAudio.PlaySound(this.World, this.Type, this.footStepsSound, 0.4, false, targetLocation.x, targetLocation.y);
     }
 
     OnAttackMiss(targetLocation, tileHit) {
         if (tileHit && tileHit.Module.TileType == TileType.Floor.Value) {
-            EngineAudio.PlaySound(this.World, this.Type, this.swingWeaponSound, 1, false, targetLocation.x, targetLocation.y);
+            EngineAudio.PlaySound(this.World, this.Type, this.swingWeaponSound, 0.3, false, targetLocation.x, targetLocation.y);
         }
         else {
             EngineAudio.PlaySound(this.World, this.Type, this.weaponClashedSound, 0.3, false, targetLocation.x, targetLocation.y);
@@ -134,7 +134,7 @@ class Character extends WorldModule {
 
     OnAttackHit(targetLocation, otherCharacter) {
         //TODO: Other character
-        EngineAudio.PlaySound(this.World, this.Type, this.damageGivenSound, 0.6, false, targetLocation.x, targetLocation.y);
+        EngineAudio.PlaySound(this.World, this.Type, this.damageGivenSound, 0.4, false, targetLocation.x, targetLocation.y);
     }
 
     OnAttackKilled(targetLocation, otherCharacter) {
