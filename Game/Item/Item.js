@@ -34,28 +34,32 @@ class Item extends WorldModule {
             return false;
         }
     }
-    Use(location, items) {
-        if (this.ItemState == ItemState.Enabled.Value) {
-            EngineAudio.PlaySound(this.World, this.ItemType, this.useEnabled, 1, false, location.x, location.y);
-            Game.Current.GameOver(GameStateType.Completed.Value);
-        } else if (this.ItemState == ItemState.Locked.Value) {
-            if (this.Unlock(items) == true) {
-                EngineAudio.PlaySound(this.World, this.ItemType, this.unlockSound, 1, false, location.x, location.y);
-            } else {
+    Use(characterType, location, items) {
+        if (characterType == CharacterType.Player.Value) {
+            if (this.ItemState == ItemState.Enabled.Value) {
+                EngineAudio.PlaySound(this.World, this.ItemType, this.useEnabled, 1, false, location.x, location.y);
+                Game.Current.GameOver(GameStateType.Completed.Value);
+            } else if (this.ItemState == ItemState.Locked.Value) {
+                if (this.Unlock(items) == true) {
+                    EngineAudio.PlaySound(this.World, this.ItemType, this.unlockSound, 1, false, location.x, location.y);
+                } else {
+                    EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, 1, false, location.x, location.y);
+                }
+            } else if (this.ItemState == ItemState.Disabled.Value) {
                 EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, 1, false, location.x, location.y);
             }
-        } else if (this.ItemState == ItemState.Disabled.Value) {
-            EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, 1, false, location.x, location.y);
         }
     }
 
-    Pickup(location) {
-        if (this.ItemState == ItemState.Enabled.Value && this.Pickupable == true) {
-            this.ItemState = ItemState.Disabled.Value;
-            EngineAudio.PlaySound(this.World, this.ItemType, this.pickupSound, 1, false, location.x, location.y);
-            return true;
-        } else {
-            return false;
+    Pickup(characterType, location) {
+        if (characterType == CharacterType.Player.Value) {
+            if (this.ItemState == ItemState.Enabled.Value && this.Pickupable == true) {
+                this.ItemState = ItemState.Disabled.Value;
+                EngineAudio.PlaySound(this.World, this.ItemType, this.pickupSound, 1, false, location.x, location.y);
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 

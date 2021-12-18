@@ -128,7 +128,7 @@
             "Spawns" : [{
                 "CharacterType" : "PLAYER",
                 "x" : 0,
-                "y" : -4,
+                "y" : -48,
                 "minDamage" : 10,
                 "maxDamage" : 10,
                 "maxHealth" : 50,

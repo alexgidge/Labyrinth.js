@@ -55,12 +55,12 @@ class Character extends WorldModule {
                             }
                         } else if (element.EntityType == EntityType.Item.Value) {
                             if (element.Module.Pickupable == true) {
-                                if (element.Module.Pickup(targetLocation)) {
+                                if (element.Module.Pickup(this.Type, targetLocation)) {
                                     this.Items.push(element.Module);
                                 }
                             }
                             else {
-                                element.Module.Use(targetLocation, this.Items);
+                                element.Module.Use(this.Type, targetLocation, this.Items);
                             }
                         }
                     });
