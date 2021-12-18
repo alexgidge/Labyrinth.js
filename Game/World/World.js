@@ -64,7 +64,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     GetEntityAtTile(position) {
         var returnEntity;
         this.CharacterEntities.forEach(element => {
-            if (element && element.Transform.Position && element.Transform.Position.x && element.Transform.Position.y) {
+            if (element && element.Transform.Position) {
                 if (element.Transform.Position.x == position.x && element.Transform.Position.y == position.y) {
 
                     if (CharacterStateType.Compare(element.Module.State, CharacterStateType.Alive)) {
@@ -119,7 +119,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         if (!tile || tile.Module.TileType != TileType.Floor.Value) {
             //TODO: Handle wall collision here or in Character?
             returnVal = false;
-        } else if (this.GetEntityAtTile(position.x, position.y)) {
+        } else if (this.GetEntityAtTile(position)) {
             //TODO: Character collision here or in Character?
             returnVal = false;
         }

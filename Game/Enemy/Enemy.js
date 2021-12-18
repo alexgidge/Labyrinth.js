@@ -9,23 +9,24 @@ class Enemy extends Character {
         this.ProcessAttacks();
     }
     ProcessMovement() {
-        if (this.CanMove()) {
+        if (this.CanMove() == true) {
 
 
             var direction = Vector2.GetRandomDirection();
 
             var entity = this.World.GetEntity(this.Identifier);
             var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
-            //var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);//TODO: Player collision? here or in Move();
+            var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);//TODO: Player collision? here or in Move();
 
-            if (this.World.IsTileClear(targetLocation)) {
+            if (this.World.IsTileClear(targetLocation) == true) {
                 this.Move(direction);//TODO: Some form of pathfinding & basic AI
             }
+            //TODO: Else attack player?
         }
     }
     ProcessAttacks() {
         //TODO: Check turns and attack if possible
-        if (this.CanAttack()) {
+        if (this.CanAttack() == true) {
             var direction = Vector2.GetRandomDirection();
             var entity = this.World.GetEntity(this.Identifier);
             var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);

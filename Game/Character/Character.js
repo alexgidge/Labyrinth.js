@@ -29,13 +29,13 @@ class Character extends WorldModule {
         this.LastAttackTurn = 0;
     }
     Spawn(location) {
-        EngineAudio.PlaySound(this.World, this.Type, this.spawnSound, 1, false, location.x, location.y);
+        EngineAudio.PlaySound(this.World, this.Type, this.spawnSound, 0.6, false, location.x, location.y);
     }
     Move(direction) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             var entity = this.World.GetEntity(this.Identifier);
             var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
-            if (this.CanMove()) {
+            if (this.CanMove() == true) {
                 this.LastMoveTurn = Game.Current.TurnManager.CurrentTurn;
                 //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
                 var targetTile = this.World.GetTile(targetLocation);
@@ -60,7 +60,7 @@ class Character extends WorldModule {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             var entity = this.World.GetEntity(this.Identifier);//Get self //TODO: Refactor into property on class set at constructor;
             var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
-            if (this.CanAttack()) {
+            if (this.CanAttack() == true) {
                 this.LastAttackTurn = Game.Current.TurnManager.CurrentTurn;
                 //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
                 var targetTile = this.World.GetTile(targetLocation);
