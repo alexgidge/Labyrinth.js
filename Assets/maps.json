@@ -2,6 +2,28 @@
     "LabyrinthMap" : {
         "Room" : {
             "Tiles" : [
+                {"x":0, "y":-49, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-48, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-47, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-46, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-45, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-44, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-43, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-42, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-41, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-40, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-39, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-38, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-37, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-36, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-35, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-34, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-33, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-32, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-31, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-30, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-29, "TileType": "FLOOR_TILE"},
+                {"x":0, "y":-28, "TileType": "FLOOR_TILE"},
                 {"x":0, "y":-27, "TileType": "FLOOR_TILE"},
                 {"x":0, "y":-26, "TileType": "FLOOR_TILE"},
                 {"x":0, "y":-25, "TileType": "FLOOR_TILE"},
@@ -88,7 +110,7 @@
             "Spawns" : [{
                 "CharacterType" : "PLAYER",
                 "x" : 0,
-                "y" : -27,
+                "y" : -49,
                 "minDamage" : 10,
                 "maxDamage" : 10,
                 "maxHealth" : 50,
@@ -98,11 +120,11 @@
                 "CharacterType" : "EYE",
                 "x" : 8,
                 "y" : 25,
-                "minDamage" : 50,
-                "maxDamage" : 50,
-                "maxHealth" : 25,
-                "turnsPerMove" : 64,
-                "turnsPerAttack" : 128
+                "minDamage" : 100,
+                "maxDamage" : 100,
+                "maxHealth" : 200,
+                "turnsPerMove" : 128,
+                "turnsPerAttack" : 256
             },{
                 "CharacterType" : "BEAST",
                 "x" : 0,
@@ -110,8 +132,8 @@
                 "minDamage" : 25,
                 "maxDamage" : 25,
                 "maxHealth" : 50,
-                "turnsPerMove" : 32,
-                "turnsPerAttack" : 20
+                "turnsPerMove" : 45,
+                "turnsPerAttack" : 16
             },{
                 "CharacterType" : "BEAST",
                 "x" : 0,
@@ -119,17 +141,17 @@
                 "minDamage" : 25,
                 "maxDamage" : 25,
                 "maxHealth" : 50,
-                "turnsPerMove" : 32,
-                "turnsPerAttack" : 20
+                "turnsPerMove" : 30,
+                "turnsPerAttack" : 12
             },{
                 "CharacterType" : "BEAST",
                 "x" : 4,
                 "y" : 15,
-                "minDamage" : 50,
-                "maxDamage" : 50,
-                "maxHealth" : 25,
-                "turnsPerMove" : 64,
-                "turnsPerAttack" : 128
+                "minDamage" : 25,
+                "maxDamage" : 25,
+                "maxHealth" : 50,
+                "turnsPerMove" : 20,
+                "turnsPerAttack" : 8
             }]
         }
     }

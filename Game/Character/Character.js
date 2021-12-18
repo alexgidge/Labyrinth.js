@@ -29,7 +29,7 @@ class Character extends WorldModule {
         this.LastAttackTurn = 0;
     }
     Spawn(location) {
-        EngineAudio.PlaySound(this.World, this.Type, this.spawnSound, 0.6, false, location.x, location.y);
+        EngineAudio.PlaySound(this.World, this.Type, this.spawnSound, 0.5, false, location.x, location.y);
     }
     Move(direction) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
@@ -144,8 +144,6 @@ class Character extends WorldModule {
     OnAttackKilled(targetLocation, otherCharacter) {
         EngineAudio.PlaySound(this.World, this.Type, this.killDealtSound, 0.6, false, targetLocation.x, targetLocation.y);
     }
-
-
 }
 
 class CharacterType extends NamedRange {
