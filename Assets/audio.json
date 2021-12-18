@@ -2,8 +2,15 @@
     "Example": {
         "Donut":"Don't use, it's just an example.",
         "PLAYER": "123.mp3",
-        "EYE": "456.mp3",
-        "BEAST": "456.mp3"
+        "CHAINS": "456.mp3",
+        "BEAST": "456.mp3",
+        "GHOST": "456.mp3"
+    },
+    "SpawnSound": {
+        "name": "SpawnSound",
+        "PLAYER": "Cavernousdrippingdrone.mp3",
+        "EYE": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3",
+        "BEAST": "zapsplat_animals_bear_grunt_002_17144.mp3"
     },
     "SwordClash": {
         "name": "SwordClash",

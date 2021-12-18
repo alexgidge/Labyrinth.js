@@ -19,6 +19,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         })
     }
     SpawnCharacter(characterType, _x, _y, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
+        var position = new Vector2(_x, _y);
         var character;
         if (characterType == CharacterType.Player.Value) {
             character = new Player(this, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);
@@ -26,7 +27,6 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         else {
             character = new Enemy(this, characterType, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);//TODO: Load different enemy types
         }
-        var position = new Vector2(_x, _y);
         var transform = new WorldTransform(position)
         var entity = new WorldEntity(transform, character);
         if (this.CharacterEntities && this.CharacterEntities.length && this.CharacterEntities.length > 0) {
@@ -35,6 +35,8 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         else {
             this.CharacterEntities = [entity];
         }
+
+        character.Spawn(position);
         console.log("Spawned " + characterType + " at (" + entity.Transform.Position.x + "," + entity.Transform.Position.y + ")");
     };
     SpawnTile(position, tileType) {

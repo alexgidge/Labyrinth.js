@@ -11,6 +11,7 @@ class Character extends WorldModule {
     footStepsSound = 'CharacterFootsteps';
     swingWeaponSound = 'SwingSword';
     weaponClashedSound = 'SwordHitWall';
+    spawnSound = 'SpawnSound';
 
     constructor(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
         super();
@@ -26,6 +27,9 @@ class Character extends WorldModule {
         this.TurnsPerAttack = turnsPerAttack;
         this.LastMoveTurn = 0;
         this.LastAttackTurn = 0;
+    }
+    Spawn(location) {
+        EngineAudio.PlaySound(this.World, this.Type, this.spawnSound, 1, false, location.x, location.y);
     }
     Move(direction) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
