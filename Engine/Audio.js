@@ -12,11 +12,11 @@ class EngineAudio {
             var location = "../Assets/Audio/" + filename;
 
             var distance = 1;
-            var diffX = audioX - playerPosition.x;
+            var diffX = (audioX - playerPosition.x) * 2;//TODO: Remove *2
             var diffY = 0//audioY - playerPosition.y;
-            var diffZ = audioY - playerPosition.y;
+            var diffZ = (audioY - playerPosition.y) * 2;
 
-            var soundVolume = (1 * volumeMultiplier * distance);
+            var soundVolume = (1 * volumeMultiplier * distance);//TODO: Distance multiplier based on path finding in addition to the spatial audio
 
             var sound = new Howl({
                 src: [location],
