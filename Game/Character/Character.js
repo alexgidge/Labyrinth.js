@@ -92,11 +92,9 @@ class Character extends WorldModule {
     TakeDamage(location, damage) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             this.CurrentHealth -= damage;
+            EngineAudio.PlaySound(this.World, this.Type, this.damageTakenSound, 1, false, location.x, location.y);
             if (this.CurrentHealth <= 0) {
                 this.Death(location);
-            }
-            else {
-                EngineAudio.PlaySound(this.World, this.Type, this.damageTakenSound, 1, false, location.x, location.y);
             }
         }
     }

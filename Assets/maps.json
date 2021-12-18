@@ -45,7 +45,7 @@
             "Spawns" : [{
                 "CharacterType" : "PLAYER",
                 "x" : 4,
-                "y" : 13,
+                "y" : 6,
                 "minDamage" : 10,
                 "maxDamage" : 10,
                 "maxHealth" : 50,
@@ -55,11 +55,20 @@
                 "CharacterType" : "EYE",
                 "x" : 4,
                 "y" : 15,
+                "minDamage" : 50,
+                "maxDamage" : 50,
+                "maxHealth" : 25,
+                "turnsPerMove" : 64,
+                "turnsPerAttack" : 128
+            },{
+                "CharacterType" : "BEAST",
+                "x" : 8,
+                "y" : 15,
                 "minDamage" : 25,
                 "maxDamage" : 25,
                 "maxHealth" : 50,
-                "turnsPerMove" : 8,
-                "turnsPerAttack" : 16
+                "turnsPerMove" : 32,
+                "turnsPerAttack" : 20
             }]
         }
     }

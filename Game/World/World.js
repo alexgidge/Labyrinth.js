@@ -20,13 +20,11 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     }
     SpawnCharacter(characterType, _x, _y, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
         var character;
-        switch (characterType) {
-            case CharacterType.Player.Value:
-                character = new Player(this, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);
-                break;
-            case CharacterType.Eyeman.Value:
-                character = new Enemy(this, characterType, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);//TODO: Load different enemy types
-                break;
+        if (characterType == CharacterType.Player.Value) {
+            character = new Player(this, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);
+        }
+        else {
+            character = new Enemy(this, characterType, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);//TODO: Load different enemy types
         }
         var position = new Vector2(_x, _y);
         var transform = new WorldTransform(position)
