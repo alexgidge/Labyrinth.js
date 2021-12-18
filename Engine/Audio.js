@@ -5,7 +5,7 @@ class EngineAudio {
     }
 
     static PlaySound(world, soundCharacter, SoundName, volumeMultiplier = 1, looping = false, audioX = 0, audioY = 0, audioZ = 0)//TODO: Sound library instead of passing file path
-    {
+    {//TODO: Delays
         try {
             var playerPosition = world.GetPlayerEntity().Transform.Position;
             var filename = AssetDataAccess.GetAudioAsset(SoundName)[soundCharacter];
@@ -13,7 +13,7 @@ class EngineAudio {
 
             var distance = 1;
             var diffX = (audioX - playerPosition.x) * 2;//TODO: Remove *2
-            var diffY = 0//audioY - playerPosition.y;
+            var diffY = audioZ - 0;//audioY - playerPosition.y;
             var diffZ = (audioY - playerPosition.y) * 2;
 
             var soundVolume = (1 * volumeMultiplier * distance);//TODO: Distance multiplier based on path finding in addition to the spatial audio

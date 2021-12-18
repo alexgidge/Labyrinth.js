@@ -39,6 +39,9 @@ class Enemy extends Character {
     }//Should never happen for enemy AI unless player moves before AI moves in the same turn. Or async threads running on multiple AIs
 
     OnDeath() {
-        //TODO: Handle enenmy deaths
+        //TODO: Handle eneny deaths
+    }
+    OnSpawn() {
+        //TODO: Handle enemy spawn?
     }
 }
