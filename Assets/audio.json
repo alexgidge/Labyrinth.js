@@ -66,15 +66,13 @@
     },
     "ICanSeeYouFast": {
         "name": "ICanSeeYouFast",
-        "PLAYER": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_003_58858.mp3",
         "EYE": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_003_58858.mp3",
-        "BEAST": "articulated_MONSTER+Yeti+roar+12.mp3"
+        "BEAST": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_here_glitchy_recorded_lo_fi_processed_004_58855.mp3"
     },
     "ICanSeeYouSlow": {
         "name": "ICanSeeYouSlow",
-        "PLAYER": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_004_58859.mp3",
         "EYE": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_004_58859.mp3",
-        "BEAST": "articulated_MONSTER+Yeti+roar+12.mp3"
+        "BEAST": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_here_glitchy_recorded_lo_fi_processed_004_58855.mp3"
     },
     "SwordHitWall": {
         "name": "SwordHitWall",

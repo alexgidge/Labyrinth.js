@@ -14,6 +14,7 @@ class Character extends WorldModule {
     spawnSound = 'SpawnSound';
     breathe = 'Breathe';
     drawWeapon = 'DrawWeapon';
+    ICanSeeYouFast = 'ICanSeeYouFast';
 
     constructor(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
         super();
@@ -27,8 +28,10 @@ class Character extends WorldModule {
         this.CurrentHealth = maxHealth;
         this.TurnsPerMove = turnsPerMove;
         this.TurnsPerAttack = turnsPerAttack;
+        this.TurnsPerPlayerSpottedEmote = 100;//TODO: Setting per character
         this.LastMoveTurn = 0;
         this.LastAttackTurn = 0;
+        this.LastEmoteTurn = 0;
         this.Items = [];
     }
     Spawn(location) {
@@ -101,6 +104,15 @@ class Character extends WorldModule {
             }
         }
     }
+    CheckIfCanSeePlayer(location) {
+        if (this.Type != CharacterType.Player.Value) {
+            var distance = this.World.FindDistanceToPlayer(location);
+            if (distance < 3 && (this.LastEmoteTurn + this.TurnsPerPlayerSpottedEmote < Game.Current.TurnManager.CurrentTurn)) {
+                this.LastEmoteTurn = Game.Current.TurnManager.CurrentTurn;
+                EngineAudio.PlaySound(this.World, this.Type, this.ICanSeeYouFast, 0.8, false, location.x, location.y);
+            }
+        }
+    }
     CanMove() {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             return (this.LastMoveTurn + this.TurnsPerMove < Game.Current.TurnManager.CurrentTurn);
@@ -142,8 +154,8 @@ class Character extends WorldModule {
         }
     }
 
-    OnMove(targetLocation) {
-        EngineAudio.PlaySound(this.World, this.Type, this.footStepsSound, 0.4, false, targetLocation.x, targetLocation.y);
+    OnMove(newLocation) {
+        EngineAudio.PlaySound(this.World, this.Type, this.footStepsSound, 0.4, false, newLocation.x, newLocation.y);
     }
 
     OnAttackMiss(targetLocation, tileType) {

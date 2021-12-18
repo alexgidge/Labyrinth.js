@@ -83,6 +83,10 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         });
         return returnCharacter;
     }
+    FindDistanceToPlayer(location) {
+        var player = this.GetPlayerEntity();
+        return Vector2.Distance(location, player.Transform.Position);
+    }
     GetEntitiesAtTile(position) {//TODO: at position? Filter to incl/excl tile, item and char
         var returnEntity = [];
         this.Entities.forEach(element => {

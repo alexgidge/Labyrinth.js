@@ -26,6 +26,12 @@ class Vector2 {
         }
         return direction;
     }
+    static Distance(vectorLeft, vectorRight) {
+        var distX = (vectorLeft.x - vectorRight.x);
+        var distY = (vectorLeft.y - vectorRight.y);
+        var dist = Math.abs(distX + distY);
+        return dist;
+    }
 }
 
 function GetRandomIntFromInterval(min, max) {//Inclusive

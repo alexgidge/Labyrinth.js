@@ -5,17 +5,17 @@ class Enemy extends Character {
         this.State = CharacterStateType.Alive.Value;
     }
     Tick() {
-        this.ProcessMovement();
-        this.ProcessAttacks();
+        if (this.State == CharacterStateType.Alive.Value) {
+            var thisEntity = this.World.GetEntity(this.Identifier);
+            this.ProcessMovement(thisEntity);
+            this.ProcessAttacks();
+            this.CheckIfCanSeePlayer(thisEntity.Transform.Position);
+        }
     }
-    ProcessMovement() {
+    ProcessMovement(thisEntity) {
         if (this.CanMove() == true) {
-
-
             var direction = Vector2.GetRandomDirection();
-
-            var entity = this.World.GetEntity(this.Identifier);
-            var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
+            var targetLocation = new Vector2(thisEntity.Transform.Position.x + direction.x, thisEntity.Transform.Position.y + direction.y);
 
             if (this.World.CanMoveToTile(targetLocation) == true) {
                 this.Move(direction);//TODO: Some form of pathfinding & basic AI
