@@ -129,9 +129,9 @@
                 "CharacterType" : "PLAYER",
                 "x" : 0,
                 "y" : -4,
-                "minDamage" : 10000000,
-                "maxDamage" : 10000000,
-                "maxHealth" : 50000000,
+                "minDamage" : 10,
+                "maxDamage" : 10,
+                "maxHealth" : 50,
                 "turnsPerMove" : 2,
                 "turnsPerAttack" : 4
             },{
