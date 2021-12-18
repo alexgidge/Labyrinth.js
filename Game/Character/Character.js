@@ -19,8 +19,8 @@ class Character extends WorldModule {
         super();
         this.World = world;
         //Defaults: overridden in extended classes
-        this.Type = CharacterType.Null;
-        this.State = CharacterStateType.Null;
+        this.Type = CharacterType.Null.Value;
+        this.State = CharacterStateType.Null.Value;
         this.MinDamage = minDamage;
         this.MaxDamage = maxDamage;
         this.MaxHealth = maxHealth;
@@ -40,23 +40,28 @@ class Character extends WorldModule {
             var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
             if (this.CanMove() == true) {
                 this.LastMoveTurn = Game.Current.TurnManager.CurrentTurn;
-                //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
-                var targetTile = this.World.GetTile(targetLocation);
-                var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
-
-                //TODO: One method to get entity at location
-                if (entityAtTargetLoc) {//TODO: Move logic?
-                    this.OnEnemyCollide(targetLocation, entityAtTargetLoc);//TODO: ColliderTypes
-                } else if (targetTile && targetTile.Module.TileType == TileType.Floor.Value) {
-                    this.World.MoveEntity(entity, targetLocation);
-                    this.OnMove(targetLocation, targetTile);
-                } else if (!targetTile || targetTile.TileType == TileType.Null.Value || targetTile.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
-                    this.OnCollision(targetLocation, targetTile);
+                var entitiesAtTargetLoc = this.World.GetEntitiesAtTile(targetLocation);
+                if (entitiesAtTargetLoc && entitiesAtTargetLoc.length > 0) {//TODO: Move logic?
+                    entitiesAtTargetLoc.forEach(element => {
+                        if (element.EntityType == EntityType.Character.Value && element.Module.State == CharacterStateType.Alive.Value) {//TODO: boolean on character for playable? All I need here is to check if they're an npc
+                            this.OnEnemyCollide(targetLocation, element);//TODO: ColliderTypes
+                        } else if (element.EntityType == EntityType.Tile.Value) {
+                            if (element && element.Module.TileType == TileType.Floor.Value) {
+                                this.World.MoveEntity(entity, targetLocation);
+                                this.OnMove(targetLocation, element);
+                            } else if (!element || element.Module.TileType == TileType.Null.Value || element.Module.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
+                                this.OnCollision(targetLocation, element.Module);
+                            }
+                        }
+                    });
+                } else {
+                    this.OnCollision(targetLocation, null);
                 }
             }
             else {
                 EngineAudio.PlaySound(this.World, this.Type, this.denied1Sound, 0.08, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
             }
+
         }
     }
     Attack(direction) {
@@ -65,15 +70,19 @@ class Character extends WorldModule {
             var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
             if (this.CanAttack() == true) {
                 this.LastAttackTurn = Game.Current.TurnManager.CurrentTurn;
-                //TODO: Refactor both tiles & characters as game objects then generic logic for loading all game objects in a location (Tile and Character incl.)
-                var targetTile = this.World.GetTile(targetLocation);
-                var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);
+                var entitiesAtTargetLoc = this.World.GetEntitiesAtTile(targetLocation);
 
-                if (entityAtTargetLoc) {
-                    this.OnAttackHit(targetLocation);
-                    entityAtTargetLoc.Module.TakeDamage(targetLocation, this.CalculateDamage());
+                if (entitiesAtTargetLoc && entitiesAtTargetLoc.length > 0) {//TODO: Move logic?
+                    entitiesAtTargetLoc.forEach(element => {
+                        if (element.EntityType == EntityType.Character.Value && element.Module.State == CharacterStateType.Alive.Value) {
+                            this.OnAttackHit(targetLocation);
+                            element.Module.TakeDamage(targetLocation, this.CalculateDamage());
+                        } else if (element.EntityType == EntityType.Tile.Value) {
+                            this.OnAttackMiss(targetLocation, element.Module.TileType);
+                        }
+                    });
                 } else {
-                    this.OnAttackMiss(targetLocation, targetTile);
+                    this.OnAttackMiss(targetLocation, null);
                 }
 
             }
@@ -110,15 +119,12 @@ class Character extends WorldModule {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             EngineAudio.PlaySound(this.World, this.Type, this.deathSound, 1, false, location.x, location.y);
             //TODO: Handle player death (fade all sounds & restart)
-            this.State = CharacterStateType.Dead;
+            this.State = CharacterStateType.Dead.Value;
             this.OnDeath();
         }
     }
 
-
-
     OnCollision(targetLocation, targetTile) {
-
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             if (!targetTile || !targetTile.TileType || targetTile.TileType == TileType.Wall || targetTile.TileType == TileType.Null) {
                 EngineAudio.PlaySound(this.World, this.Type, this.bounceOffWallSound, 0.6, false, targetLocation.x, targetLocation.y);
@@ -130,8 +136,8 @@ class Character extends WorldModule {
         EngineAudio.PlaySound(this.World, this.Type, this.footStepsSound, 0.4, false, targetLocation.x, targetLocation.y);
     }
 
-    OnAttackMiss(targetLocation, tileHit) {
-        if (tileHit && tileHit.Module.TileType == TileType.Floor.Value) {
+    OnAttackMiss(targetLocation, tileType) {
+        if (tileType && tileType == TileType.Floor.Value) {
             EngineAudio.PlaySound(this.World, this.Type, this.swingWeaponSound, 0.3, false, targetLocation.x, targetLocation.y);
         }
         else {

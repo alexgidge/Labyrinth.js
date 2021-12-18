@@ -2,22 +2,29 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     constructor(map) {
         this.currentMap = map;
         //TODO: Spawn etc.
+        this.Entities = [];
         this.FillMap();
         this.SpawnMapCharacters();
+        this.SpawnMapItems();
     }
+
     FillMap() {
         //TODO: Tiled supportable
-        this.grid = [];
         this.currentMap.Room.Tiles.forEach(element => {
             this.SpawnTile(new Vector2(element.x, element.y), element.TileType);
         })
     }
     SpawnMapCharacters() {
-        this.CharacterEntities = [];
         this.currentMap.Room.Spawns.forEach(element => {
-            this.SpawnCharacter(element.CharacterType, element.x, element.y, element.minDamage, element.maxDamage, element.maxHealth, element.turnsPerMove, element.turnsPerAttack)
+            this.SpawnCharacter(element.CharacterType, element.x, element.y, element.minDamage, element.maxDamage, element.maxHealth, element.turnsPerMove, element.turnsPerAttack);
         })
     }
+    SpawnMapItems() {
+        this.currentMap.Room.Items.forEach(element => {
+            this.SpawnItem(element.ItemType, element.ItemStartState, element.Pickupable, element.Lockable, element.UnlockedByItem, element.x, element.y);
+        })
+    }
+
     SpawnCharacter(characterType, _x, _y, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
         var position = new Vector2(_x, _y);
         var character;
@@ -28,48 +35,60 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
             character = new Enemy(this, characterType, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);//TODO: Load different enemy types
         }
         var transform = new WorldTransform(position)
-        var entity = new WorldEntity(transform, character);
-        if (this.CharacterEntities && this.CharacterEntities.length && this.CharacterEntities.length > 0) {
-            this.CharacterEntities.push(entity);//TODO: GameObjects
+        var entity = new WorldEntity(transform, character, EntityType.Character.Value);
+        if (this.Entities && this.Entities.length && this.Entities.length > 0) {
+            this.Entities.push(entity);//TODO: GameObjects
         }
         else {
-            this.CharacterEntities = [entity];
+            this.Entities = [entity];
         }
 
         character.Spawn(position);
         console.log("Spawned " + characterType + " at (" + entity.Transform.Position.x + "," + entity.Transform.Position.y + ")");
     };
+    SpawnItem(itemType, itemState, pickupable, lockable, unlockedby, _x, _y) {
+        var position = new Vector2(_x, _y);
+        var item = new Item(itemType, itemState, pickupable, lockable, unlockedby);
+        var transform = new WorldTransform(position)
+        var entity = new WorldEntity(transform, item, EntityType.Item.Value);
+        if (this.Entities && this.Entities.length && this.Entities.length > 0) {
+            this.Entities.push(entity);//TODO: GameObjects
+        }
+        else {
+            this.Entities = [entity];
+        }
+
+        item.Spawn(position);
+        console.log("Spawned " + itemType + " at (" + entity.Transform.Position.x + "," + entity.Transform.Position.y + ")");
+    };
     SpawnTile(position, tileType) {
         var tile = new Tile(tileType);
         var transform = new WorldTransform(position);
-        var entity = new WorldEntity(transform, tile);
+        var entity = new WorldEntity(transform, tile, EntityType.Tile.Value);
 
-        if (this.grid && this.grid.length && this.grid.length > 0) {
-            this.grid.push(entity);//TODO: GameObjects
+        //TODO: Add to entities method
+        if (this.Entities && this.Entities.length && this.Entities.length > 0) {
+            this.Entities.push(entity);//TODO: GameObjects
         }
         else {
-            this.grid = [entity];
+            this.Entities = [entity];
         }
     }
     GetPlayerEntity() {
         var returnCharacter;
-        this.CharacterEntities.forEach(element => {
-            if (element && element.Module && element.Module.Type && element.Module.Type == CharacterType.Player.Value) {
+        this.Entities.forEach(element => {
+            if (element.EntityType == EntityType.Character.Value && element && element.Module && element.Module.Type && element.Module.Type == CharacterType.Player.Value) {
                 returnCharacter = element;
-
             }
         });
         return returnCharacter;
     }
-    GetEntityAtTile(position) {
-        var returnEntity;
-        this.CharacterEntities.forEach(element => {
+    GetEntitiesAtTile(position) {//TODO: at position? Filter to incl/excl tile, item and char
+        var returnEntity = [];
+        this.Entities.forEach(element => {
             if (element && element.Transform.Position) {
                 if (element.Transform.Position.x == position.x && element.Transform.Position.y == position.y) {
-
-                    if (CharacterStateType.Compare(element.Module.State, CharacterStateType.Alive)) {
-                        returnEntity = element;
-                    }
+                    returnEntity.push(element);
                 }
             }
         });
@@ -77,10 +96,9 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     }
     GetEntity(characterID) {
         var returnEntity;
-        this.CharacterEntities.forEach(element => {
+        this.Entities.forEach(element => {
             if (element && element.Module.Identifier == characterID) {
-
-                if (CharacterStateType.Compare(element.Module.State, CharacterStateType.Alive)) {
+                if (CharacterStateType.Compare(element.Module.State, CharacterStateType.Alive)) {//TODO: Character specific?
                     returnEntity = element;
                 }
             }
@@ -89,8 +107,8 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     }
     GetTile(position) {
         var returnTile;
-        this.grid.forEach(element => {
-            if (element && element.Transform.Position.x == position.x && element.Transform.Position.y == position.y) {
+        this.Entities.forEach(element => {
+            if (element.EntityType == EntityType.Tile.Value && element && element.Transform.Position.x == position.x && element.Transform.Position.y == position.y) {
                 if (!element.Module.TileType) {
                     element.Module.TileType = TileType.Null;
                 }
@@ -113,23 +131,30 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     //     }
     //     return returnPosition;
     // }
-    IsTileClear(position) {
-        var returnVal;
-        var tile = this.GetTile(position);
-        if (!tile || tile.Module.TileType != TileType.Floor.Value) {
-            //TODO: Handle wall collision here or in Character?
-            returnVal = false;
-        } else if (this.GetEntityAtTile(position)) {
-            //TODO: Character collision here or in Character?
-            returnVal = false;
-        }
-        else {
-            returnVal = true;
-        }
-        return returnVal;
+    CanMoveToTile(position) {
+        var tileValid = false;
+        var tileEmpty = true;
+        var entities = this.GetEntitiesAtTile(position);
+        entities.forEach(element => {
+            if (element.EntityType == EntityType.Tile.Value) {
+                if (element.Module.TileType == TileType.Floor.Value) {
+                    tileValid = true;
+                }
+            }
+            else if (element.EntityType == EntityType.Character.Value) {
+                //TODO: Remove dead from array?
+                if (element.Module.State != CharacterStateType.Dead.Value) {
+                    tileEmpty = false;
+                }
+            } else {
+                tileEmpty = false;
+            }
+        });
+
+        return tileValid && tileEmpty;
     }
     MoveEntity(entity, position) {
-        if (this.IsTileClear(position)) {
+        if (this.CanMoveToTile(position)) {
             //TODO: Move logic in engine?
             entity.Transform.Position.x = position.x;
             entity.Transform.Position.y = position.y;

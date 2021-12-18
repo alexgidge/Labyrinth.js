@@ -38,8 +38,8 @@ class Game {
     OnEngineTick(gameDelta) {
         if (GameStateType.Compare(this.GameState, GameStateType.Playing)) {
             this.TurnManager.Tick(gameDelta);
-            this.World.CharacterEntities.forEach(element => {
-                if (element.Module.Type && element.Module.Type != CharacterType.Player.Value) {//TODO: boolean on character for playable? All I need here is to check if they're an npc
+            this.World.Entities.forEach(element => {
+                if (element.EntityType == EntityType.Character.Value && element.Module.Type && element.Module.Type != CharacterType.Player.Value) {//TODO: boolean on character for playable? All I need here is to check if they're an npc
                     element.Module.Tick();
                 }
             });

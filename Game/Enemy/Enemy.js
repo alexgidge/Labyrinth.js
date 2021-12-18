@@ -2,7 +2,7 @@ class Enemy extends Character {
     constructor(world, characterType, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
         super(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);
         this.Type = characterType;
-        this.State = CharacterStateType.Alive;
+        this.State = CharacterStateType.Alive.Value;
     }
     Tick() {
         this.ProcessMovement();
@@ -16,9 +16,8 @@ class Enemy extends Character {
 
             var entity = this.World.GetEntity(this.Identifier);
             var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
-            var entityAtTargetLoc = this.World.GetEntityAtTile(targetLocation);//TODO: Player collision? here or in Move();
 
-            if (this.World.IsTileClear(targetLocation) == true) {
+            if (this.World.CanMoveToTile(targetLocation) == true) {
                 this.Move(direction);//TODO: Some form of pathfinding & basic AI
             }
             //TODO: Else attack player?
@@ -28,9 +27,6 @@ class Enemy extends Character {
         //TODO: Check turns and attack if possible
         if (this.CanAttack() == true) {
             var direction = Vector2.GetRandomDirection();
-            var entity = this.World.GetEntity(this.Identifier);
-            var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
-            var entityAtLocation = this.World.GetEntityAtTile(targetLocation);
             this.Attack(direction);
         }
     }

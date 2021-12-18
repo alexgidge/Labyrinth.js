@@ -77,6 +77,7 @@
                 {"x":4, "y":13, "TileType": "FLOOR_TILE"},
                 {"x":4, "y":14, "TileType": "FLOOR_TILE"},
                 {"x":4, "y":15, "TileType": "FLOOR_TILE"},
+                {"x":4, "y":16, "TileType": "FLOOR_TILE"},
                 {"x":4, "y":1, "TileType": "FLOOR_TILE"},
                 {"x":4, "y":2, "TileType": "FLOOR_TILE"},
                 {"x":4, "y":3, "TileType": "FLOOR_TILE"},
@@ -107,10 +108,27 @@
                 {"x":8, "y":24, "TileType": "FLOOR_TILE"},
                 {"x":8, "y":25, "TileType": "FLOOR_TILE"}
             ],
+            "Items" : [{
+                    "ItemType" : "DOOR",
+                    "x" : 4,
+                    "y" : 16,
+                    "ItemStartState":"Locked",
+                    "Pickupable":"False",
+                    "Lockable": "True",
+                    "UnlockedByItem":"KEY"
+            },{
+                "ItemType" : "KEY",
+                "x" : 8,
+                "y" : 25,
+                "ItemStartState":"Enabled",
+                "Pickupable":"True",
+                "Lockable": "False",
+                "UnlockedByItem":""
+            }],
             "Spawns" : [{
                 "CharacterType" : "PLAYER",
                 "x" : 0,
-                "y" : -49,
+                "y" : -4,
                 "minDamage" : 10,
                 "maxDamage" : 10,
                 "maxHealth" : 50,
