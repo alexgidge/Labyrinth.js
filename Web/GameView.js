@@ -16,6 +16,8 @@ async function StartUp() {
     await StartGame();
 }
 async function InitialiseGame() {
+    //TODO: Level select
+    //TODO: Easy, Med & Hard maps
     console.log("--------------------------INITIALISING---------------------------");
     //TODO: Move into engine
     canvas = initCanvas();
