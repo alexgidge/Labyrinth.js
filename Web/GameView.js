@@ -10,6 +10,9 @@ var player;
 
 $(function () {
     StartUp();
+    $('#btnHome').click(function (evt) {
+        window.location.href = '../index.html';
+    });
 });
 async function StartUp() {
     await InitialiseGame();
