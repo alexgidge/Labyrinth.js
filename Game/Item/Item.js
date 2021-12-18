@@ -1,40 +1,61 @@
 class Item extends WorldModule {
-    constructor(itemType, itemState, pickupable, lockable, unlockedby) {
+    useEnabled = 'UseEnabled';
+    useDisabled = 'UseDisabled';
+    pickupSound = 'Pickup';
+    unlockSound = 'Unlock';
+
+    constructor(world, itemType, itemState, pickupable, lockable, unlockedby) {
         super();
         this.ItemType = itemType;
         this.ItemState = itemState;
         this.Pickupable = pickupable;
         this.Lockable = lockable;
         this.UnlockedByItem = unlockedby;
+        this.World = world;
     }
-
     Spawn() {
 
     }
-
-    Unlock() {
+    Unlock(items) {
+        var keyFound = false;
         if (this.ItemState == ItemState.Locked.Value) {
+            items.forEach(element => {
+                if (element.ItemType == this.UnlockedByItem) {
+                    keyFound = true;
+                }
+            });
+        }
+
+        if (keyFound == true) {
             this.ItemState = ItemState.Enabled.Value;
-            //TODO: Play unlocked sound
+            return true;
+        }
+        else {
+            return false;
         }
     }
-
-    Lock() {
-        if (this.ItemState == ItemState.Locked.Value && this.Lockable == true) {
-            this.ItemState = ItemState.Locked.Value;
-            //TODO: Play locked sound
-        }
-    }
-
-    Use() {
+    Use(location, items) {
         if (this.ItemState == ItemState.Enabled.Value) {
-            //TODO: Play sound
-            //TODO: If end game portal then change game state
+            EngineAudio.PlaySound(this.World, this.ItemType, this.useEnabled, 1, false, location.x, location.y);
+            Game.Current.GameOver(GameStateType.Completed.Value);
         } else if (this.ItemState == ItemState.Locked.Value) {
-            //TODO: If player has key then unlock
-            //TODO: Play locked sound
+            if (this.Unlock(items) == true) {
+                EngineAudio.PlaySound(this.World, this.ItemType, this.unlockSound, 1, false, location.x, location.y);
+            } else {
+                EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, 1, false, location.x, location.y);
+            }
         } else if (this.ItemState == ItemState.Disabled.Value) {
-            //TODO: Play disabled sound & handle use disabled?
+            EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, 1, false, location.x, location.y);
+        }
+    }
+
+    Pickup(location) {
+        if (this.ItemState == ItemState.Enabled.Value && this.Pickupable == true) {
+            this.ItemState = ItemState.Disabled.Value;
+            EngineAudio.PlaySound(this.World, this.ItemType, this.pickupSound, 1, false, location.x, location.y);
+            return true;
+        } else {
+            return false;
         }
     }
 

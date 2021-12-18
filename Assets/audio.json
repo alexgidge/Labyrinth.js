@@ -35,10 +35,12 @@
         "DOOR2": "zapsplat_household_door_front_wooden_knocks_fist_hard_21929.mp3",
         "DOOR":"zapsplat_household_door_handle_try_open_locked_001_10218.mp3"
     },
+    "Unlock":{
+        "name": "Unlock",
+        "DOOR": "zapsplat_multimedia_game_sound_door_open_magical_unlock_level_secret_001_73548.mp3"
+    },
     "UseEnabled":{
-        "name": "UseEnabled",
-        "DOOR": "household_door_cupboard_built_in_open_kicthen_utility.mp3",
-        "KEY": "zapsplat_multimedia_game_sound_door_open_magical_unlock_level_secret_001_73548.mp3"
+        "name": "UseEnabled"
     },
     "Pickup":{
         "name": "Pickup",

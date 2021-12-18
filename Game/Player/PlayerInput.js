@@ -4,7 +4,7 @@ class PlayerInput {
     }
 
     InputPressed(inputType) {
-        console.log(inputType.Value);
+        //console.log(inputType.Value);
         switch (inputType) {
             case InputType.MoveForward:
                 this.Player.Module.Move(new Vector2(0, 1));

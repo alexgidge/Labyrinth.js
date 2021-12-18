@@ -48,7 +48,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     };
     SpawnItem(itemType, itemState, pickupable, lockable, unlockedby, _x, _y) {
         var position = new Vector2(_x, _y);
-        var item = new Item(itemType, itemState, pickupable, lockable, unlockedby);
+        var item = new Item(this, itemType, itemState, pickupable, lockable, unlockedby);
         var transform = new WorldTransform(position)
         var entity = new WorldEntity(transform, item, EntityType.Item.Value);
         if (this.Entities && this.Entities.length && this.Entities.length > 0) {
@@ -146,7 +146,11 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
                 if (element.Module.State != CharacterStateType.Dead.Value) {
                     tileEmpty = false;
                 }
-            } else {
+            }
+            else if (element.EntityType == EntityType.Item.Value && element.Module.ItemState != ItemState.Locked.Value) {
+
+            }
+            else {
                 tileEmpty = false;
             }
         });

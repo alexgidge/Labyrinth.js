@@ -112,26 +112,26 @@
                     "ItemType" : "DOOR",
                     "x" : 4,
                     "y" : 16,
-                    "ItemStartState":"Locked",
-                    "Pickupable":"False",
-                    "Lockable": "True",
+                    "ItemStartState":"LOCKED",
+                    "Pickupable":false,
+                    "Lockable": true,
                     "UnlockedByItem":"KEY"
             },{
                 "ItemType" : "KEY",
                 "x" : 8,
                 "y" : 25,
-                "ItemStartState":"Enabled",
-                "Pickupable":"True",
-                "Lockable": "False",
+                "ItemStartState":"ENABLED",
+                "Pickupable":true,
+                "Lockable":false,
                 "UnlockedByItem":""
             }],
             "Spawns" : [{
                 "CharacterType" : "PLAYER",
                 "x" : 0,
                 "y" : -4,
-                "minDamage" : 10,
-                "maxDamage" : 10,
-                "maxHealth" : 50,
+                "minDamage" : 10000000,
+                "maxDamage" : 10000000,
+                "maxHealth" : 50000000,
                 "turnsPerMove" : 2,
                 "turnsPerAttack" : 4
             },{

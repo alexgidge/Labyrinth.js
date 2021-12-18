@@ -30,10 +30,7 @@ class EngineAudio {
             sound.pos(diffX, diffY, diffZ, walking);
         } catch (err) {
             //TODO: Error handling & logging
+            console.log("ERROR - Audio: " + SoundName);//TODO: Proper logging
         }
-
-        //TODO: Validation
-        //TODO: Move to Audio.play();
-        console.log("Audio: " + SoundName);//TODO: Proper logging
     }
 }

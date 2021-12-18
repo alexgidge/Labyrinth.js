@@ -29,9 +29,10 @@ class Character extends WorldModule {
         this.TurnsPerAttack = turnsPerAttack;
         this.LastMoveTurn = 0;
         this.LastAttackTurn = 0;
+        this.Items = [];
     }
     Spawn(location) {
-        EngineAudio.PlaySound(this.World, this.Type, this.spawnSound, 0.5, false, location.x, location.y);
+        EngineAudio.PlaySound(this.World, this.Type, this.spawnSound, 0.35, false, location.x, location.y);
         this.OnSpawn(location);
     }
     Move(direction) {
@@ -51,6 +52,15 @@ class Character extends WorldModule {
                                 this.OnMove(targetLocation, element);
                             } else if (!element || element.Module.TileType == TileType.Null.Value || element.Module.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
                                 this.OnCollision(targetLocation, element.Module);
+                            }
+                        } else if (element.EntityType == EntityType.Item.Value) {
+                            if (element.Module.Pickupable == true) {
+                                if (element.Module.Pickup(targetLocation)) {
+                                    this.Items.push(element.Module);
+                                }
+                            }
+                            else {
+                                element.Module.Use(targetLocation, this.Items);
                             }
                         }
                     });
