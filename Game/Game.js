@@ -18,7 +18,7 @@ class Game {
 
     InitialiseGame() {
         if (this.GameState == GameStateType.Null) {
-            this.GameState = GameStateType.New;
+            this.GameState = GameStateType.New.Value;
             this.World = new World(this.TileMap);
             //TODO: grid.Spawn(Enemy spawnObjects)
         }//TODO: Else
@@ -26,7 +26,7 @@ class Game {
 
     GameStart() {
         if (GameStateType.Compare(this.GameState, GameStateType.New)) {
-            this.GameState = GameStateType.Playing;
+            this.GameState = GameStateType.Playing.Value;
             //TODO: Start ambience FX 
             //TODO: Start game/story/scenario
             //TODO: Play intro scene/cinematic
