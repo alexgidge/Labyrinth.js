@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Labyrinth | Audio Game</title>
+  </head>
+
+  <body>
+    <style>
+      html,
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden;
+      }
+    </style>
+    <script src="../node_modules/howler/dist/howler.core.min.js"></script>
+    <script src="../node_modules/howler/dist/howler.spatial.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/Assets/AssetDataAccess.js"></script>
+    <script src="../Game/GameControls.js"></script>
+    <script src="PlayerPrefs.js"></script>
+    <script src="header.js"></script>
+    <script src="Controls.js"></script>
+    <h1>Game Controls</h1>
+    <p>Edit the control mappings for the game. Currently only supports javascript keycodes (e.g. 87 = "W" key)</p>
+    <p>These settings are currently only saved in the browser so may break and reset back to default.</p>
+    <a href="https://keycode.info/">See https://keycode.info/ for list of Javascript keycodes</a>
+    <br /><br />
+    <button id="btnHome">Home</button>
+    <form id="frmControls" name="controls">
+      <h3>Key Mapping</h3>
+      <!-- TODO: Templating, maybe a light front end framework? load controls from JSON then overwrite from cookie for added customisation, similar control naming system? -->
+      <div id="divKeyMappingsList"></div>
+      <button id="btnSave">Save</button>
+    </form>
+  </body>
+</html>

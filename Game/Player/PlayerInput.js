@@ -6,28 +6,28 @@ class PlayerInput {
     InputPressed(inputType) {
         //console.log(inputType.Value);
         switch (inputType) {
-            case InputType.MoveForward:
+            case InputType.MoveForward.Value:
                 this.Player.Module.Move(new Vector2(0, 1));
                 break;
-            case InputType.MoveLeft:
+            case InputType.MoveLeft.Value:
                 this.Player.Module.Move(new Vector2(-1, 0));
                 break;
-            case InputType.MoveBack:
+            case InputType.MoveBack.Value:
                 this.Player.Module.Move(new Vector2(0, -1));
                 break;
-            case InputType.MoveRight:
+            case InputType.MoveRight.Value:
                 this.Player.Module.Move(new Vector2(1, 0));
                 break;
-            case InputType.ActionForward:
+            case InputType.ActionForward.Value:
                 this.Player.Module.Attack(new Vector2(0, 1));
                 break;
-            case InputType.ActionLeft:
+            case InputType.ActionLeft.Value:
                 this.Player.Module.Attack(new Vector2(-1, 0));
                 break;
-            case InputType.ActionBack:
+            case InputType.ActionBack.Value:
                 this.Player.Module.Attack(new Vector2(0, -1));
                 break;
-            case InputType.ActionRight:
+            case InputType.ActionRight.Value:
                 this.Player.Module.Attack(new Vector2(1, 0));
                 break;
         }

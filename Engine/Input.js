@@ -15,15 +15,15 @@ class EngineInput {
 //TODO: Controller input HTML5 Gamepad
 //TODO: Touch? Other?
 class InputType extends NamedRange {
-    static MoveForward = new InputType('MOVE-FORWARD');
+    static MoveForward = new InputType('MOVE-UP');
     static MoveLeft = new InputType('MOVE-LEFT');
     static MoveRight = new InputType('MOVE-RIGHT');
-    static MoveBack = new InputType('MOVE-BACK');
+    static MoveBack = new InputType('MOVE-DOWN');
 
-    static ActionForward = new InputType('ACTION-FORWARD');
+    static ActionForward = new InputType('ACTION-UP');
     static ActionLeft = new InputType('ACTION-LEFT');
     static ActionRight = new InputType('ACTION-RIGHT');
-    static ActionBack = new InputType('ACTION-BACK');
+    static ActionBack = new InputType('ACTION-DOWN');
 
     static Escape = new InputType('ESCAPE');
 

@@ -10,8 +10,8 @@ var player;
 
 $(function () {
     StartUp();
-    $('#btnHome').click(function (evt) {
-        window.location.href = '../index.html';
+    $('#btnRestart').click(function (evt) {
+        location.reload();
     });
 });
 async function StartUp() {
@@ -21,12 +21,13 @@ async function StartUp() {
 async function InitialiseGame() {
     //TODO: Level select
     //TODO: Easy, Med & Hard maps
+    //TODO: Rewrite, not all of this is right or needed but the canvas currently does function. Size & events need reviewing.
     console.log("--------------------------INITIALISING---------------------------");
     //TODO: Move into engine
     canvas = initCanvas();
     await AssetDataAccess.Initialise();
     map = AssetDataAccess.GetMap("LabyrinthMap");//TODO: Param passed from level select.
-    game = new Game(map, function () { location.reload() });
+    game = new Game(map, function () { location.reload(); });
     Game.Current.InitialiseGame();
     player = game.World.GetPlayerEntity();
 
@@ -34,7 +35,8 @@ async function InitialiseGame() {
     engineInput = new EngineInput(playerInput);
 
     engine = new Engine(game, TickFrequency);
-    input = new WebInput(engineInput);
+    var controls = await GameControls.GetControls();
+    input = new WebInput(engineInput, controls);
 
     canvas.keyup(CanvasKeydown);
     setInterval(EngineTick, TickFrequency);//10 ticks per second
@@ -56,22 +58,17 @@ function EngineTick() {
 
 function initCanvas() {
     var canvas = $('#canvGameArea');
-    canvas.focus();
-    canvas.width = document.body.clientWidth; //document.width is obsolete
-    canvas.height = document.body.clientHeight; //document.height is obsolete
 
     $(window).bind("resize", function () {
         resizeCanvas(canvas);
     });
 
     resizeCanvas(canvas);
+    var ctx = $(canvas)[0].getContext("2d");
 
-    if (canvas.getContext) {
-        var ctx = canvas.getContext("2d");
+    ctx.fillStyle = 'black';
+    ctx.fillRect(20, 20, canvas.width, canvas.height);
 
-        ctx.fillStyle = "blue";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
 
     //$(canvas)[0].webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT); //Chrome
     //$(canvas)[0].mozRequestFullScreen(); //Firefox

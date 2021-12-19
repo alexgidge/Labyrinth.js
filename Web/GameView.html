@@ -13,6 +13,9 @@
         padding: 0 !important;
         overflow: hidden;
       }
+      canvas {
+        background-color: #130b13;
+      }
     </style>
     <!-- TODO: modules and import -->
     <script src="../node_modules/howler/dist/howler.core.min.js"></script>
@@ -43,6 +46,7 @@
     <script src="../Game/Item/Item.js"></script>
     <script src="../Game/Game.js"></script>
     <script src="../Game/TurnManager.js"></script>
+    <script src="../Game/GameControls.js"></script>
     <!--Engine-->
     <!--IOC needed to reorder these-->
     <script src="../Engine/Engine.js"></script>
@@ -50,13 +54,17 @@
     <script src="../Engine/Graphics.js"></script>
     <script src="../Engine/Input.js"></script>
     <!--Web View-->
+
+    <script src="PlayerPrefs.js"></script>
     <script src="WebInput.js"></script>
     <script src="GameView.js"></script>
+    <script src="header.js"></script>
 
     <button id="btnHome">Home</button>
+    <button id="btnRestart">Restart</button>
     <p>Game</p>
     <div id="divCanvas">
-      <canvas id="canvGameArea" width="500" height="500" tabindex="1">Game Canvas</canvas>
+      <canvas id="canvGameArea" width="250" height="250" tabindex="1">Game Canvas</canvas>
     </div>
   </body>
 </html>

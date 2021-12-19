@@ -8,23 +8,37 @@ class AssetDataAccess {
         console.log(AssetDataAccess.MapAssets);
         return (AssetDataAccess.AudioAssets && AssetDataAccess.MapAssets);
     }
+    static async GetJSONFileData(filename) {
+        var data = await fetch('../Assets/' + filename, {
+            credentials: 'same-origin'
+        })
+            .then(response => response.json())
+        return data;
+    }
     static async LoadAudioAssets() {
-        if (!AssetDataAccess.MapAssets) {
-            var maps = await fetch('../Assets/maps.json', {
-                credentials: 'same-origin'
-            })
-                .then(response => response.json())
-                .then(data => AssetDataAccess.MapAssets = data);
+        if (!AssetDataAccess.AudioAssets) {
+            var audio = await AssetDataAccess.GetJSONFileData('audio.json');
+            AssetDataAccess.AudioAssets = audio;
         }
     }
     static async LoadMapAssets() {
-        if (!AssetDataAccess.AudioAssets) {
-            var audioAssets = await fetch('../Assets/audio.json', {
-                credentials: 'same-origin'
-            })
-                .then(response => response.json())
-                .then(data => AssetDataAccess.AudioAssets = data);
+        if (!AssetDataAccess.MapAssets) {
+            var maps = await AssetDataAccess.GetJSONFileData('maps.json');
+            AssetDataAccess.MapAssets = maps;
         }
+    }
+    static async LoadSettingsDefaults() {
+        if (!AssetDataAccess.MapAssets) {
+            var maps = await AssetDataAccess.GetJSONFileData('settings.json');
+            AssetDataAccess.MapAssets = maps;
+        }
+    }
+    static async LoadControlMappings() {
+        if (!AssetDataAccess.ControlMappings) {
+            var controls = await AssetDataAccess.GetJSONFileData('controls.json');
+            AssetDataAccess.ControlMappings = controls;
+        }
+        return AssetDataAccess.ControlMappings;
     }
     static GetAudioAsset(assetName) {//TODO: You guessed it - refactor.
         var assets = AssetDataAccess.AudioAssets;

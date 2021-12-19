@@ -1,3 +1,11 @@
 {
-    
+    "Controls":[
+    {"action":"MOVE-UP", "text":"Up Movement", "key":"87"},
+    {"action":"MOVE-LEFT", "text":"Left Movement", "key":"65"},
+    {"action":"MOVE-DOWN", "text":"Down Movement", "key":"83"},
+    {"action":"MOVE-RIGHT", "text":"Right Movement", "key":"68"},
+    {"action":"ACTION-UP", "text":"Up Action", "key":"38"},
+    {"action":"ACTION-LEFT", "text":"Left Action", "key":"37"},
+    {"action":"ACTION-DOWN", "text":"Down Action", "key":"40"},
+    {"action":"ACTION-RIGHT", "text":"Right Action", "key":"39"}]
 }
