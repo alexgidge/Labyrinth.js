@@ -754,8 +754,8 @@
                         "minDamage": 100,
                         "maxDamage": 100,
                         "maxHealth": 200,
-                        "turnsPerMove": 128,
-                        "turnsPerAttack": 256
+                        "turnsPerMove": 177,
+                        "turnsPerAttack": 100
                     },
                     {
                         "CharacterType": "BEAST",
@@ -765,7 +765,7 @@
                         "minDamage": 25,
                         "maxDamage": 25,
                         "maxHealth": 50,
-                        "turnsPerMove": 45,
+                        "turnsPerMove": 47,
                         "turnsPerAttack": 16
                     },
                     {
