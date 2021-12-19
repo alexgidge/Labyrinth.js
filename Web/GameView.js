@@ -1,12 +1,8 @@
 const TickFrequency = 100; //100ms per tick or 10 ticks per second. The game can then handle each tick as it needs
 
-var engine;
-var webInput;
-var playerInput;
-var engineInput;
 var GameCanvas;//TODO: Move to graphics
-var game;
-var player;
+var CurrentPlayer;
+var CurrentEngine;
 
 $(function () {
     StartUp();
@@ -27,21 +23,30 @@ async function StartUp() {
     await StartGame();
 }
 async function InitialiseGame(mapName) {
-    map = await AssetDataAccess.GetMap(mapName);//TODO: Param passed from level select.
-    game = new Game(map, function () { location.reload(); });
-    Game.Current.InitialiseGame();
-    player = game.World.GetPlayerEntity();
+    var engineGraphics = new EngineGraphics();
+    var engineAudio = new EngineAudio();
 
-    playerInput = new PlayerInput(player)
-    engineInput = new EngineInput(playerInput);
+    var map = await AssetDataAccess.GetMap(mapName);//TODO: Param passed from level select.
+    var game = new Game(map, function () { location.reload(); });
+    game.InitialiseGame();
 
-    engine = new Engine(game, TickFrequency);
-    var controls = await GameControls.GetControls();
-    input = new WebInput(engineInput, controls);
+    CurrentEngine = new Engine(game, engineGraphics, engineAudio, TickFrequency);
 }
 
 async function StartGame() {
-    Game.Current.GameStart();
+
+
+    CurrentEngine.Game.GameStart();
+
+    CurrentPlayer = CurrentEngine.Game.World.GetPlayerEntity();
+
+    var playerInput = new PlayerInput(CurrentPlayer)
+    var engineInput = new EngineInput(playerInput);
+
+    var controls = await GameControls.GetControls();
+    input = new WebInput(engineInput, controls);
+
+
     setInterval(EngineTick, TickFrequency);//10 ticks per second
 }
 
@@ -50,7 +55,16 @@ function CanvasKeydown(e) {
 }
 
 function EngineTick() {
-    engine.Tick();
+    CurrentEngine.Tick();
+    DisplayText();
+}
+
+function DisplayText() {
+    var nextText = CurrentEngine.EngineGraphics.GetNextDisplayText();
+    if (nextText) {
+        //TODO: Add the text instead of replace
+        $('#divGameText').text(nextText);
+    }
 }
 
 function initCanvas() {

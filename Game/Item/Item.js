@@ -41,12 +41,15 @@ class Item extends WorldModule {
                 Game.Current.GameOver(GameStateType.Completed.Value);//TODO: Different item types/events/triggers
             } else if (this.ItemState == ItemState.Locked.Value) {
                 if (this.Unlock(items) == true) {
-                    EngineAudio.PlaySound(this.World, this.ItemType, this.unlockSound, false, location.x, location.y);
+                    Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.unlockSound, false, location.x, location.y);
+                    Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " unlocked");
                 } else {
-                    EngineAudio.PlaySound(this.World, this.ItemType, this.useLocked, false, location.x, location.y);
+                    Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.useLocked, false, location.x, location.y);
+                    Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " is locked");
                 }
             } else if (this.ItemState == ItemState.Disabled.Value) {
-                EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, false, location.x, location.y);
+                Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, false, location.x, location.y);
+                Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " cannot be used.");
             }
         }
     }
@@ -55,7 +58,8 @@ class Item extends WorldModule {
         if (characterType == CharacterType.Player.Value) {
             if (this.ItemState == ItemState.Enabled.Value && this.Pickupable == true) {
                 this.ItemState = ItemState.Disabled.Value;
-                EngineAudio.PlaySound(this.World, this.ItemType, this.pickupSound, false, location.x, location.y);
+                Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.pickupSound, false, location.x, location.y);
+                Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " picked up");
                 return true;
             } else {
                 return false;

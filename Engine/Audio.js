@@ -1,10 +1,5 @@
 class EngineAudio {
-    //TODO: Preload audio files into cache on level start.
-    constructor(audioAssetsJSON) {
-        this.AudioAssets = audioAssetsJSON;
-    }
-
-    static async PlaySound(world, SoundEntity, SoundName, looping = false, audioX = 0, audioY = 0, audioZ = 0)//TODO: Sound library instead of passing file path
+    async PlaySound(world, SoundEntity, SoundName, looping = false, audioX = 0, audioY = 0, audioZ = 0)//TODO: Sound library instead of passing file path
     {//TODO: Delays
         try {
             var playerPosition = world.GetPlayerEntity().Transform.Position;

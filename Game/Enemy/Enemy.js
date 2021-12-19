@@ -36,6 +36,7 @@ class Enemy extends Character {
 
     OnDeath() {
         //TODO: Handle eneny deaths
+        Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.Type + " passed away.");
     }
     OnSpawn() {
         //TODO: Handle enemy spawn?

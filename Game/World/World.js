@@ -1,8 +1,10 @@
 class World {//TODO: Rename, refactor & separate populate from running logic.
     constructor(map) {
         this.currentMap = map;
-        //TODO: Spawn etc.
         this.Entities = [];
+    }
+
+    LoadWorld() {
         this.FillMap();
         this.SpawnMapCharacters();
         this.SpawnMapItems();

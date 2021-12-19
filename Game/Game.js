@@ -27,6 +27,7 @@ class Game {
     GameStart() {
         if (GameStateType.Compare(this.GameState, GameStateType.New)) {
             this.GameState = GameStateType.Playing.Value;
+            this.World.LoadWorld();
             //TODO: Start ambience FX 
             //TODO: Start game/story/scenario
             //TODO: Play intro scene/cinematic
@@ -52,13 +53,14 @@ class Game {
         var restartTime = 10000;
         if (gameState == GameStateType.Dead.Value) {
             restartTime = 4000;
-            EngineAudio.PlaySound(this.World, "GAME", 'GAME-LOSE', false, player.Transform.Position.x, player.Transform.Position.y);
+            Engine.Current.EngineAudio.PlaySound(this.World, "GAME", 'GAME-LOSE', false, player.Transform.Position.x, player.Transform.Position.y);
+            Engine.Current.EngineGraphics.AddTextToDisplayQueue("you died");
         }
         else if (gameState == GameStateType.Completed.Value) {
             //TODO: Read out game time?
             restartTime = 30000;
-            EngineAudio.PlaySound(this.World, "GAME", 'GAME-WIN', false, player.Transform.Position.x, player.Transform.Position.y);
-
+            Engine.Current.EngineAudio.PlaySound(this.World, "GAME", 'GAME-WIN', false, player.Transform.Position.x, player.Transform.Position.y);
+            Engine.Current.EngineGraphics.AddTextToDisplayQueue("you made it");
         }
         setTimeout(this.Restart, restartTime);
     }
