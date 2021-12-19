@@ -16,7 +16,7 @@ class Character extends WorldModule {
     drawWeapon = 'DRAW-WEAPON';
     Emote = 'EMOTE';
 
-    constructor(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
+    constructor(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack, team) {
         super();
         this.World = world;
         //Defaults: overridden in extended classes
@@ -32,6 +32,7 @@ class Character extends WorldModule {
         this.LastMoveTurn = 0;
         this.LastAttackTurn = 0;
         this.LastEmoteTurn = 0;
+        this.Team = team;
         this.Items = [];
     }
     Spawn(location) {
@@ -87,7 +88,7 @@ class Character extends WorldModule {
 
                 if (entitiesAtTargetLoc && entitiesAtTargetLoc.length > 0) {//TODO: Move logic?
                     entitiesAtTargetLoc.forEach(element => {
-                        if (element.EntityType == EntityType.Character.Value && element.Module.State == CharacterStateType.Alive.Value) {
+                        if (element.EntityType == EntityType.Character.Value && element.Module.State == CharacterStateType.Alive.Value && element.Module.Team != this.Team) {
                             this.OnAttackHit(targetLocation);
                             element.Module.TakeDamage(targetLocation, this.CalculateDamage());
                         } else if (element.EntityType == EntityType.Tile.Value) {

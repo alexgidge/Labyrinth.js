@@ -16,7 +16,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
     }
     SpawnMapCharacters() {
         this.currentMap.Room.Spawns.forEach(element => {
-            this.SpawnCharacter(element.CharacterType, element.x, element.y, element.minDamage, element.maxDamage, element.maxHealth, element.turnsPerMove, element.turnsPerAttack);
+            this.SpawnCharacter(element.CharacterType, element.x, element.y, element.minDamage, element.maxDamage, element.maxHealth, element.turnsPerMove, element.turnsPerAttack, element.Team);
         })
     }
     SpawnMapItems() {
@@ -25,14 +25,14 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         })
     }
 
-    SpawnCharacter(characterType, _x, _y, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
+    SpawnCharacter(characterType, _x, _y, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack, team) {
         var position = new Vector2(_x, _y);
         var character;
         if (characterType == CharacterType.Player.Value) {
-            character = new Player(this, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);
+            character = new Player(this, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack, team);
         }
         else {
-            character = new Enemy(this, characterType, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);//TODO: Load different enemy types
+            character = new Enemy(this, characterType, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack, team);//TODO: Load different enemy types
         }
         var transform = new WorldTransform(position)
         var entity = new WorldEntity(transform, character, EntityType.Character.Value);

@@ -1,6 +1,6 @@
 class Enemy extends Character {
-    constructor(world, characterType, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
-        super(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack);
+    constructor(world, characterType, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack, team) {
+        super(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack, team);
         this.Type = characterType;
         this.State = CharacterStateType.Alive.Value;
     }
