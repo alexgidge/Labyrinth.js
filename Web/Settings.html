@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html lang="en-gb">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Labyrinth | Audio Game</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <style>
-        html,
-        body {
-            margin: 0 !important;
-            padding: 0 !important;
-            overflow: hidden;
-        }
+      html,
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden;
+      }
     </style>
-    <script src='../node_modules/howler/dist/howler.core.min.js'></script>
-    <script src='../node_modules/howler/dist/howler.spatial.min.js'></script>
-    <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+    <script src="../node_modules/howler/dist/howler.core.min.js"></script>
+    <script src="../node_modules/howler/dist/howler.spatial.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="Playerprefs.js"></script>
-    <script src='Settings.js'></script>
+    <script src="Settings.js"></script>
     <script src="header.js"></script>
-    <h1>Settings</h1>
+    <h1>Game Settings</h1>
     <p>These settings are currently only saved in the browser so may break and reset back to default.</p>
-    <button id='btnHome'>Home</button>
-    <form id='frmSettings' name='settings'>
-        <h3>Game Settings</h3>
-        <p>game settings to be added</p>
-        <h3>Audio Settings</h3>
-        <input type='checkbox' id='chkAudioToggle' name="AudioEnabled" value="true" checked="true">Audio Enabled</input>
-        <h3>Graphics Settings</h3>
-        <input type='checkbox' id='chkGraphicsToggle' name="GraphicsEnabled" value="true" checked="true">Graphics Enabled</input>
-        <br/><br/>
-        <button id='btnSave'>Save</button>
+    <button id="btnHome">Home</button>
+    <form id="frmSettings" name="settings">
+      <h3>Game Settings</h3>
+      <p>game settings to be added</p>
+      <br /><br />
+      <div id="divFormContent"></div>
+      <button id="btnSave">Save</button>
     </form>
-</body>
-
+  </body>
 </html>

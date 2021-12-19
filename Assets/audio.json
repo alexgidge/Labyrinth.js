@@ -1,134 +1,84 @@
 {
-    "Example": {
-        "Donut":"Don't use, it's just an example.",
-        "PLAYER": "123.mp3",
-        "CHAINS": "456.mp3",
-        "BEAST": "456.mp3",
-        "GHOST": "456.mp3"
+    "GAME": {
+        "ID":"GAME",
+        "Name":"Game Sounds",
+        "GroupVolume":0.99,
+        "Type":"Game",
+        "Sounds":[
+                {"SoundName":"GAME-WIN", "File": "west_wolf_Beach_Sea_Waves.mp3", "Volume":0.5},
+                {"SoundName":"GAME-LOSE", "File": "Blastwave_FX_RattlesnakeShakeTail_BWU.58.mp3", "Volume":0.7}
+            ]
     },
-    "SpawnSound": {
-        "name": "SpawnSound",
-        "PLAYER": "Cavernousdrippingdrone.mp3",
-        "EYE": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3",
-        "BEAST": "zapsplat_animals_bear_grunt_002_17144.mp3"
-    },
-    "SwordClash": {
-        "name": "SwordClash",
-        "PLAYER": "warfare_swords_x_2_hit_001.mp3",
-        "EYE": "warfare_swords_x_2_hit_001.mp3",
-        "BEAST": "warfare_swords_x_2_hit_001.mp3"
-    },
-    "Breathe": {
-        "name": "Breathe",
-        "PLAYER": "zapsplat_human_male_breathing_out_exhale_single_fast_happy_relief_002_75264.mp3",
-        "EYE": "zapsplat_human_male_breathing_out_exhale_single_fast_happy_relief_002_75264.mp3",
-        "BEAST": "zapsplat_human_male_breathing_out_exhale_single_fast_happy_relief_002_75264.mp3"
-    },
-    "Ticking": {
-        "name": "Ambient",
-        "PLAYER": "tspt_alarm_clock_ticking_loop_002.mp3",
-        "EYE": "tspt_alarm_clock_ticking_loop_002.mp3",
-        "BEAST": "tspt_alarm_clock_ticking_loop_002.mp3"
-    },
-    "UseDisabled":{
-        "name": "UseDisabled",
-        "DOOR2": "zapsplat_household_door_front_wooden_knocks_fist_hard_21929.mp3",
-        "DOOR":"zapsplat_household_door_handle_try_open_locked_001_10218.mp3"
-    },
-    "Unlock":{
-        "name": "Unlock",
-        "DOOR": "zapsplat_multimedia_game_sound_door_open_magical_unlock_level_secret_001_73548.mp3"
-    },
-    "UseEnabled":{
-        "name": "UseEnabled"
-    },
-    "Pickup":{
-        "name": "Pickup",
-        "KEY":"zapsplat_household_keys_bunch_small_jingle_004_76303.mp3"
-    },
-    "SwingSword": {
-        "name": "SwingSword",
-        "PLAYER": "warfare_medieval_katana_sword_swing_001.mp3",
-        "EYE": "zapsplat_foley_air_blow_inside_small_tube_pipe_short_burst_recorded_at_opening_001_32071.mp3",
-        "BEAST": "zapsplat_foley_wood_bambo_swoosh_through_air_002.mp3"
-    },
-    "DrawWeapon": {
-        "name": "DrawWeapon",
-        "PLAYER": "warfare_sword_pulled_from_sheath_british_naval_cutlass_19thc_002.mp3",
-        "EYE": "warfare_sword_pulled_from_sheath_british_naval_cutlass_19thc_002.mp3",
-        "BEAST": "warfare_sword_pulled_from_sheath_british_naval_cutlass_19thc_002.mp3"
-    },
-    "CharacterFootsteps": {
-        "name": "CharacterFootsteps",
-        "PLAYER": "zapsplat_foley_footsteps_football_boots_running_on_grass_75689Short.mp3",
-        "EYE":"zapsplat_industrial_chain_med_sized_drag_short_on_concrete_paving_slab_001_59466.mp3",
-        "BEAST":  "animals_mouse_or_other_rodent_scuttle_across_carpet(short).mp3"
-    },
-    "ICanSeeYouFast": {
-        "name": "ICanSeeYouFast",
-        "EYE": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_003_58858.mp3",
-        "BEAST": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_here_glitchy_recorded_lo_fi_processed_004_58855.mp3"
-    },
-    "ICanSeeYouSlow": {
-        "name": "ICanSeeYouSlow",
-        "EYE": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_004_58859.mp3",
-        "BEAST": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_here_glitchy_recorded_lo_fi_processed_004_58855.mp3"
-    },
-    "SwordHitWall": {
-        "name": "SwordHitWall",
-        "PLAYER": "zapsplat_impacts_swoosh_into_metal_thud_hit_002_43406.mp3",
-        "EYE": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3",
-        "BEAST": "zapsplat_animals_bear_grunt_002_17144.mp3"
-    },
-    "BounceOffWall": {
-        "name": "BounceOffWall",
-        "PLAYER": "zapsplat_sport_basket_ball_hard_bounce_x1_on_asphalt_concrete_008_71152.mp3",
-        "EYE": "zapsplat_sport_basket_ball_hard_bounce_x1_on_asphalt_concrete_008_71152.mp3",
-        "BEAST": "zapsplat_sport_basket_ball_hard_bounce_x1_on_asphalt_concrete_008_71152.mp3"
-    },
-    "DamageTakenAudio": {
-        "name": "DamageTakenAudio",
-        "PLAYER": "zapsplat_human_male_vocalisation_hit_pain_short_001_66499.mp3",
-        "EYE": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3",
-        "BEAST": "zapsplat_animals_bear_grunt_002_17144.mp3"
-    },
-    "CharacterDeath": {
-        "name": "CharacterDeath",
-        "PLAYER": "johnj_human_impact_weapon_body_fall_sword_or_bat.mp3",
-        "EYE": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_says_death_002_71041.mp3",
-        "BEAST": "horror_monster_ill_or_dying_moan.mp3"
-    },
-    "CharacterDoesDamage": {
-        "name": "CharacterDoesDamage",
-        "PLAYER": "zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3",
-        "EYE": "zapsplat_foley_air_blow_across_top_of_metal_pipe_003_10610.mp3",
-        "BEAST": "audio_mangler_whoosh_fee_10_072.mp3"
-    },
-    "KillDealt": {
-        "name": "KillDealt",
-        "PLAYER": "zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3",
-        "EYE": "zapsplat_foley_air_blow_across_top_of_metal_pipe_003_10610.mp3",
-        "BEAST": "Robot-Rhythm.mp3"
-    },
-    "Denied1": {
-        "name": "Denied1",
-        "PLAYER": "zapsplat_multimedia_game_error_tone_007_24925.mp3",
-        "EYE": "zapsplat_multimedia_game_error_tone_007_24925.mp3",
-        "BEAST": "zapsplat_multimedia_game_error_tone_007_24925.mp3"
-    },
-    "Denied2": {
-        "name": "Denied2",
-        "PLAYER": "zapsplat_multimedia_game_error_tone_006_24924.mp3",
-        "EYE": "zapsplat_multimedia_game_error_tone_006_24924.mp3",
-        "BEAST": "zapsplat_multimedia_game_error_tone_006_24924.mp3"
-    },
-    "GameOver":{
-        "name":"GameOver",
-        "GAME" : "Blastwave_FX_RattlesnakeShakeTail_BWU.58.mp3"
-    },
-    "GameSuccess":{
-        "name":"GameSuccess",
-        "GAME":"west_wolf_Beach_Sea_Waves.mp3"
-    }
-
+    "PLAYER": {
+        "ID":"PLAYER",
+        "Name":"Player Sounds",
+        "GroupVolume":1,
+        "Type":"Character",
+        "Sounds":[
+                {"SoundName":"SPAWN", "File": "Cavernousdrippingdrone.mp3", "Volume":0.3},
+                {"SoundName":"DRAW-WEAPON", "File": "warfare_sword_pulled_from_sheath_british_naval_cutlass_19thc_002.mp3", "Volume":1},
+                {"SoundName":"EMOTE", "File": "zapsplat_human_male_breathing_out_exhale_single_fast_happy_relief_002_75264.mp3", "Volume":1},
+                {"SoundName":"WALK", "File":  "zapsplat_foley_footsteps_football_boots_running_on_grass_75689Short.mp3", "Volume":1},
+                {"SoundName":"WALK-BUMP", "File": "zapsplat_sport_basket_ball_hard_bounce_x1_on_asphalt_concrete_008_71152.mp3", "Volume":1},
+                {"SoundName":"ATTACK", "File": "warfare_medieval_katana_sword_swing_001.mp3", "Volume":1},
+                {"SoundName":"ATTACK-BUMP", "File": "zapsplat_impacts_swoosh_into_metal_thud_hit_002_43406.mp3", "Volume":1},
+                {"SoundName":"DAMAGE-TAKEN", "File": "zapsplat_human_male_vocalisation_hit_pain_short_001_66499.mp3", "Volume":1},
+                {"SoundName":"DEATH", "File": "johnj_human_impact_weapon_body_fall_sword_or_bat.mp3", "Volume":1},
+                {"SoundName":"DAMAGE-DEALT", "File": "zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3", "Volume":1},
+                {"SoundName":"KILL-DEALT", "File": "zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3", "Volume":1},
+                {"SoundName":"ATTACK-DENIED", "File": "zapsplat_multimedia_game_error_tone_007_24925.mp3", "Volume":0.3},
+                {"SoundName":"WALK-DENIED", "File": "zapsplat_multimedia_game_error_tone_006_24924.mp3", "Volume":0.3}]
+        },
+        "EYE": {
+            "ID":"EYE",
+            "Name":"Eye man Sounds",
+            "GroupVolume":1,
+            "Type":"Character",
+            "Sounds":[
+                    {"SoundName":"SPAWN", "File": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3", "Volume":1},
+                    {"SoundName":"EMOTE", "File": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_003_58858.mp3", "Volume":1},
+                    {"SoundName":"WALK", "File":  "zapsplat_industrial_chain_med_sized_drag_short_on_concrete_paving_slab_001_59466.mp3", "Volume":1},
+                    {"SoundName":"ATTACK", "File": "zapsplat_foley_air_blow_inside_small_tube_pipe_short_burst_recorded_at_opening_001_32071.mp3", "Volume":1},                    
+                    {"SoundName":"ATTACK-BUMP", "File": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3", "Volume":1},
+                    {"SoundName":"DAMAGE-TAKEN", "File": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3", "Volume":1},
+                    {"SoundName":"DEATH", "File": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_says_death_002_71041.mp3", "Volume":1},
+                    {"SoundName":"DAMAGE-DEALT", "File": "zapsplat_foley_air_blow_across_top_of_metal_pipe_003_10610.mp3", "Volume":1},
+                    {"SoundName":"KILL-DEALT", "File": "zapsplat_foley_air_blow_across_top_of_metal_pipe_003_10610.mp3", "Volume":1}]
+            },  
+        "BEAST": {
+                "ID":"BEAST",
+                "Name":"Beast Sounds",
+                "GroupVolume":1,
+                "Type":"Character",
+                "Sounds":[
+                        {"SoundName":"SPAWN", "File": "zapsplat_animals_bear_grunt_002_17144.mp3", "Volume":1},
+                        {"SoundName":"EMOTE", "File": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_here_glitchy_recorded_lo_fi_processed_004_58855.mp3", "Volume":1},
+                        {"SoundName":"WALK", "File":  "animals_mouse_or_other_rodent_scuttle_across_carpet(short).mp3", "Volume":1},
+                        {"SoundName":"ATTACK", "File": "zapsplat_foley_wood_bambo_swoosh_through_air_002.mp3", "Volume":1},                    
+                        {"SoundName":"ATTACK-BUMP", "File": "zapsplat_animals_bear_grunt_002_17144.mp3", "Volume":1},
+                        {"SoundName":"DAMAGE-TAKEN", "File": "zapsplat_animals_bear_grunt_002_17144.mp3", "Volume":1},
+                        {"SoundName":"DEATH", "File": "horror_monster_ill_or_dying_moan.mp3", "Volume":1},
+                        {"SoundName":"DAMAGE-DEALT", "File": "audio_mangler_whoosh_fee_10_072.mp3", "Volume":1},
+                        {"SoundName":"KILL-DEALT", "File": "Robot-Rhythm.mp3", "Volume":1}]
+                },
+        "DOOR":{
+            "ID":"DOOR",
+            "Name":"Door Sounds",
+            "Type":"Item",
+            "GroupVolume":1,
+            "Sounds":[
+                    {"SoundName":"USE-DISABLED", "File": "zapsplat_household_door_front_wooden_knocks_fist_hard_21929.mp3", "Volume":1},
+                    {"SoundName":"USE-LOCKED", "File":  "zapsplat_household_door_handle_try_open_locked_001_10218.mp3", "Volume":1},
+                    {"SoundName":"UNLOCK", "File":  "zapsplat_multimedia_game_sound_door_open_magical_unlock_level_secret_001_73548.mp3", "Volume":1}
+                ]
+            },
+                    "KEY":{
+            "ID":"KEY",
+            "Name":"Key Sounds",
+            "Type":"Item",
+            "GroupVolume":1,
+            "Sounds":[
+                    {"SoundName":"PICKUP", "File": "zapsplat_household_keys_bunch_small_jingle_004_76303.mp3", "Volume":1}
+                ]
+            }
 }

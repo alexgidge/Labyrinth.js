@@ -1,8 +1,9 @@
 class Item extends WorldModule {
-    useEnabled = 'UseEnabled';
-    useDisabled = 'UseDisabled';
-    pickupSound = 'Pickup';
-    unlockSound = 'Unlock';
+    useEnabled = 'USE';
+    useDisabled = 'USE-DISABLED';
+    useLocked = 'USE-LOCKED';
+    pickupSound = 'PICKUP';
+    unlockSound = 'UNLOCK';
 
     constructor(world, itemType, itemState, pickupable, lockable, unlockedby) {
         super();
@@ -37,16 +38,15 @@ class Item extends WorldModule {
     Use(characterType, location, items) {
         if (characterType == CharacterType.Player.Value) {
             if (this.ItemState == ItemState.Enabled.Value) {
-                EngineAudio.PlaySound(this.World, this.ItemType, this.useEnabled, 1, false, location.x, location.y);
-                Game.Current.GameOver(GameStateType.Completed.Value);
+                Game.Current.GameOver(GameStateType.Completed.Value);//TODO: Different item types/events/triggers
             } else if (this.ItemState == ItemState.Locked.Value) {
                 if (this.Unlock(items) == true) {
-                    EngineAudio.PlaySound(this.World, this.ItemType, this.unlockSound, 1, false, location.x, location.y);
+                    EngineAudio.PlaySound(this.World, this.ItemType, this.unlockSound, false, location.x, location.y);
                 } else {
-                    EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, 1, false, location.x, location.y);
+                    EngineAudio.PlaySound(this.World, this.ItemType, this.useLocked, false, location.x, location.y);
                 }
             } else if (this.ItemState == ItemState.Disabled.Value) {
-                EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, 1, false, location.x, location.y);
+                EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, false, location.x, location.y);
             }
         }
     }
@@ -55,7 +55,7 @@ class Item extends WorldModule {
         if (characterType == CharacterType.Player.Value) {
             if (this.ItemState == ItemState.Enabled.Value && this.Pickupable == true) {
                 this.ItemState = ItemState.Disabled.Value;
-                EngineAudio.PlaySound(this.World, this.ItemType, this.pickupSound, 1, false, location.x, location.y);
+                EngineAudio.PlaySound(this.World, this.ItemType, this.pickupSound, false, location.x, location.y);
                 return true;
             } else {
                 return false;

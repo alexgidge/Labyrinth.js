@@ -4,19 +4,23 @@ class EngineAudio {
         this.AudioAssets = audioAssetsJSON;
     }
 
-    static PlaySound(world, soundCharacter, SoundName, volumeMultiplier = 1, looping = false, audioX = 0, audioY = 0, audioZ = 0)//TODO: Sound library instead of passing file path
+    static PlaySound(world, SoundEntity, SoundName, looping = false, audioX = 0, audioY = 0, audioZ = 0)//TODO: Sound library instead of passing file path
     {//TODO: Delays
         try {
             var playerPosition = world.GetPlayerEntity().Transform.Position;
-            var filename = AssetDataAccess.GetAudioAsset(SoundName)[soundCharacter];
-            var location = "../Assets/Audio/" + filename;
+            var soundMeta = AssetDataAccess.GetAudioAsset(SoundEntity, SoundName);
+
+            var location = "../Assets/Audio/" + soundMeta.File;
 
             var distance = 1;
             var diffX = (audioX - playerPosition.x) * 2;//TODO: Remove *2
             var diffY = audioZ - 0;//audioY - playerPosition.y;
             var diffZ = (audioY - playerPosition.y) * 2;
+            if (!soundMeta.Volume) {
+                soundMeta.Volume = 1;//Default for non-specified audio
+            }
 
-            var soundVolume = (1 * volumeMultiplier * distance);//TODO: Distance multiplier based on path finding in addition to the spatial audio
+            var soundVolume = (1 * soundMeta.Volume * distance);//TODO: Distance multiplier based on path finding in addition to the spatial audio
 
             var sound = new Howl({
                 src: [location],
@@ -30,7 +34,7 @@ class EngineAudio {
             sound.pos(diffX, diffY, diffZ, walking);
         } catch (err) {
             //TODO: Error handling & logging
-            console.log("ERROR - Audio: " + SoundName);//TODO: Proper logging
+            console.log("ERROR - Audio: " + SoundName + " \n-----error-----\n" + err);//TODO: Proper logging
         }
     }
 }

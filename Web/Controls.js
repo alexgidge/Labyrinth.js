@@ -4,11 +4,9 @@ $(function () {
 });
 
 async function PopulateCurrentControls() {
-    var settings = await GameControls.GetControls();
-    $('#divKeyMappingsList').html(settings.map(KeyMappingTemplate).join(''));
-
-    //TODO: Dedupe
-    return settings;
+    var controls = await GameControls.GetControls();
+    $('#divKeyMappingsList').html(controls.map(KeyMappingTemplate).join(''));
+    return controls;
 }
 
 function SaveControls() {

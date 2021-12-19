@@ -13,8 +13,6 @@ class Game {
         this.TileMap = tileMap;
         this.TurnManager = new TurnManager();
         this.Restart = onRestart;
-        this.gameOverAudio = 'GameOver';
-        this.gameSuccessAudio = 'GameSuccess';
         Game.Current = this;
     }
 
@@ -54,12 +52,12 @@ class Game {
         var restartTime = 10000;
         if (gameState == GameStateType.Dead.Value) {
             restartTime = 4000;
-            EngineAudio.PlaySound(this.World, "GAME", this.gameOverAudio, 0.1, false, player.Transform.Position.x, player.Transform.Position.y);
+            EngineAudio.PlaySound(this.World, "GAME", 'GAME-LOSE', false, player.Transform.Position.x, player.Transform.Position.y);
         }
         else if (gameState == GameStateType.Completed.Value) {
             //TODO: Read out game time?
             restartTime = 30000;
-            EngineAudio.PlaySound(this.World, "GAME", this.gameSuccessAudio, 0.1, false, player.Transform.Position.x, player.Transform.Position.y);
+            EngineAudio.PlaySound(this.World, "GAME", 'GAME-WIN', false, player.Transform.Position.x, player.Transform.Position.y);
 
         }
         setTimeout(this.Restart, restartTime);

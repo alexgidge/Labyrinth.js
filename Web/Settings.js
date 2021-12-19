@@ -7,10 +7,18 @@ $(function () {
     $('#btnSave').click(function (evt) {
         console.log("----- Save Settings -----");
         //TODO: Display save success
-        var entries = $('#frmSettings').serializeArray();
-        //TODO: Attempt to save to settings JSON file
-        entries.forEach(element => {
-            console.log(element);
-        });
+        SaveSettings();
     });
 });
+
+async function PopulateCurrentSettings() {
+    var settings = await GameControls.GetPlayerPref('GameSettings');
+    //TODO: Populate form
+
+    return settings;
+}
+
+function SaveSettings() {
+    var formSettings = $('#frmSettings').serializeArray();
+    PlayerPrefs.SavePlayerPref('GameSettings', formSettings);
+}

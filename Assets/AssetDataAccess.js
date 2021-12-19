@@ -4,6 +4,7 @@ class AssetDataAccess {
     static async Initialise() {
         await AssetDataAccess.LoadAudioAssets();
         await AssetDataAccess.LoadMapAssets();
+        //TODO: Load default settings & controls
         console.log(AssetDataAccess.AudioAssets);
         console.log(AssetDataAccess.MapAssets);
         return (AssetDataAccess.AudioAssets && AssetDataAccess.MapAssets);
@@ -40,10 +41,16 @@ class AssetDataAccess {
         }
         return AssetDataAccess.ControlMappings;
     }
-    static GetAudioAsset(assetName) {//TODO: You guessed it - refactor.
+    static GetAudioAsset(entityType, soundName) {//TODO: EntityType
         var assets = AssetDataAccess.AudioAssets;
-        if (assets[assetName]) {
-            return assets[assetName];
+        if (assets[entityType].Sounds) {
+            var audioAsset;
+            assets[entityType].Sounds.forEach(element => {
+                if (element.SoundName == soundName) {
+                    audioAsset = element;
+                }
+            });
+            return audioAsset;
         }
     }
     static GetMap(mapName) {

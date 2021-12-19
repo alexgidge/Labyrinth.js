@@ -1,20 +1,20 @@
 class Character extends WorldModule {
 
     //TODO: Method for having different values for diff character types
-    deathSound = 'CharacterDeath';
-    damageTakenSound = 'DamageTakenAudio';
-    damageGivenSound = 'CharacterDoesDamage';
-    killDealtSound = 'CharacterDoesDamage';
-    denied1Sound = 'Denied1';
-    denied2Sound = 'Denied2';
-    bounceOffWallSound = 'BounceOffWall';
-    footStepsSound = 'CharacterFootsteps';
-    swingWeaponSound = 'SwingSword';
-    weaponClashedSound = 'SwordHitWall';
-    spawnSound = 'SpawnSound';
-    breathe = 'Breathe';
-    drawWeapon = 'DrawWeapon';
-    ICanSeeYouFast = 'ICanSeeYouFast';
+    deathSound = 'DEATH';
+    damageTakenSound = 'DAMAGE-TAKEN';
+    damageGivenSound = 'DAMAGE-DEALT';
+    killDealtSound = 'KILL-DEALT';
+    denied1Sound = 'ATTACK-DENIED';
+    denied2Sound = 'WALK-DENIED';
+    bounceOffWallSound = 'WALK-BUMP';
+    footStepsSound = 'WALK';
+    swingWeaponSound = 'ATTACK';
+    weaponClashedSound = 'ATTACK-BUMP';
+    spawnSound = 'SPAWN';
+    breathe = 'EMOTE';
+    drawWeapon = 'DRAW-WEAPON';
+    Emote = 'EMOTE';
 
     constructor(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack) {
         super();
@@ -35,7 +35,7 @@ class Character extends WorldModule {
         this.Items = [];
     }
     Spawn(location) {
-        EngineAudio.PlaySound(this.World, this.Type, this.spawnSound, 0.35, false, location.x, location.y);
+        EngineAudio.PlaySound(this.World, this.Type, this.spawnSound, false, location.x, location.y);
         this.OnSpawn(location);
     }
     Move(direction) {
@@ -72,7 +72,7 @@ class Character extends WorldModule {
                 }
             }
             else {
-                EngineAudio.PlaySound(this.World, this.Type, this.denied1Sound, 0.08, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
+                EngineAudio.PlaySound(this.World, this.Type, this.denied1Sound, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
             }
 
         }
@@ -100,7 +100,7 @@ class Character extends WorldModule {
 
             }
             else {
-                EngineAudio.PlaySound(this.World, this.Type, this.denied2Sound, 0.1, false, targetLocation.x, targetLocation.y);
+                EngineAudio.PlaySound(this.World, this.Type, this.denied2Sound, false, targetLocation.x, targetLocation.y);
             }
         }
     }
@@ -109,7 +109,7 @@ class Character extends WorldModule {
             var distance = this.World.FindDistanceToPlayer(location);
             if (distance < 3 && (this.LastEmoteTurn + this.TurnsPerPlayerSpottedEmote < Game.Current.TurnManager.CurrentTurn)) {
                 this.LastEmoteTurn = Game.Current.TurnManager.CurrentTurn;
-                EngineAudio.PlaySound(this.World, this.Type, this.ICanSeeYouFast, 0.8, false, location.x, location.y);
+                EngineAudio.PlaySound(this.World, this.Type, this.Emote, false, location.x, location.y);
             }
         }
     }
@@ -130,7 +130,7 @@ class Character extends WorldModule {
     TakeDamage(location, damage) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             this.CurrentHealth -= damage;
-            EngineAudio.PlaySound(this.World, this.Type, this.damageTakenSound, 1, false, location.x, location.y);
+            EngineAudio.PlaySound(this.World, this.Type, this.damageTakenSound, false, location.x, location.y);
             if (this.CurrentHealth <= 0) {
                 this.Death(location);
             }
@@ -139,7 +139,7 @@ class Character extends WorldModule {
 
     Death(location) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
-            EngineAudio.PlaySound(this.World, this.Type, this.deathSound, 1, false, location.x, location.y);
+            EngineAudio.PlaySound(this.World, this.Type, this.deathSound, false, location.x, location.y);
             //TODO: Handle player death (fade all sounds & restart)
             this.State = CharacterStateType.Dead.Value;
             this.OnDeath();
@@ -149,31 +149,31 @@ class Character extends WorldModule {
     OnCollision(targetLocation, targetTile) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             if (!targetTile || !targetTile.TileType || targetTile.TileType == TileType.Wall || targetTile.TileType == TileType.Null) {
-                EngineAudio.PlaySound(this.World, this.Type, this.bounceOffWallSound, 0.6, false, targetLocation.x, targetLocation.y);
+                EngineAudio.PlaySound(this.World, this.Type, this.bounceOffWallSound, false, targetLocation.x, targetLocation.y);
             }
         }
     }
 
     OnMove(newLocation) {
-        EngineAudio.PlaySound(this.World, this.Type, this.footStepsSound, 0.4, false, newLocation.x, newLocation.y);
+        EngineAudio.PlaySound(this.World, this.Type, this.footStepsSound, false, newLocation.x, newLocation.y);
     }
 
     OnAttackMiss(targetLocation, tileType) {
         if (tileType && tileType == TileType.Floor.Value) {
-            EngineAudio.PlaySound(this.World, this.Type, this.swingWeaponSound, 0.3, false, targetLocation.x, targetLocation.y);
+            EngineAudio.PlaySound(this.World, this.Type, this.swingWeaponSound, false, targetLocation.x, targetLocation.y);
         }
         else {
-            EngineAudio.PlaySound(this.World, this.Type, this.weaponClashedSound, 0.3, false, targetLocation.x, targetLocation.y);
+            EngineAudio.PlaySound(this.World, this.Type, this.weaponClashedSound, false, targetLocation.x, targetLocation.y);
         }
     }
 
     OnAttackHit(targetLocation, otherCharacter) {
         //TODO: Other character
-        EngineAudio.PlaySound(this.World, this.Type, this.damageGivenSound, 0.4, false, targetLocation.x, targetLocation.y);
+        EngineAudio.PlaySound(this.World, this.Type, this.damageGivenSound, false, targetLocation.x, targetLocation.y);
     }
 
     OnAttackKilled(targetLocation, otherCharacter) {
-        EngineAudio.PlaySound(this.World, this.Type, this.killDealtSound, 0.6, false, targetLocation.x, targetLocation.y);
+        EngineAudio.PlaySound(this.World, this.Type, this.killDealtSound, false, targetLocation.x, targetLocation.y);
     }
 }
 
