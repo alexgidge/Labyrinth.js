@@ -1,4 +1,7 @@
 class PlayerPrefs {
+    constructor() {
+
+    }
     static SavePlayerPref(prefName, prefValue) {
         localStorage.setItem(prefName, JSON.stringify(prefValue));
     }
