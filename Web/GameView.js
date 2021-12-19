@@ -39,7 +39,7 @@ async function InitialiseGame(mapName) {
     var controls = await GameControls.GetControls();
     input = new WebInput(engineInput, controls);
 
-    canvas.keyup(CanvasKeydown);
+    $('#canvGameArea').keyup(CanvasKeydown);
     setInterval(EngineTick, TickFrequency);//10 ticks per second
     //drawFocusIfNeeded()
 }
@@ -57,19 +57,21 @@ function EngineTick() {
     engine.Tick();
 }
 
+function SetCanvasBackground(canvas, colour) {
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = colour;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 function initCanvas() {
-    var canvas = $('#canvGameArea');
+    var canvas = $('#canvGameArea')[0];
 
     $(window).bind("resize", function () {
         resizeCanvas(canvas);
     });
 
     resizeCanvas(canvas);
-    var ctx = $(canvas)[0].getContext("2d");
-
-    ctx.fillStyle = 'black';
-    ctx.fillRect(20, 20, canvas.width, canvas.height);
-
+    SetCanvasBackground(canvas, '#130b13');
 
     //$(canvas)[0].webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT); //Chrome
     //$(canvas)[0].mozRequestFullScreen(); //Firefox
