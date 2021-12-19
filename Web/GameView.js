@@ -15,18 +15,19 @@ $(function () {
     });
 });
 async function StartUp() {
-    await InitialiseGame();
+    var urlParams = new URLSearchParams(window.location.search);
+    var mapName = urlParams.get('ID');
+    await InitialiseGame(mapName);//TODO: Level select
     await StartGame();
 }
-async function InitialiseGame() {
+async function InitialiseGame(mapName) {
     //TODO: Level select
     //TODO: Easy, Med & Hard maps
     //TODO: Rewrite, not all of this is right or needed but the canvas currently does function. Size & events need reviewing.
     console.log("--------------------------INITIALISING---------------------------");
     //TODO: Move into engine
     canvas = initCanvas();
-    await AssetDataAccess.Initialise();
-    map = AssetDataAccess.GetMap("LabyrinthMap");//TODO: Param passed from level select.
+    map = await AssetDataAccess.GetMap(mapName);//TODO: Param passed from level select.
     game = new Game(map, function () { location.reload(); });
     Game.Current.InitialiseGame();
     player = game.World.GetPlayerEntity();

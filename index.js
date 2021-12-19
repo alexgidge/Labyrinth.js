@@ -1,6 +1,6 @@
 $(function () {
     $('#btnStart').click(function (evt) {
-        window.location.href = 'Web/GameView.html';
+        window.location.href = 'Web/MapSelect.html';
     });
     $('#btnSettings').click(function (evt) {
         window.location.href = 'Web/Settings.html';

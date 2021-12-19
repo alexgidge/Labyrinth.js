@@ -4,11 +4,11 @@ class EngineAudio {
         this.AudioAssets = audioAssetsJSON;
     }
 
-    static PlaySound(world, SoundEntity, SoundName, looping = false, audioX = 0, audioY = 0, audioZ = 0)//TODO: Sound library instead of passing file path
+    static async PlaySound(world, SoundEntity, SoundName, looping = false, audioX = 0, audioY = 0, audioZ = 0)//TODO: Sound library instead of passing file path
     {//TODO: Delays
         try {
             var playerPosition = world.GetPlayerEntity().Transform.Position;
-            var soundMeta = AssetDataAccess.GetAudioAsset(SoundEntity, SoundName);
+            var soundMeta = await AssetDataAccess.GetAudioAsset(SoundEntity, SoundName);
 
             var location = "../Assets/Audio/" + soundMeta.File;
 

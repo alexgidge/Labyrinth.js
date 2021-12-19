@@ -1,14 +1,4 @@
 class AssetDataAccess {
-    static MapAssets;
-    static AudioAssets;
-    static async Initialise() {
-        await AssetDataAccess.LoadAudioAssets();
-        await AssetDataAccess.LoadMapAssets();
-        //TODO: Load default settings & controls
-        console.log(AssetDataAccess.AudioAssets);
-        console.log(AssetDataAccess.MapAssets);
-        return (AssetDataAccess.AudioAssets && AssetDataAccess.MapAssets);
-    }
     static async GetJSONFileData(filename) {
         var data = await fetch('../Assets/' + filename, {
             credentials: 'same-origin'
@@ -21,18 +11,21 @@ class AssetDataAccess {
             var audio = await AssetDataAccess.GetJSONFileData('audio.json');
             AssetDataAccess.AudioAssets = audio;
         }
+        return AssetDataAccess.AudioAssets;
     }
     static async LoadMapAssets() {
         if (!AssetDataAccess.MapAssets) {
             var maps = await AssetDataAccess.GetJSONFileData('maps.json');
-            AssetDataAccess.MapAssets = maps;
+            AssetDataAccess.MapAssets = maps.Maps;
         }
+        return AssetDataAccess.MapAssets;
     }
     static async LoadSettingsDefaults() {
-        if (!AssetDataAccess.MapAssets) {
-            var maps = await AssetDataAccess.GetJSONFileData('settings.json');
-            AssetDataAccess.MapAssets = maps;
+        if (!AssetDataAccess.Settings) {
+            var settings = await AssetDataAccess.GetJSONFileData('settings.json');
+            AssetDataAccess.Settings = settings;
         }
+        return AssetDataAccess.Settings;
     }
     static async LoadControlMappings() {
         if (!AssetDataAccess.ControlMappings) {
@@ -41,8 +34,8 @@ class AssetDataAccess {
         }
         return AssetDataAccess.ControlMappings;
     }
-    static GetAudioAsset(entityType, soundName) {//TODO: EntityType
-        var assets = AssetDataAccess.AudioAssets;
+    static async GetAudioAsset(entityType, soundName) {//TODO: EntityType
+        var assets = await AssetDataAccess.LoadAudioAssets();
         if (assets[entityType].Sounds) {
             var audioAsset;
             assets[entityType].Sounds.forEach(element => {
@@ -53,10 +46,14 @@ class AssetDataAccess {
             return audioAsset;
         }
     }
-    static GetMap(mapName) {
-        var assets = AssetDataAccess.MapAssets;
-        if (assets[mapName]) {
-            return assets[mapName];
-        }
+    static async GetMap(mapName) {
+        var assets = await AssetDataAccess.LoadMapAssets();
+        var map;
+        assets.forEach(element => {
+            if (element.ID == mapName) {
+                map = element;
+            }
+        });
+        return map;
     }
 }
