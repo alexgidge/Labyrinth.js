@@ -7,9 +7,6 @@ class Game {
 
     constructor(tileMap, onRestart) {
         this.GameState = GameStateType.Null;
-        this.TurnLength = 1;//Seconds per turn. Will max out at the engine's FPS
-        this.CurrentTurn = 0;
-        this.LastTurnTime = 0;
         this.TileMap = tileMap;
         this.TurnManager = new TurnManager();
         this.Restart = onRestart;
@@ -35,7 +32,7 @@ class Game {
         }//TODO: Else
     }
 
-    OnEngineTick(gameDelta) {
+    OnEngineTick(gameDelta, tickDelta) {
         if (GameStateType.Compare(this.GameState, GameStateType.Playing)) {
             this.TurnManager.Tick(gameDelta);
             this.World.Entities.forEach(element => {
@@ -44,7 +41,7 @@ class Game {
                 }
             });
             //TODO: Where do I lock player input? Change game state to cinematic?
-        }//TODO: Else
+        }
     }
 
     GameOver(gameState) {
@@ -55,12 +52,14 @@ class Game {
             restartTime = 4000;
             Engine.Current.EngineAudio.PlaySound(this.World, "GAME", 'GAME-LOSE', false, player.Transform.Position.x, player.Transform.Position.y);
             Engine.Current.EngineGraphics.AddTextToDisplayQueue("you died");
+            Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.BadColour);
         }
         else if (gameState == GameStateType.Completed.Value) {
             //TODO: Read out game time?
             restartTime = 30000;
             Engine.Current.EngineAudio.PlaySound(this.World, "GAME", 'GAME-WIN', false, player.Transform.Position.x, player.Transform.Position.y);
-            Engine.Current.EngineGraphics.AddTextToDisplayQueue("you made it");
+            Engine.Current.EngineGraphics.AddTextToDisplayQueue("you made it in " + Engine.Current.Game.TurnManager.CurrentTurnStartTime / 1000 + " seconds");
+            Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.GameWinColour);
         }
         setTimeout(this.Restart, restartTime);
     }

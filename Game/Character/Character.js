@@ -137,6 +137,9 @@ class Character extends WorldModule {
             if (this.CurrentHealth <= 0) {
                 this.Death(location);
             }
+            else if (this.OnTakeDamage) {
+                this.OnTakeDamage();
+            }
         }
     }
 

@@ -43,13 +43,16 @@ class Item extends WorldModule {
                 if (this.Unlock(items) == true) {
                     Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.unlockSound, false, location.x, location.y);
                     Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " unlocked");
+                    Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.GoodColour, 500);
                 } else {
                     Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.useLocked, false, location.x, location.y);
                     Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " is locked");
+                    Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.WarningColour, 1000);
                 }
             } else if (this.ItemState == ItemState.Disabled.Value) {
                 Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, false, location.x, location.y);
                 Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " cannot be used.");
+                Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.WarningColour, 1000);
             }
         }
     }
@@ -60,6 +63,7 @@ class Item extends WorldModule {
                 this.ItemState = ItemState.Disabled.Value;
                 Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.pickupSound, false, location.x, location.y);
                 Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " picked up");
+                Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.InfoColour, 2000);
                 return true;
             } else {
                 return false;

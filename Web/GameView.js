@@ -1,4 +1,4 @@
-const TickFrequency = 100; //100ms per tick or 10 ticks per second. The game can then handle each tick as it needs
+const TickFrequency = 10; //100ms per tick or 10 ticks per second. The game can then handle each tick as it needs
 
 var GameCanvas;//TODO: Move to graphics
 var CurrentPlayer;
@@ -57,6 +57,7 @@ function CanvasKeydown(e) {
 function EngineTick() {
     CurrentEngine.Tick();
     DisplayText();
+    UpdateBackground();
 }
 
 function DisplayText() {
@@ -64,6 +65,13 @@ function DisplayText() {
     if (nextText) {
         //TODO: Add the text instead of replace
         $('#divGameText').text(nextText);
+    }
+}
+
+function UpdateBackground() {
+    var background = CurrentEngine.EngineGraphics.BackgroundColour;
+    if (background) {
+        SetGameBackground(background);
     }
 }
 

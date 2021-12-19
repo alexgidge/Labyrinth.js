@@ -20,9 +20,12 @@ class Engine {
     Tick() {//TODO: Queue ticks? 
         //TODO: Handle delta
         this.tick++;
-        this.lastTick = Date.now();
-        var delta = (this.lastTick - this.startTime) / this.tickFrequency;
-        this.Game.OnEngineTick(delta);//TODO: Injected game tick/events
-        //TODO: Graphics/audio ticks
+        var gameDelta = (Date.now() - this.startTime);
+        var tickDelta = (Date.now() - this.lastTick);
+        if (gameDelta > this.tickFrequency) {
+            this.lastTick = Date.now();
+            this.Game.OnEngineTick(gameDelta, tickDelta);//TODO: Injected game tick/events
+            //TODO: Graphics/audio ticks
+        }
     }
 }

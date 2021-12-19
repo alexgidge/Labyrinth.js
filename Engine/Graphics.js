@@ -1,7 +1,14 @@
 class EngineGraphics {
     constructor() {
         this.TextQueue = ['...'];
-        this.BackgroundColor = '#130b13';
+        //TODO: Add to JSON file
+        this.DefaultColour = '#130b13';
+        this.GoodColour = '#279A21';
+        this.GameWinColour = '#edf6ff';
+        this.InfoColour = '#1E5D78';
+        this.WarningColour = '#BEA229';
+        this.BadColour = '#BE4029';
+        this.BackgroundColour = this.DefaultColour;
     }
     AddTextToDisplayQueue(text) {
         this.TextQueue.push(text);
@@ -12,7 +19,11 @@ class EngineGraphics {
     GetNextDisplayText() {
         return this.TextQueue.shift();
     }
-    ChangeGameBackground(colour) {
-        this.BackgroundColor = colour;
+    ChangeGameBackground(colour, timeoutLength) {
+        if (timeoutLength && timeoutLength > 0) {
+            setTimeout(function () { Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.DefaultColour); }, timeoutLength);
+            //TODO: Colour queue to not cancel eachother out
+        }
+        this.BackgroundColour = colour;
     }
 }

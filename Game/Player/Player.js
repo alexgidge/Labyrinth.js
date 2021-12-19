@@ -12,10 +12,16 @@ class Player extends Character {
 
     OnDeath() {
         Game.Current.GameOver(GameStateType.Dead.Value);
+        setTimeout(Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.BadColour));
     }
     OnSpawn(location) {
         Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.breathe, false, location.x, location.y);//TODO: Check X,Y & Z. 
         Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.drawWeapon, false, location.x, location.y - 1, - 1);
         Engine.Current.EngineGraphics.AddTextToDisplayQueue("you woke up in a cold wet room...");
+        Engine.Current.EngineGraphics.ChangeGameBackground('black', 2000);
+    }
+
+    OnTakeDamage() {
+        Engine.Current.EngineGraphics.ChangeGameBackground('red', 1000);
     }
 }
