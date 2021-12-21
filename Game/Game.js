@@ -58,7 +58,7 @@ class Game {
             //TODO: Read out game time?
             restartTime = 30000;
             Engine.Current.EngineAudio.PlaySound(this.World, "GAME", 'GAME-WIN', false, player.Transform.Position.x, player.Transform.Position.y);
-            Engine.Current.EngineGraphics.AddTextToDisplayQueue("you made it in " + Engine.Current.Game.TurnManager.CurrentTurnStartTime / 1000 + " seconds");
+            Engine.Current.EngineGraphics.AddTextToDisplayQueue("you made it out the door in " + Engine.Current.Game.TurnManager.CurrentTurnStartTime / 1000 + " seconds");
             Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.GameWinColour);
         }
         setTimeout(this.Restart, restartTime);

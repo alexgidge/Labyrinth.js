@@ -94,9 +94,10 @@ function SetGameBackground(colour) {
 }
 
 function ResizeCanvas() {
+
     var w = $(window).width();
     var h = $(window).height();
 
-    $(GameCanvas).css("width", w + "px");
-    $(GameCanvas).css("height", h + "px");
+    $(GameCanvas).css("width", Math.ceil(320, w) + "px");
+    $(GameCanvas).css("height", Math.ceil(240, h) + "px");
 }
