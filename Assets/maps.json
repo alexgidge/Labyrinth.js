@@ -3,6 +3,7 @@
         {
             "ID": "DevelopmentRoom",
             "Text": "Development Room",
+            "Hidden": "true",
             "Room": {
                 "Tiles": [
                     {
@@ -69,7 +70,7 @@
                         "y": 0,
                         "minDamage": 100,
                         "maxDamage": 100,
-                        "maxHealth": 500,
+                        "maxHealth": 50,
                         "turnsPerMove": 2,
                         "turnsPerAttack": 4
                     },
@@ -92,8 +93,8 @@
                         "minDamage": 25,
                         "maxDamage": 25,
                         "maxHealth": 50,
-                        "turnsPerMove": 45,
-                        "turnsPerAttack": 16
+                        "turnsPerMove": 64,
+                        "turnsPerAttack": 8
                     }
                 ]
             }
@@ -101,6 +102,7 @@
         {
             "ID": "LabryinthEZ",
             "Text": "Labyrinth - Easy",
+            "Hidden": "False",
             "Room": {
                 "Tiles": [
                     {

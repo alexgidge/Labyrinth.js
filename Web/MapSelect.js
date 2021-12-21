@@ -7,7 +7,12 @@ async function PopulateMaps() {
     var maps = []
 
     mapAssets.forEach(element => {
-        maps.push({ map: element.ID, text: element.Text });
+        if (element.Hidden === "true") {
+            maps.push({ map: element.ID, text: element.Text, style: "display:none;" });
+        }
+        else {
+            maps.push({ map: element.ID, text: element.Text });
+        }
     });
 
 
@@ -21,4 +26,4 @@ async function PopulateMaps() {
 }
 
 //TODO: React or similar lightweight front end framework
-const MapButtonTemplate = ({ map, text }) => `<button id="${map}">${text}</button>`
+const MapButtonTemplate = ({ map, text, style }) => `<button id="${map}" style="${style}">${text}</button>`
