@@ -2,13 +2,13 @@ class PlayerPrefs {
     constructor() {
 
     }
-    static SavePlayerPref(prefName, prefValue) {
-        localStorage.setItem(prefName, JSON.stringify(prefValue));
+    static SavePlayerPref(prefName, prefJSONValue) {
+        localStorage.setItem(prefName, prefJSONValue);
     }
     static DeletePlayerPref(prefName) {
         localStorage.removeItem(prefName);
     }
     static GetPlayerPref(prefName) {
-        return JSON.parse(localStorage.getItem(prefName));
+        return localStorage.getItem(prefName);
     }
 }

@@ -3,11 +3,11 @@ $(function () {
 });
 
 async function PopulateMaps() {
-    var mapAssets = await AssetDataAccess.LoadMapAssets();
+    var mapAssets = await MapService.LoadMapAssets();
     var maps = []
 
     mapAssets.forEach(element => {
-        if (element.Hidden === "true") {
+        if (element.Hidden == "true") {
             maps.push({ map: element.ID, text: element.Text, style: "display:none;" });
         }
         else {
@@ -25,5 +25,4 @@ async function PopulateMaps() {
     });
 }
 
-//TODO: React or similar lightweight front end framework
 const MapButtonTemplate = ({ map, text, style }) => `<button id="${map}" style="${style}">${text}</button>`

@@ -26,7 +26,7 @@ async function InitialiseGame(mapName) {
     var engineGraphics = new EngineGraphics();
     var engineAudio = new EngineAudio();
 
-    var map = await AssetDataAccess.GetMap(mapName);//TODO: Param passed from level select.
+    var map = await MapService.GetMap(mapName);//TODO: Param passed from level select.
     var game = new Game(map, function () { location.reload(); });
     game.InitialiseGame();
 
@@ -43,7 +43,7 @@ async function StartGame() {
     var playerInput = new PlayerInput(CurrentPlayer)
     var engineInput = new EngineInput(playerInput);
 
-    var controls = await GameControls.GetControls();
+    var controls = await ControlsService.LoadControlMappings();
     input = new WebInput(engineInput, controls);
 
 

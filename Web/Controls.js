@@ -4,7 +4,7 @@ $(function () {
 });
 
 async function PopulateCurrentControls() {
-    var controls = await GameControls.GetControls();
+    var controls = await ControlsService.LoadControlMappings();
     $('#divKeyMappingsList').html(controls.map(KeyMappingTemplate).join(''));
     return controls;
 }
@@ -15,7 +15,7 @@ function SaveControls() {
     formControls.forEach(element => {
         controls.push({ action: element.name, key: element.value });
     });
-    PlayerPrefs.SavePlayerPref('Controls', controls);
+    ControlsService.SaveControls(JSON.stringify(controls));
 }
 
 

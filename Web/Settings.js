@@ -20,5 +20,5 @@ async function PopulateCurrentSettings() {
 
 function SaveSettings() {
     var formSettings = $('#frmSettings').serializeArray();
-    PlayerPrefs.SavePlayerPref('GameSettings', formSettings);
+    SettingsService.SaveSettings(JSON.stringify(formSettings));
 }

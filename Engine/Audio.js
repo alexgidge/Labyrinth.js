@@ -3,7 +3,7 @@ class EngineAudio {
     {//TODO: Delays
         try {
             var playerPosition = world.GetPlayerEntity().Transform.Position;
-            var soundMeta = await AssetDataAccess.GetAudioAsset(SoundEntity, SoundName);
+            var soundMeta = await SoundService.GetAudioAsset(SoundEntity, SoundName);
 
             var location = "../Assets/Audio/" + soundMeta.File;
 
