@@ -168,7 +168,7 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
             //TODO: Move logic in engine?
             entity.Transform.Position.x = position.x;
             entity.Transform.Position.y = position.y;
-            console.log("Entity moved: " + entity.Module.Identifier + " to [" + position.x, ", " + position.y + "]")
+            console.log(entity.EntityType + " " + entity.Module.Type + " moved: " + entity.Module.Identifier + " to [" + position.x, ", " + position.y + "]")
             return true;
         }
         return false;
