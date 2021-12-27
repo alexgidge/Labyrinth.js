@@ -5,7 +5,7 @@ class EngineAudio {
             var playerPosition = world.GetPlayerEntity().Transform.Position;
             var soundMeta = await SoundService.GetAudioAsset(SoundEntity, SoundName);
 
-            var location = "../Assets/Audio/" + soundMeta.File;
+            var location = "../Assets/Audio/" + soundMeta.FileName;
 
             var distance = 1;
             var diffX = (audioX - playerPosition.x) * 2;//TODO: Remove *2

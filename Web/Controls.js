@@ -6,7 +6,6 @@ $(function () {
 async function PopulateCurrentControls() {
     var controls = await ControlsService.LoadControlMappings();
     $('#divKeyMappingsList').html(controls.map(KeyMappingTemplate).join(''));
-    return controls;
 }
 
 function SaveControls() {

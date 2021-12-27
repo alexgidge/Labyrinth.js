@@ -12,7 +12,6 @@
       body {
         margin: 0 !important;
         padding: 0 !important;
-        overflow: hidden;
       }
     </style>
     <script src="../node_modules/howler/dist/howler.core.min.js"></script>
@@ -27,11 +26,15 @@
     <script src="header.js"></script>
     <div id="divPageHeader"></div>
     <p>These settings are currently only saved in the browser so may break and reset back to default.</p>
+    <div>
+      <button id="btnSave">Volume Settings</button>
+      <button id="btnSave" disabled>Manage Audio Files</button>
+    </div>
     <form id="frmSettings" name="settings">
       <h3>Audio Settings</h3>
-      <br /><br />
       <div id="divFormContent"></div>
       <button id="btnSave">Save</button>
     </form>
+    <hr />
   </body>
 </html>

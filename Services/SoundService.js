@@ -17,7 +17,7 @@ class SoundService {
         var assets = await SoundService.LoadAudioAssets();
         var audioAsset;
         assets.GroupedSounds.forEach(element => {
-            if (element.ID == entityType) {
+            if (element.GroupID == entityType) {
                 element.Sounds.forEach(sound => {
                     if (sound.SoundName == soundName) {
                         audioAsset = sound;
