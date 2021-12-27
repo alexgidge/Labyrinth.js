@@ -20,7 +20,7 @@ class SoundService {
             if (element.ID == entityType) {
                 element.Sounds.forEach(sound => {
                     if (sound.SoundName == soundName) {
-                        audioAsset = element;
+                        audioAsset = sound;
                     }
                 });
             }

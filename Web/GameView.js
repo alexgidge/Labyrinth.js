@@ -23,19 +23,18 @@ async function StartUp() {
     await StartGame();
 }
 async function InitialiseGame(mapName) {
-    var engineGraphics = new EngineGraphics();
-    var engineAudio = new EngineAudio();
-
     var map = await MapService.GetMap(mapName);//TODO: Param passed from level select.
     var game = new Game(map, function () { location.reload(); });
     game.InitialiseGame();
+
+
+    var engineGraphics = new EngineGraphics();
+    var engineAudio = new EngineAudio();
 
     CurrentEngine = new Engine(game, engineGraphics, engineAudio, TickFrequency);
 }
 
 async function StartGame() {
-
-
     CurrentEngine.Game.GameStart();
 
     CurrentPlayer = CurrentEngine.Game.World.GetPlayerEntity();

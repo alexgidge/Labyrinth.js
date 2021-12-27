@@ -107,61 +107,6 @@
                 "Tiles": [
                     {
                         "x": 0,
-                        "y": -49,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -48,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -47,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -46,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -45,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -44,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -43,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -42,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -41,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -40,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -39,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
                         "y": -38,
                         "TileType": "FLOOR_TILE"
                     },
@@ -741,12 +686,12 @@
                         "CharacterType": "PLAYER",
                         "Team": 1,
                         "x": 0,
-                        "y": -48,
-                        "minDamage": 10,
+                        "y": -37,
+                        "minDamage": 8,
                         "maxDamage": 10,
-                        "maxHealth": 50,
-                        "turnsPerMove": 2,
-                        "turnsPerAttack": 4
+                        "maxHealth": 60,
+                        "turnsPerMove": 3,
+                        "turnsPerAttack": 1
                     },
                     {
                         "CharacterType": "EYE",
@@ -755,9 +700,9 @@
                         "y": 25,
                         "minDamage": 100,
                         "maxDamage": 100,
-                        "maxHealth": 200,
-                        "turnsPerMove": 177,
-                        "turnsPerAttack": 100
+                        "maxHealth": 100,
+                        "turnsPerMove": 50,
+                        "turnsPerAttack": 125
                     },
                     {
                         "CharacterType": "BEAST",
@@ -767,8 +712,8 @@
                         "minDamage": 25,
                         "maxDamage": 25,
                         "maxHealth": 50,
-                        "turnsPerMove": 47,
-                        "turnsPerAttack": 16
+                        "turnsPerMove": 37,
+                        "turnsPerAttack": 32
                     },
                     {
                         "CharacterType": "BEAST",
@@ -778,7 +723,7 @@
                         "minDamage": 25,
                         "maxDamage": 25,
                         "maxHealth": 50,
-                        "turnsPerMove": 30,
+                        "turnsPerMove": 20,
                         "turnsPerAttack": 12
                     },
                     {
@@ -789,8 +734,8 @@
                         "minDamage": 25,
                         "maxDamage": 25,
                         "maxHealth": 50,
-                        "turnsPerMove": 20,
-                        "turnsPerAttack": 8
+                        "turnsPerMove": 10,
+                        "turnsPerAttack": 5
                     }
                 ]
             }

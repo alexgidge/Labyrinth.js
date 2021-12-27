@@ -22,7 +22,6 @@ class EngineAudio {
                 volume: soundVolume
             });
 
-
             var walking = sound.play();//TODO: Rewrite to properly use the package. 
 
             sound.stereo(soundVolume, walking);//TODO: Why is volume needed twice? I'm just slightly confused but it's working
