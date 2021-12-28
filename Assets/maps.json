@@ -100,8 +100,8 @@
             }
         },
         {
-            "ID": "LabryinthEZ",
-            "Text": "Labyrinth - Easy",
+            "ID": "Labryinth-Easy",
+            "Text": "Easy Labyrinth",
             "Hidden": "False",
             "Room": {
                 "Tiles": [
@@ -736,6 +736,1299 @@
                         "maxHealth": 50,
                         "turnsPerMove": 10,
                         "turnsPerAttack": 5
+                    }
+                ]
+            }
+        },
+        {
+            "ID": "Labryinth-Medium",
+            "Text": "Medium Labyrinth",
+            "Hidden": "False",
+            "Room": {
+                "Tiles": [
+                    {
+                        "x": 0,
+                        "y": -38,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -37,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -36,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -35,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -35,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -1,
+                        "y": -35,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -2,
+                        "y": -35,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -3,
+                        "y": -35,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -3,
+                        "y": -34,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -3,
+                        "y": -33,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -2,
+                        "y": -33,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -1,
+                        "y": -33,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -33,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -32,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -31,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -30,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -29,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -28,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -27,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -26,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": -26,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": -26,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -26,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": -26,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -25,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -24,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -23,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -22,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -21,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -20,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -19,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -18,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": -18,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -1,
+                        "y": -18,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -17,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": -16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": -16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -15,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -14,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -13,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": -12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": -12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -11,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -10,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -9,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -8,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -7,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -5,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 0,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 5,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -1,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 7,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 7,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 8,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 9,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 10,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 11,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 13,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 14,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 15,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 5,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 5,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 6,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 7,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 7,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 8,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 9,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 10,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 11,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 13,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 14,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 15,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 17,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 18,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 19,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 20,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 9,
+                        "y": 20,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 7,
+                        "y": 20,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 21,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 22,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 23,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 24,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 25,
+                        "TileType": "FLOOR_TILE"
+                    }
+                ],
+                "Items": [
+                    {
+                        "ItemType": "DOOR",
+                        "x": 4,
+                        "y": 16,
+                        "ItemStartState": "LOCKED",
+                        "Pickupable": false,
+                        "Lockable": true,
+                        "UnlockedByItem": "KEY"
+                    },
+                    {
+                        "ItemType": "KEY",
+                        "x": 8,
+                        "y": 25,
+                        "ItemStartState": "ENABLED",
+                        "Pickupable": true,
+                        "Lockable": false,
+                        "UnlockedByItem": ""
+                    }
+                ],
+                "Spawns": [
+                    {
+                        "CharacterType": "PLAYER",
+                        "Team": 1,
+                        "x": 0,
+                        "y": -37,
+                        "minDamage": 8,
+                        "maxDamage": 10,
+                        "maxHealth": 60,
+                        "turnsPerMove": 3,
+                        "turnsPerAttack": 1
+                    },
+                    {
+                        "CharacterType": "EYE",
+                        "Team": 2,
+                        "x": 8,
+                        "y": 25,
+                        "minDamage": 100,
+                        "maxDamage": 100,
+                        "maxHealth": 125,
+                        "turnsPerMove": 30,
+                        "turnsPerAttack": 50
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 0,
+                        "y": -7,
+                        "minDamage": 25,
+                        "maxDamage": 25,
+                        "maxHealth": 50,
+                        "turnsPerMove": 18,
+                        "turnsPerAttack": 10
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 0,
+                        "y": 0,
+                        "minDamage": 25,
+                        "maxDamage": 25,
+                        "maxHealth": 50,
+                        "turnsPerMove": 15,
+                        "turnsPerAttack": 8
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 4,
+                        "y": 15,
+                        "minDamage": 25,
+                        "maxDamage": 25,
+                        "maxHealth": 50,
+                        "turnsPerMove": 6,
+                        "turnsPerAttack": 3
+                    }
+                ]
+            }
+        },
+        {
+            "ID": "Labryinth-Hard",
+            "Text": "Hard Labyrinth",
+            "Hidden": "False",
+            "Room": {
+                "Tiles": [
+                    {
+                        "x": 0,
+                        "y": -38,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -37,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -36,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -35,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -35,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -1,
+                        "y": -35,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -2,
+                        "y": -35,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -3,
+                        "y": -35,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -3,
+                        "y": -34,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -3,
+                        "y": -33,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -2,
+                        "y": -33,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -1,
+                        "y": -33,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -33,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -32,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -31,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -30,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -29,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -28,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -27,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -26,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": -26,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": -26,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -26,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": -26,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -25,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -24,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -23,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -22,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -21,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -20,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -19,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -18,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": -18,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -1,
+                        "y": -18,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -17,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": -16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": -16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -15,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -14,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -13,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": -12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": -12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": -12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -11,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -10,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -9,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -8,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -7,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -5,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": -1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 0,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 5,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": -1,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 7,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 7,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 8,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 9,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 10,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 11,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 13,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 14,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 15,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 5,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 5,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 6,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 7,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 6,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 7,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 8,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 9,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 10,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 11,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 12,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 13,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 14,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 15,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 16,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 17,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 18,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 19,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 20,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 9,
+                        "y": 20,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 7,
+                        "y": 20,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 21,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 22,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 23,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 24,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": 25,
+                        "TileType": "FLOOR_TILE"
+                    }
+                ],
+                "Items": [
+                    {
+                        "ItemType": "DOOR",
+                        "x": 4,
+                        "y": 16,
+                        "ItemStartState": "LOCKED",
+                        "Pickupable": false,
+                        "Lockable": true,
+                        "UnlockedByItem": "KEY"
+                    },
+                    {
+                        "ItemType": "KEY",
+                        "x": 8,
+                        "y": 25,
+                        "ItemStartState": "ENABLED",
+                        "Pickupable": true,
+                        "Lockable": false,
+                        "UnlockedByItem": ""
+                    }
+                ],
+                "Spawns": [
+                    {
+                        "CharacterType": "PLAYER",
+                        "Team": 1,
+                        "x": 0,
+                        "y": -37,
+                        "minDamage": 8,
+                        "maxDamage": 10,
+                        "maxHealth": 60,
+                        "turnsPerMove": 3,
+                        "turnsPerAttack": 1
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 0,
+                        "y": -19,
+                        "minDamage": 25,
+                        "maxDamage": 25,
+                        "maxHealth": 50,
+                        "turnsPerMove": 18,
+                        "turnsPerAttack": 10
+                    },
+                    {
+                        "CharacterType": "EYE",
+                        "Team": 2,
+                        "x": 8,
+                        "y": 25,
+                        "minDamage": 100,
+                        "maxDamage": 100,
+                        "maxHealth": 125,
+                        "turnsPerMove": 30,
+                        "turnsPerAttack": 50
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 0,
+                        "y": -7,
+                        "minDamage": 10,
+                        "maxDamage": 10,
+                        "maxHealth": 50,
+                        "turnsPerMove": 20,
+                        "turnsPerAttack": 1
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 0,
+                        "y": 0,
+                        "minDamage": 25,
+                        "maxDamage": 25,
+                        "maxHealth": 50,
+                        "turnsPerMove": 4,
+                        "turnsPerAttack": 8
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 4,
+                        "y": 15,
+                        "minDamage": 25,
+                        "maxDamage": 25,
+                        "maxHealth": 50,
+                        "turnsPerMove": 1,
+                        "turnsPerAttack": 20
                     }
                 ]
             }
