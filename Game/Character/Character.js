@@ -36,7 +36,7 @@ class Character extends WorldModule {
         this.Items = [];
     }
     Spawn(location) {
-        Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.spawnSound, false, location.x, location.y);
+        Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.spawnSound, false, location.x, location.y);
         //Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.Type + " entered the room.");
         this.OnSpawn(location);
     }
@@ -74,7 +74,7 @@ class Character extends WorldModule {
                 }
             }
             else {
-                Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.denied1Sound, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
+                Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.denied1Sound, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
             }
 
         }
@@ -102,7 +102,7 @@ class Character extends WorldModule {
 
             }
             else {
-                Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.denied2Sound, false, targetLocation.x, targetLocation.y);
+                Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.denied2Sound, false, targetLocation.x, targetLocation.y);
             }
         }
     }
@@ -111,7 +111,7 @@ class Character extends WorldModule {
             var distance = this.World.FindDistanceToPlayer(location);
             if (distance < 3 && (this.LastEmoteTurn + this.TurnsPerPlayerSpottedEmote < Game.Current.TurnManager.CurrentTurn)) {//TODO: and team doesn't match
                 this.LastEmoteTurn = Game.Current.TurnManager.CurrentTurn;
-                Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.Emote, false, location.x, location.y);
+                Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.Emote, false, location.x, location.y);
             }
         }
     }
@@ -132,7 +132,7 @@ class Character extends WorldModule {
     TakeDamage(location, damage) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             this.CurrentHealth -= damage;
-            Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.damageTakenSound, false, location.x, location.y);
+            Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.damageTakenSound, false, location.x, location.y);
             Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.Type + " was hurt");
             if (this.CurrentHealth <= 0) {
                 this.Death(location);
@@ -145,7 +145,7 @@ class Character extends WorldModule {
 
     Death(location) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
-            Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.deathSound, false, location.x, location.y);
+            Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.deathSound, false, location.x, location.y);
             this.State = CharacterStateType.Dead.Value;
             this.OnDeath();
         }
@@ -154,31 +154,31 @@ class Character extends WorldModule {
     OnCollision(targetLocation, targetTile) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             if (!targetTile || !targetTile.TileType || targetTile.TileType == TileType.Wall || targetTile.TileType == TileType.Null) {
-                Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.bounceOffWallSound, false, targetLocation.x, targetLocation.y);
+                Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.bounceOffWallSound, false, targetLocation.x, targetLocation.y);
             }
         }
     }
 
     OnMove(newLocation) {
-        Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.footStepsSound, false, newLocation.x, newLocation.y);
+        Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.footStepsSound, false, newLocation.x, newLocation.y);
     }
 
     OnAttackMiss(targetLocation, tileType) {
         if (tileType && tileType == TileType.Floor.Value) {
-            Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.swingWeaponSound, false, targetLocation.x, targetLocation.y);
+            Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.swingWeaponSound, false, targetLocation.x, targetLocation.y);
         }
         else {
-            Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.weaponClashedSound, false, targetLocation.x, targetLocation.y);
+            Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.weaponClashedSound, false, targetLocation.x, targetLocation.y);
         }
     }
 
     OnAttackHit(targetLocation, otherCharacter) {
         //TODO: Other character
-        Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.damageGivenSound, false, targetLocation.x, targetLocation.y);
+        Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.damageGivenSound, false, targetLocation.x, targetLocation.y);
     }
 
     OnAttackKilled(targetLocation, otherCharacter) {
-        Engine.Current.EngineAudio.PlaySound(this.World, this.Type, this.killDealtSound, false, targetLocation.x, targetLocation.y);
+        Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.killDealtSound, false, targetLocation.x, targetLocation.y);
     }
 }
 

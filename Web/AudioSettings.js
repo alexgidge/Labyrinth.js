@@ -31,14 +31,12 @@ async function PopulateAudioSettingsForm() {
 
 async function SaveAudioSettingsForm(evt) {
 
-    var currentSettings = await SoundService.LoadAudioAssets();//TODO: Get filename and volume from current settings
+    var currentSettings = await SoundService.LoadAudioAssets();//TODO: Get filename, group, subtype etc. and volume from current settings
     var form = $('#frmSettings').serializeArray();
     var audioSettings = [];
     form.forEach(element => {
         var names = element.name.split(':');
         var name = names[0];
-
-
 
         var playerSoundSetting = {};
         playerSoundSetting.SoundName = names[0];
@@ -67,7 +65,7 @@ async function SaveAudioSettingsForm(evt) {
                 else if (names[3] == 'File') {
                     setting.FileName = element.value;
                 }
-
+                setting.AudioLocation = 'PlayerData';
             }
         });
 

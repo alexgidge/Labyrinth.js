@@ -41,16 +41,16 @@ class Item extends WorldModule {
                 Game.Current.GameOver(GameStateType.Completed.Value);//TODO: Different item types/events/triggers
             } else if (this.ItemState == ItemState.Locked.Value) {
                 if (this.Unlock(items) == true) {
-                    Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.unlockSound, false, location.x, location.y);
+                    Engine.Current.EngineAudio.PlaySound(this.World, "ITEM", this.ItemType, this.unlockSound, false, location.x, location.y);
                     Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " unlocked");
                     Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.GoodColour, 500);
                 } else {
-                    Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.useLocked, false, location.x, location.y);
+                    Engine.Current.EngineAudio.PlaySound(this.World, "ITEM", this.ItemType, this.useLocked, false, location.x, location.y);
                     Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " is locked");
                     Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.WarningColour, 1000);
                 }
             } else if (this.ItemState == ItemState.Disabled.Value) {
-                Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.useDisabled, false, location.x, location.y);
+                Engine.Current.EngineAudio.PlaySound(this.World, "ITEM", this.ItemType, this.useDisabled, false, location.x, location.y);
                 Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " cannot be used.");
                 Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.WarningColour, 1000);
             }
@@ -61,7 +61,7 @@ class Item extends WorldModule {
         if (characterType == CharacterType.Player.Value) {
             if (this.ItemState == ItemState.Enabled.Value && this.Pickupable == true) {
                 this.ItemState = ItemState.Disabled.Value;
-                Engine.Current.EngineAudio.PlaySound(this.World, this.ItemType, this.pickupSound, false, location.x, location.y);
+                Engine.Current.EngineAudio.PlaySound(this.World, "ITEM", this.ItemType, this.pickupSound, false, location.x, location.y);
                 Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " picked up");
                 Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.InfoColour, 2000);
                 return true;

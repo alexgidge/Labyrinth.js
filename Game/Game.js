@@ -50,14 +50,14 @@ class Game {
         var restartTime = 10000;
         if (gameState == GameStateType.Dead.Value) {
             restartTime = 4000;
-            Engine.Current.EngineAudio.PlaySound(this.World, "GAME", 'GAME-LOSE', false, player.Transform.Position.x, player.Transform.Position.y);
+            Engine.Current.EngineAudio.PlaySound(this.World, "AMBIENT", "GAME", 'GAME-LOSE', false, player.Transform.Position.x, player.Transform.Position.y);
             Engine.Current.EngineGraphics.AddTextToDisplayQueue("you died");
             Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.BadColour);
         }
         else if (gameState == GameStateType.Completed.Value) {
             //TODO: Read out game time?
             restartTime = 30000;
-            Engine.Current.EngineAudio.PlaySound(this.World, "GAME", 'GAME-WIN', false, player.Transform.Position.x, player.Transform.Position.y);
+            Engine.Current.EngineAudio.PlaySound(this.World, "AMBIENT", "GAME", 'GAME-WIN', false, player.Transform.Position.x, player.Transform.Position.y);
             Engine.Current.EngineGraphics.AddTextToDisplayQueue("you made it out the door in " + Engine.Current.Game.TurnManager.CurrentTurnStartTime / 1000 + " seconds");
             Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.GameWinColour);
         }

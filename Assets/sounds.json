@@ -1,111 +1,142 @@
 {
     "Sounds": [
         {
+            "AudioLocation": "GameData",
             "SoundName": "GAME-WIN",
             "SoundDisplayName": "Won",
-            "SoundType": "GAME",
+            "SoundType": "AMBIENT",
+            "SoundSubType": "GAME",
             "FileName": "west_wolf_Beach_Sea_Waves.mp3",
             "Volume": 0.5
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "GAME-LOSE",
             "SoundDisplayName": "Won",
-            "SoundType": "GAME",
+            "SoundType": "AMBIENT",
+            "SoundSubType": "GAME",
             "FileName": "Blastwave_FX_RattlesnakeShakeTail_BWU.58.mp3",
             "Volume": 0.7
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "SPAWN",
             "SoundDisplayName": "Spawn",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "Cavernousdrippingdrone.mp3",
             "Volume": 0.25
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "DRAW-WEAPON",
             "SoundDisplayName": "Draw Weapon",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "warfare_sword_pulled_from_sheath_british_naval_cutlass_19thc_002.mp3",
             "Volume": 2
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "EMOTE",
             "SoundDisplayName": "Emote",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "zapsplat_human_male_breathing_out_exhale_single_fast_happy_relief_002_75264.mp3",
             "Volume": 0.4
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "WALK",
             "SoundDisplayName": "Walk",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "zapsplat_foley_footsteps_football_boots_running_on_grass_75689Short.mp3",
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "WALK-BUMP",
             "SoundDisplayName": "Walk, bump into object",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "zapsplat_sport_basket_ball_hard_bounce_x1_on_asphalt_concrete_008_71152.mp3",
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "ATTACK",
             "SoundDisplayName": "Attack",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "warfare_medieval_katana_sword_swing_001.mp3",
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "ATTACK-BUMP",
             "SoundDisplayName": "Attack, clash with object",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "zapsplat_impacts_swoosh_into_metal_thud_hit_002_43406.mp3",
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "DAMAGE-TAKEN",
             "SoundDisplayName": "Damage Taken",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "zapsplat_human_male_vocalisation_hit_pain_short_001_66499.mp3",
             "Volume": 2
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "DEATH",
             "SoundDisplayName": "Death",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "johnj_human_impact_weapon_body_fall_sword_or_bat.mp3",
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "DAMAGE-DEALT",
             "SoundDisplayName": "Attack, hit enemy",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3",
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "KILL-DEALT",
             "SoundDisplayName": "Attack, enemy killed",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3",
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "ATTACK-DENIED",
             "SoundDisplayName": "Attack not ready",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "zapsplat_multimedia_game_error_tone_007_24925.mp3",
             "Volume": 0.2
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "WALK-DENIED",
             "SoundDisplayName": "Walk not ready",
-            "SoundType": "PLAYER",
+            "SoundType": "CHARACTER",
+            "SoundSubType": "PLAYER",
             "FileName": "zapsplat_multimedia_game_error_tone_006_24924.mp3",
             "Volume": 0.1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "SPAWN",
             "SoundDisplayName": "Spawn",
             "SoundType": "CHARACTER",
@@ -114,6 +145,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "EMOTE",
             "SoundDisplayName": "Emote",
             "SoundType": "CHARACTER",
@@ -122,6 +154,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "WALK",
             "SoundDisplayName": "Walk",
             "SoundType": "CHARACTER",
@@ -130,6 +163,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "ATTACK",
             "SoundDisplayName": "Attack",
             "SoundType": "CHARACTER",
@@ -138,6 +172,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "ATTACK-BUMP",
             "SoundDisplayName": "Attack, clash with object",
             "SoundType": "CHARACTER",
@@ -146,6 +181,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "DAMAGE-TAKEN",
             "SoundDisplayName": "Damage Taken",
             "SoundType": "CHARACTER",
@@ -154,6 +190,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "DEATH",
             "SoundDisplayName": "Death",
             "SoundType": "CHARACTER",
@@ -162,6 +199,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "DAMAGE-DEALT",
             "SoundDisplayName": "Attack, opponent damaged",
             "SoundType": "CHARACTER",
@@ -170,6 +208,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "KILL-DEALT",
             "SoundDisplayName": "Opponent Killed",
             "SoundType": "CHARACTER",
@@ -178,6 +217,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "SPAWN",
             "SoundDisplayName": "Spawn",
             "SoundType": "CHARACTER",
@@ -186,6 +226,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "EMOTE",
             "SoundDisplayName": "Emote",
             "SoundType": "CHARACTER",
@@ -194,6 +235,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "WALK",
             "SoundDisplayName": "Walk",
             "SoundType": "CHARACTER",
@@ -202,6 +244,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "ATTACK",
             "SoundDisplayName": "Attack",
             "SoundType": "CHARACTER",
@@ -210,6 +253,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "ATTACK-BUMP",
             "SoundDisplayName": "Attack, clash with object",
             "SoundType": "CHARACTER",
@@ -218,6 +262,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "DAMAGE-TAKEN",
             "SoundDisplayName": "Damage taken",
             "SoundType": "CHARACTER",
@@ -226,6 +271,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "DEATH",
             "SoundDisplayName": "Death",
             "SoundType": "CHARACTER",
@@ -234,6 +280,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "DAMAGE-DEALT",
             "SoundDisplayName": "Attack, opponent hit",
             "SoundType": "CHARACTER",
@@ -242,6 +289,7 @@
             "Volume": 2
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "KILL-DEALT",
             "SoundDisplayName": "Attack, opponent killed",
             "SoundType": "CHARACTER",
@@ -250,6 +298,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "USE-DISABLED",
             "SoundDisplayName": "Use, not allowed",
             "SoundType": "ITEM",
@@ -258,6 +307,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "USE-LOCKED",
             "SoundDisplayName": "Use, locked",
             "SoundType": "ITEM",
@@ -266,6 +316,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "UNLOCK",
             "SoundDisplayName": "Unlock item",
             "SoundType": "ITEM",
@@ -274,6 +325,7 @@
             "Volume": 1
         },
         {
+            "AudioLocation": "GameData",
             "SoundName": "PICKUP",
             "SoundDisplayName": "Pickup",
             "SoundType": "ITEM",

@@ -1,26 +1,31 @@
 class SoundService {
     static async LoadAudioAssets() {
-        if (!SoundService.AudioAssets) {
-            var playerSounds = JSON.parse(await PlayerPrefs.GetPlayerPref('sounds'));
+
+        SoundService.AudioAssets = { Sounds: [] };
+        var defaultSounds = await AssetDataAccess.GetJSONFileData('sounds.json');
+        var playerSounds = JSON.parse(await PlayerPrefs.GetPlayerPref('sounds'));
+
+        defaultSounds.Sounds.forEach(setting => {
             if (playerSounds) {
-                SoundService.AudioAssets = playerSounds;
-                return SoundService.AudioAssets;
+                playerSounds.Sounds.forEach(playerSound => {
+                    if (setting.SoundName == playerSound.SoundName && setting.SoundType == playerSound.SoundType && setting.SoundSubType == playerSound.SoundSubType) {
+                        setting.Volume = playerSound.Volume;
+                        setting.FileName = playerSound.FileName;
+                        setting.AudioLocation = 'PlayerData';
+                    }
+                });
             }
-            else {
-                SoundService.AudioAssets = await AssetDataAccess.GetJSONFileData('sounds.json');
-                return SoundService.AudioAssets;
-            }
-        }
+            SoundService.AudioAssets.Sounds.push(setting);
+        });
         return SoundService.AudioAssets;
     }
-    static async GetAudioAsset(entityType, soundName) {//TODO: EntityType
+
+    static async GetAudioAsset(entityType, entitySubType, soundName) {//TODO: EntityType
         var assets = await SoundService.LoadAudioAssets();
         var audioAsset;
         assets.Sounds.forEach(element => {
-            if (element.SoundType == entityType) {
-                if (sound.SoundName == soundName) {
-                    audioAsset = sound;
-                }
+            if (element.SoundType == entityType && element.SoundName == soundName && element.SoundSubType == entitySubType) {
+                audioAsset = element;
             }
         });
         if (audioAsset) {
