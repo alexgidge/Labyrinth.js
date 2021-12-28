@@ -6,7 +6,7 @@
             "SoundDisplayName": "Won",
             "SoundType": "AMBIENT",
             "SoundSubType": "GAME",
-            "FileName": "west_wolf_Beach_Sea_Waves.mp3",
+            "FileName": "../Assets/Audio/west_wolf_Beach_Sea_Waves.mp3",
             "Volume": 0.5
         },
         {
@@ -15,7 +15,7 @@
             "SoundDisplayName": "Won",
             "SoundType": "AMBIENT",
             "SoundSubType": "GAME",
-            "FileName": "Blastwave_FX_RattlesnakeShakeTail_BWU.58.mp3",
+            "FileName": "../Assets/Audio/Blastwave_FX_RattlesnakeShakeTail_BWU.58.mp3",
             "Volume": 0.7
         },
         {
@@ -24,7 +24,7 @@
             "SoundDisplayName": "Spawn",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "Cavernousdrippingdrone.mp3",
+            "FileName": "../Assets/Audio/Cavernousdrippingdrone.mp3",
             "Volume": 0.25
         },
         {
@@ -33,7 +33,7 @@
             "SoundDisplayName": "Draw Weapon",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "warfare_sword_pulled_from_sheath_british_naval_cutlass_19thc_002.mp3",
+            "FileName": "../Assets/Audio/warfare_sword_pulled_from_sheath_british_naval_cutlass_19thc_002.mp3",
             "Volume": 2
         },
         {
@@ -42,7 +42,7 @@
             "SoundDisplayName": "Emote",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "zapsplat_human_male_breathing_out_exhale_single_fast_happy_relief_002_75264.mp3",
+            "FileName": "../Assets/Audio/zapsplat_human_male_breathing_out_exhale_single_fast_happy_relief_002_75264.mp3",
             "Volume": 0.4
         },
         {
@@ -51,7 +51,7 @@
             "SoundDisplayName": "Walk",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "zapsplat_foley_footsteps_football_boots_running_on_grass_75689Short.mp3",
+            "FileName": "../Assets/Audio/zapsplat_foley_footsteps_football_boots_running_on_grass_75689Short.mp3",
             "Volume": 1
         },
         {
@@ -60,7 +60,7 @@
             "SoundDisplayName": "Walk, bump into object",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "zapsplat_sport_basket_ball_hard_bounce_x1_on_asphalt_concrete_008_71152.mp3",
+            "FileName": "../Assets/Audio/zapsplat_sport_basket_ball_hard_bounce_x1_on_asphalt_concrete_008_71152.mp3",
             "Volume": 1
         },
         {
@@ -69,7 +69,7 @@
             "SoundDisplayName": "Attack",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "warfare_medieval_katana_sword_swing_001.mp3",
+            "FileName": "../Assets/Audio/warfare_medieval_katana_sword_swing_001.mp3",
             "Volume": 1
         },
         {
@@ -78,7 +78,7 @@
             "SoundDisplayName": "Attack, clash with object",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "zapsplat_impacts_swoosh_into_metal_thud_hit_002_43406.mp3",
+            "FileName": "../Assets/Audio/zapsplat_impacts_swoosh_into_metal_thud_hit_002_43406.mp3",
             "Volume": 1
         },
         {
@@ -87,7 +87,7 @@
             "SoundDisplayName": "Damage Taken",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "zapsplat_human_male_vocalisation_hit_pain_short_001_66499.mp3",
+            "FileName": "../Assets/Audio/zapsplat_human_male_vocalisation_hit_pain_short_001_66499.mp3",
             "Volume": 2
         },
         {
@@ -96,7 +96,7 @@
             "SoundDisplayName": "Death",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "johnj_human_impact_weapon_body_fall_sword_or_bat.mp3",
+            "FileName": "../Assets/Audio/johnj_human_impact_weapon_body_fall_sword_or_bat.mp3",
             "Volume": 1
         },
         {
@@ -105,7 +105,7 @@
             "SoundDisplayName": "Attack, hit enemy",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3",
+            "FileName": "../Assets/Audio/zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3",
             "Volume": 1
         },
         {
@@ -114,7 +114,7 @@
             "SoundDisplayName": "Attack, enemy killed",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3",
+            "FileName": "../Assets/Audio/zapsplat_warfare_sword_or_other_weapon_swing_fast_hit_body_squelch_002_28393.mp3",
             "Volume": 1
         },
         {
@@ -123,7 +123,7 @@
             "SoundDisplayName": "Attack not ready",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "zapsplat_multimedia_game_error_tone_007_24925.mp3",
+            "FileName": "../Assets/Audio/zapsplat_multimedia_game_error_tone_007_24925.mp3",
             "Volume": 0.2
         },
         {
@@ -132,7 +132,7 @@
             "SoundDisplayName": "Walk not ready",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
-            "FileName": "zapsplat_multimedia_game_error_tone_006_24924.mp3",
+            "FileName": "../Assets/Audio/zapsplat_multimedia_game_error_tone_006_24924.mp3",
             "Volume": 0.1
         },
         {
@@ -141,7 +141,7 @@
             "SoundDisplayName": "Spawn",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
-            "FileName": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3",
+            "FileName": "../Assets/Audio/zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3",
             "Volume": 1
         },
         {
@@ -150,7 +150,7 @@
             "SoundDisplayName": "Emote",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
-            "FileName": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_003_58858.mp3",
+            "FileName": "../Assets/Audio/zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_i_can_see_you_glitchy_recorded_lo_fi_processed_003_58858.mp3",
             "Volume": 1
         },
         {
@@ -159,7 +159,7 @@
             "SoundDisplayName": "Walk",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
-            "FileName": "zapsplat_industrial_chain_med_sized_drag_short_on_concrete_paving_slab_001_59466.mp3",
+            "FileName": "../Assets/Audio/zapsplat_industrial_chain_med_sized_drag_short_on_concrete_paving_slab_001_59466.mp3",
             "Volume": 1
         },
         {
@@ -168,7 +168,7 @@
             "SoundDisplayName": "Attack",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
-            "FileName": "zapsplat_foley_air_blow_inside_small_tube_pipe_short_burst_recorded_at_opening_001_32071.mp3",
+            "FileName": "../Assets/Audio/zapsplat_foley_air_blow_inside_small_tube_pipe_short_burst_recorded_at_opening_001_32071.mp3",
             "Volume": 1
         },
         {
@@ -177,7 +177,7 @@
             "SoundDisplayName": "Attack, clash with object",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
-            "FileName": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3",
+            "FileName": "../Assets/Audio/zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3",
             "Volume": 1
         },
         {
@@ -186,7 +186,7 @@
             "SoundDisplayName": "Damage Taken",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
-            "FileName": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3",
+            "FileName": "../Assets/Audio/zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_groaning_008_71039.mp3",
             "Volume": 1
         },
         {
@@ -195,7 +195,7 @@
             "SoundDisplayName": "Death",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
-            "FileName": "zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_says_death_002_71041.mp3",
+            "FileName": "../Assets/Audio/zapsplat_horror_evp_ghostbox_glitchy_ghostly_demon_voice_says_death_002_71041.mp3",
             "Volume": 1
         },
         {
@@ -204,7 +204,7 @@
             "SoundDisplayName": "Attack, opponent damaged",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
-            "FileName": "zapsplat_foley_air_blow_across_top_of_metal_pipe_003_10610.mp3",
+            "FileName": "../Assets/Audio/zapsplat_foley_air_blow_across_top_of_metal_pipe_003_10610.mp3",
             "Volume": 1
         },
         {
@@ -213,7 +213,7 @@
             "SoundDisplayName": "Opponent Killed",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
-            "FileName": "zapsplat_foley_air_blow_across_top_of_metal_pipe_003_10610.mp3",
+            "FileName": "../Assets/Audio/zapsplat_foley_air_blow_across_top_of_metal_pipe_003_10610.mp3",
             "Volume": 1
         },
         {
@@ -222,7 +222,7 @@
             "SoundDisplayName": "Spawn",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
-            "FileName": "zapsplat_animals_bear_grunt_002_17144.mp3",
+            "FileName": "../Assets/Audio/zapsplat_animals_bear_grunt_002_17144.mp3",
             "Volume": 1
         },
         {
@@ -231,7 +231,7 @@
             "SoundDisplayName": "Emote",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
-            "FileName": "zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_here_glitchy_recorded_lo_fi_processed_004_58855.mp3",
+            "FileName": "../Assets/Audio/zapsplat_horror_ghost_evp_spirit_box_eerie_male_says_here_glitchy_recorded_lo_fi_processed_004_58855.mp3",
             "Volume": 1
         },
         {
@@ -240,7 +240,7 @@
             "SoundDisplayName": "Walk",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
-            "FileName": "animals_mouse_or_other_rodent_scuttle_across_carpet(short).mp3",
+            "FileName": "../Assets/Audio/animals_mouse_or_other_rodent_scuttle_across_carpet(short).mp3",
             "Volume": 1
         },
         {
@@ -249,7 +249,7 @@
             "SoundDisplayName": "Attack",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
-            "FileName": "zapsplat_foley_wood_bambo_swoosh_through_air_002.mp3",
+            "FileName": "../Assets/Audio/zapsplat_foley_wood_bambo_swoosh_through_air_002.mp3",
             "Volume": 1
         },
         {
@@ -258,7 +258,7 @@
             "SoundDisplayName": "Attack, clash with object",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
-            "FileName": "zapsplat_animals_bear_grunt_002_17144.mp3",
+            "FileName": "../Assets/Audio/zapsplat_animals_bear_grunt_002_17144.mp3",
             "Volume": 1
         },
         {
@@ -267,7 +267,7 @@
             "SoundDisplayName": "Damage taken",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
-            "FileName": "zapsplat_animals_bear_grunt_002_17144.mp3",
+            "FileName": "../Assets/Audio/zapsplat_animals_bear_grunt_002_17144.mp3",
             "Volume": 1
         },
         {
@@ -276,7 +276,7 @@
             "SoundDisplayName": "Death",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
-            "FileName": "horror_monster_ill_or_dying_moan.mp3",
+            "FileName": "../Assets/Audio/horror_monster_ill_or_dying_moan.mp3",
             "Volume": 1
         },
         {
@@ -285,7 +285,7 @@
             "SoundDisplayName": "Attack, opponent hit",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
-            "FileName": "audio_mangler_whoosh_fee_10_072.mp3",
+            "FileName": "../Assets/Audio/audio_mangler_whoosh_fee_10_072.mp3",
             "Volume": 2
         },
         {
@@ -294,7 +294,7 @@
             "SoundDisplayName": "Attack, opponent killed",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
-            "FileName": "Robot-Rhythm.mp3",
+            "FileName": "../Assets/Audio/Robot-Rhythm.mp3",
             "Volume": 1
         },
         {
@@ -303,7 +303,7 @@
             "SoundDisplayName": "Use, not allowed",
             "SoundType": "ITEM",
             "SoundSubType": "DOOR",
-            "FileName": "zapsplat_household_door_front_wooden_knocks_fist_hard_21929.mp3",
+            "FileName": "../Assets/Audio/zapsplat_household_door_front_wooden_knocks_fist_hard_21929.mp3",
             "Volume": 1
         },
         {
@@ -312,7 +312,7 @@
             "SoundDisplayName": "Use, locked",
             "SoundType": "ITEM",
             "SoundSubType": "DOOR",
-            "FileName": "zapsplat_household_door_handle_try_open_locked_001_10218.mp3",
+            "FileName": "../Assets/Audio/zapsplat_household_door_handle_try_open_locked_001_10218.mp3",
             "Volume": 1
         },
         {
@@ -321,7 +321,7 @@
             "SoundDisplayName": "Unlock item",
             "SoundType": "ITEM",
             "SoundSubType": "DOOR",
-            "FileName": "zapsplat_multimedia_game_sound_door_open_magical_unlock_level_secret_001_73548.mp3",
+            "FileName": "../Assets/Audio/zapsplat_multimedia_game_sound_door_open_magical_unlock_level_secret_001_73548.mp3",
             "Volume": 1
         },
         {
@@ -330,7 +330,7 @@
             "SoundDisplayName": "Pickup",
             "SoundType": "ITEM",
             "SoundSubType": "KEY",
-            "FileName": "zapsplat_household_keys_bunch_small_jingle_004_76303.mp3",
+            "FileName": "../Assets/Audio/zapsplat_household_keys_bunch_small_jingle_004_76303.mp3",
             "Volume": 1
         }
     ]

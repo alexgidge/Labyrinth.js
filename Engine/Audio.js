@@ -5,9 +5,6 @@ class EngineAudio {
             var playerPosition = world.GetPlayerEntity().Transform.Position;
             var soundMeta = await SoundService.GetAudioAsset(SoundEntity, SoundEntitySubType, SoundName);
 
-
-            var location = "../Assets/Audio/" + soundMeta.FileName;
-
             var distance = 1;
             var diffX = (audioX - playerPosition.x) * 2;//TODO: Remove *2
             var diffY = audioZ - 0;//audioY - playerPosition.y;
@@ -20,7 +17,7 @@ class EngineAudio {
 
             //TODO: Rewrite and wrap howl implementation
             var sound = new Howl({
-                src: [location],
+                src: [soundMeta.FileName],
                 volume: soundVolume
             });
 

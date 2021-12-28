@@ -4,6 +4,22 @@ $(function () {
     $('#btnSaveAudio').click(function (evt) {
         SaveAudioSettingsForm(evt);
     });
+
+    $("#btnUploadAudioFiles").click(function () {
+        var filename = $("#file").val();
+
+        $.ajax({
+            type: "POST",
+            url: "addFile.do",
+            enctype: 'multipart/form-data',
+            data: {
+                file: filename
+            },
+            success: function () {
+                alert("Data Uploaded: ");
+            }
+        });
+    });
 });
 
 async function PopulateAudioSettingsForm() {
@@ -65,7 +81,7 @@ async function SaveAudioSettingsForm(evt) {
                 else if (names[3] == 'File') {
                     setting.FileName = element.value;
                 }
-                setting.AudioLocation = 'PlayerData';
+                setting.AudioLocation = 'GameData';
             }
         });
 

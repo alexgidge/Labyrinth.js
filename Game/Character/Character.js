@@ -51,6 +51,7 @@ class Character extends WorldModule {
                     entitiesAtTargetLoc.forEach(element => {
                         if (element.EntityType == EntityType.Character.Value && element.Module.State == CharacterStateType.Alive.Value) {//TODO: boolean on character for playable? All I need here is to check if they're an npc
                             this.OnEnemyCollide(targetLocation, element);//TODO: ColliderTypes
+
                         } else if (element.EntityType == EntityType.Tile.Value) {
                             if (element && element.Module.TileType == TileType.Floor.Value) {
                                 this.World.MoveEntity(entity, targetLocation);

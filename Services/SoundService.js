@@ -11,7 +11,6 @@ class SoundService {
                     if (setting.SoundName == playerSound.SoundName && setting.SoundType == playerSound.SoundType && setting.SoundSubType == playerSound.SoundSubType) {
                         setting.Volume = playerSound.Volume;
                         setting.FileName = playerSound.FileName;
-                        setting.AudioLocation = 'PlayerData';
                     }
                 });
             }
