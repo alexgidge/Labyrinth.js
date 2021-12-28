@@ -7,7 +7,7 @@ class SoundService {
                 return SoundService.AudioAssets;
             }
             else {
-                SoundService.AudioAssets = await AssetDataAccess.GetJSONFileData('audio.json');
+                SoundService.AudioAssets = await AssetDataAccess.GetJSONFileData('sounds.json');
                 return SoundService.AudioAssets;
             }
         }
@@ -16,13 +16,11 @@ class SoundService {
     static async GetAudioAsset(entityType, soundName) {//TODO: EntityType
         var assets = await SoundService.LoadAudioAssets();
         var audioAsset;
-        assets.GroupedSounds.forEach(element => {
-            if (element.GroupID == entityType) {
-                element.Sounds.forEach(sound => {
-                    if (sound.SoundName == soundName) {
-                        audioAsset = sound;
-                    }
-                });
+        assets.Sounds.forEach(element => {
+            if (element.SoundType == entityType) {
+                if (sound.SoundName == soundName) {
+                    audioAsset = sound;
+                }
             }
         });
         if (audioAsset) {
@@ -32,7 +30,7 @@ class SoundService {
         }
     }
 
-    static SaveAudioAssets(AudioJSON) {
-        PlayerPrefs.SavePlayerPref('sounds', AudioJSON)
+    static SaveAudioSettings(AudioSettingsJSON) {
+        PlayerPrefs.SavePlayerPref('sounds', AudioSettingsJSON);
     }
 }

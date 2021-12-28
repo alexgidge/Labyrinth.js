@@ -1,40 +1,93 @@
 //TODO: Refactor UI
 $(function () {
     PopulateAudioSettingsForm();
-    $('#btnSave').click(SaveAudioSettings());
+    $('#btnSaveAudio').click(function (evt) {
+        SaveAudioSettingsForm(evt);
+    });
 });
 
 async function PopulateAudioSettingsForm() {
     var audioSettings = await SoundService.LoadAudioAssets();
     var settingsList = [];
 
-    audioSettings.GroupedSounds.forEach(audioGroup => {
-        audioGroup.Sounds.forEach(sound => {
-            settingsList.push({ GroupID: audioGroup.GroupID, SoundName: sound.SoundName, Volume: sound.Volume, FileName: sound.FileName });
-        });
+    audioSettings.Sounds.forEach(sound => {
+        var soundSetting = {};
+        soundSetting.SoundType = sound.SoundType;
+        if (sound.SoundSubType) {
+            soundSetting.SoundSubType = sound.SoundSubType;
+        }
+        else {
+            soundSetting.SoundSubType = '';
+        }
+        soundSetting.SoundDisplayName = sound.SoundDisplayName;
+        soundSetting.SoundName = sound.SoundName;
+        soundSetting.Volume = sound.Volume;
+        soundSetting.FileName = sound.FileName;
+        settingsList.push(soundSetting);
     });
 
     $('#divFormContent').html(settingsList.map(AudioSettingsTemplate).join(''));
 }
 
-function SaveAudioSettings() {
+async function SaveAudioSettingsForm(evt) {
+
+    var currentSettings = await SoundService.LoadAudioAssets();//TODO: Get filename and volume from current settings
     var form = $('#frmSettings').serializeArray();
     var audioSettings = [];
-
     form.forEach(element => {
-        //TODO: HERE
-        audioSettings.push({});
+        var names = element.name.split(':');
+        var name = names[0];
+
+
+
+        var playerSoundSetting = {};
+        playerSoundSetting.SoundName = names[0];
+        playerSoundSetting.SoundType = names[1];
+        if (names[2]) {
+            playerSoundSetting.SoundSubType = names[2];
+        }
+        else {
+            playerSoundSetting.SoundSubType = '';
+        }
+
+        if (names[3] == 'Volume') {
+            playerSoundSetting.Volume = element.value;
+        }
+        else if (names[3] == 'File') {
+            playerSoundSetting.FileName = element.value;
+        }
+
+        var exists = false;
+        audioSettings.forEach(setting => {
+            if (setting.SoundName == playerSoundSetting.SoundName && setting.SoundType == playerSoundSetting.SoundType && setting.SoundSubType == playerSoundSetting.SoundSubType) {
+                exists = true;
+                if (names[3] == 'Volume') {
+                    setting.Volume = element.value;
+                }
+                else if (names[3] == 'File') {
+                    setting.FileName = element.value;
+                }
+
+            }
+        });
+
+        if (exists != true) {
+            audioSettings.push(playerSoundSetting);
+        }
+        //TODO: Drop down of all audio files
+        //TODO: Ability to upload audio files
+        //TODO: Button to delete all custom audio files, maps, etc.
     });
-    ControlsService.SaveControls(JSON.stringify(controls));
+    SoundService.SaveAudioSettings(JSON.stringify({ Sounds: audioSettings }));
 }
 
 
 //TODO: React or similar lightweight front end framework
-const AudioSettingsTemplate = ({ GroupID, SoundName, Volume, FileName }) => `
+const AudioSettingsTemplate = ({ SoundType, SoundSubType, SoundDisplayName, SoundName, Volume, FileName }) => `
 <div>
-<label>${GroupID} ${SoundName}</label>
-<input type="text" name="${GroupID}${SoundName}" id="txt${GroupID}${SoundName}" value="${Volume}"></input>
-<label>${FileName}</label>
+<label>${SoundSubType} ${SoundType} ${SoundDisplayName}</label>
+<input type="text" name="${SoundName}:${SoundType}:${SoundSubType}:Volume" id="${SoundName}:${SoundType}:${SoundSubType}:Volume" value="${Volume}"></input>
+<input type="text" name="${SoundName}:${SoundType}:${SoundSubType}:File" id="${SoundName}:${SoundType}:${SoundSubType}:File" value="${FileName}"></input>
 <br/>
 </div>
 `
