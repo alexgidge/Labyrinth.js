@@ -39,6 +39,9 @@ class Game {
                 if (element.EntityType == EntityType.Character.Value && element.Module.Type && element.Module.Type != CharacterType.Player.Value) {//TODO: boolean on character for playable? All I need here is to check if they're an npc
                     element.Module.Tick();
                 }
+                if (element.EntityType == EntityType.Item.Value) {//TODO: boolean on character for playable? All I need here is to check if they're an npc
+                    element.Module.Tick();
+                }
             });
             //TODO: Where do I lock player input? Change game state to cinematic?
         }

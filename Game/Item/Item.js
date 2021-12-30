@@ -4,6 +4,8 @@ class Item extends WorldModule {
     useLocked = 'USELOCKED';
     pickupSound = 'PICKUP';
     unlockSound = 'UNLOCK';
+    idleSound = 'IDLE';
+
 
     constructor(world, itemType, itemState, pickupable, lockable, unlockedby) {
         super();
@@ -13,9 +15,18 @@ class Item extends WorldModule {
         this.Lockable = lockable;
         this.UnlockedByItem = unlockedby;
         this.World = world;
+        this.IdleTurns = 40;
+        this.lastIdleTurn = 0;
     }
     Spawn() {
 
+    }
+    Tick() {
+        if (this.lastIdleTurn + this.IdleTurns < Game.Current.TurnManager.CurrentTurn) {
+            var thisEntity = this.World.GetEntity(this.Identifier);
+            this.Idle(thisEntity);
+            this.lastIdleTurn = Game.Current.TurnManager.CurrentTurn;
+        }
     }
     Unlock(items) {
         var keyFound = false;
@@ -68,6 +79,13 @@ class Item extends WorldModule {
             } else {
                 return false;
             }
+        }
+    }
+
+    Idle(thisEntity) {
+        if (this.ItemState != ItemState.Disabled.Value) {
+            var location = new Vector2(thisEntity.Transform.Position.x, thisEntity.Transform.Position.y);
+            Engine.Current.EngineAudio.PlaySound(this.World, "ITEM", this.ItemType, this.idleSound, false, location.x, location.y);
         }
     }
 

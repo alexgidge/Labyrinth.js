@@ -299,8 +299,8 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "USEDISABLED",
-            "SoundDisplayName": "Use, not allowed",
+            "SoundName": "IDLE",
+            "SoundDisplayName": "Idle sound",
             "SoundType": "ITEM",
             "SoundSubType": "DOOR",
             "FileName": "zapsplat_household_door_front_wooden_knocks_fist_hard_21929.mp3",
@@ -332,6 +332,15 @@
             "SoundSubType": "KEY",
             "FileName": "zapsplat_household_keys_bunch_small_jingle_004_76303.mp3",
             "Volume": 1
+        },
+        {
+            "AudioLocation": "GameData",
+            "SoundName": "IDLE",
+            "SoundDisplayName": "Idle sound",
+            "SoundType": "ITEM",
+            "SoundSubType": "KEY",
+            "FileName": "zapsplat_household_keys_bunch_movement_19677.mp3",
+            "Volume": 0.6
         }
     ]
 }

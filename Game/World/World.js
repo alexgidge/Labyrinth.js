@@ -100,11 +100,14 @@ class World {//TODO: Rename, refactor & separate populate from running logic.
         });
         return returnEntity;
     }
-    GetEntity(characterID) {
+    GetEntity(entityID) {
         var returnEntity;
         this.Entities.forEach(element => {
-            if (element && element.Module.Identifier == characterID) {
-                if (CharacterStateType.Compare(element.Module.State, CharacterStateType.Alive)) {//TODO: Character specific?
+            if (element && element.Module.Identifier == entityID) {
+                if (element.Module.ItemState && element.Module.ItemState != ItemState.Disabled.Value) {
+                    returnEntity = element;
+                }
+                if (element.Module.State && CharacterStateType.Compare(element.Module.State, CharacterStateType.Alive)) {//TODO: Character specific?
                     returnEntity = element;
                 }
             }
