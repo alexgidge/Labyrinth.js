@@ -11,7 +11,9 @@ class EngineGraphics {
         this.BackgroundColour = this.DefaultColour;
     }
     AddTextToDisplayQueue(text) {
-        this.TextQueue.push(text);
+        if (Game.Current.GameState == GameStateType.Playing.Value) {
+            this.TextQueue.push(text);
+        }
         //TODO: Text formatting
         //TODO: Text type/priority to pin/remove old text
         //TODO: Spatial to player, only display if < 3 squares away / scale font by distance

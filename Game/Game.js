@@ -45,7 +45,6 @@ class Game {
     }
 
     GameOver(gameState) {
-        this.GameState = gameState;
         var player = this.World.GetPlayerEntity();
         var restartTime = 10000;
         if (gameState == GameStateType.Dead.Value) {
@@ -61,6 +60,7 @@ class Game {
             Engine.Current.EngineGraphics.AddTextToDisplayQueue("you made it out the door in " + Engine.Current.Game.TurnManager.CurrentTurnStartTime / 1000 + " seconds");
             Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.GameWinColour);
         }
+        this.GameState = gameState;
         setTimeout(this.Restart, restartTime);
     }
 

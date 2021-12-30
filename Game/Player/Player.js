@@ -27,8 +27,8 @@ class Player extends Character {
     }
 
     OnDeath() {
-        Game.Current.GameOver(GameStateType.Dead.Value);
         setTimeout(Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.BadColour));
+        Game.Current.GameOver(GameStateType.Dead.Value);
     }
     OnSpawn(location) {
         Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.breathe, false, location.x, location.y);//TODO: Check X,Y & Z. 
