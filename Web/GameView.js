@@ -3,6 +3,7 @@ const TickFrequency = 10; //100ms per tick or 10 ticks per second. The game can 
 var GameCanvas;//TODO: Move to graphics
 var CurrentPlayer;
 var CurrentEngine;
+var Input;
 
 $(function () {
     StartUp();
