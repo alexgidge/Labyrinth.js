@@ -81,6 +81,9 @@ async function SaveAudioSettingsForm(evt) {
     });
     SoundService.SaveAudioSettings(JSON.stringify({ Sounds: audioSettings }));
     $('#pSaveSuccess').text('Saved.');
+    setTimeout(function () {
+        $('#pSaveSuccess').text(' ');
+    }, 1000);
 }
 
 

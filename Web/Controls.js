@@ -16,6 +16,9 @@ function SaveControls() {
     });
     ControlsService.SaveControls(JSON.stringify(controls));
     $('#pSaveSuccess').text('Saved.');
+    setTimeout(function () {
+        $('#pSaveSuccess').text(' ');
+    }, 1000);
 }
 
 
