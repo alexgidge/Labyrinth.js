@@ -15,6 +15,7 @@ function SaveControls() {
         controls.push({ action: element.name, key: element.value });
     });
     ControlsService.SaveControls(JSON.stringify(controls));
+    $('#pSaveSuccess').text('Saved.');
 }
 
 

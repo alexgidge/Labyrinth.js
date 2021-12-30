@@ -80,6 +80,7 @@ async function SaveAudioSettingsForm(evt) {
         //TODO: Button to delete all custom audio files, maps, etc.
     });
     SoundService.SaveAudioSettings(JSON.stringify({ Sounds: audioSettings }));
+    $('#pSaveSuccess').text('Saved.');
 }
 
 

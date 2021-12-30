@@ -53,15 +53,17 @@
 
       <h1>Audio Settings</h1>
       <p>These settings are currently only saved in the browser so may break and/or reset back to default.</p>
-      <div>
-        <button id="btnSave" disabled>Upload Audio File</button>
-      </div>
       <hr />
       <form id="frmSettings" name="settings">
       </form>
       <div>
         <br />
-        <a id="btnSaveAudio" href="#" class="btn btn-secondary fw-bold border-white bg-white">Save</a>
+        <button id="btnSaveAudio" class="btn btn-secondary fw-bold border-white bg-white">Save</button>
+        <p aria-live="polite" id="pSaveSuccess"></p>
+      </div>
+      <hr />
+      <div>
+        <button id="btnSave" class="btn btn-sm btn-light" disabled>Upload Audio File</button>
       </div>
     </main>
     <footer class="mt-auto text-white-50">
