@@ -131,10 +131,10 @@ const AudioSettingsTemplate = ({ SoundType, SoundSubType, SoundDisplayName, Soun
 <button id="btn${SoundName}-${SoundType}-${SoundSubType}-Listen" value="${SoundName}-${SoundType}-${SoundSubType}" class="btn btn-light btn-listen-to-audio">Listen</button>
 </td>
 <td>
-<input type="text" class="form-control" name="${SoundName}-${SoundType}-${SoundSubType}-Volume" id="${SoundName}-${SoundType}-${SoundSubType}-Volume" value="${Volume}"></input>
+<input type="text" class="form-control" name="${SoundName}-${SoundType}-${SoundSubType}-Volume" id="${SoundName}-${SoundType}-${SoundSubType}-Volume" aria-label="Volume" value="${Volume}"></input>
 </td>
 <td>
-<input type="text" class="form-control" name="${SoundName}-${SoundType}-${SoundSubType}-File" id="${SoundName}-${SoundType}-${SoundSubType}-File" value="${FileName}"></input>
+<input type="text" class="form-control" name="${SoundName}-${SoundType}-${SoundSubType}-File" id="${SoundName}-${SoundType}-${SoundSubType}-File" aria-label="File" value="${FileName}"></input>
 </td>
 </tr>
 `
