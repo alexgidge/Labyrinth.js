@@ -73,9 +73,10 @@ class Character extends WorldModule {
                     this.OnCollision(targetLocation, null);
                 }
             }
-            else if (!keyHeld) {
-                Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.denied1Sound, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
-            }
+            //TODO: Find a way to get this back in. Players don't understand it but I feel a "Not ready yet" sound does work for some games. Maybe slower ones?
+            // else if (!keyHeld) {
+            //     Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.denied1Sound, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
+            // }
 
         }
     }
@@ -101,9 +102,9 @@ class Character extends WorldModule {
                 }
 
             }
-            else if (!keyHeld) {
-                Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.denied2Sound, false, targetLocation.x, targetLocation.y);
-            }
+            // else if (!keyHeld) {
+            //     Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.denied2Sound, false, targetLocation.x, targetLocation.y);
+            // }
         }
     }
     CheckIfCanSeePlayer(location) {
