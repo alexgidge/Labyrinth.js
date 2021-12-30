@@ -24,8 +24,9 @@
     }
   </style>
 
-  <!-- SCRIPTS HERE -->
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- SCRIPTS HERE -->
+
   <script src="../Assets/AssetDataAccess.js"></script>
   <script src="../Services/MapService.js"></script>
   <script src="PlayerPrefs.js"></script>
@@ -48,14 +49,26 @@
 
     <main class="px-3">
       <!-- PAGE CONTENT -->
-      <h1>Map Manager</h1>
-      <p>No map editor yet. To be added soon</p>
+      <h1>Map Editor</h1>
+      <p>...
+      </p>
+      <form id="frmMapManager" name="MapManager">
+        <table class="table table-dark table-striped">
+          <tbody id="tblMaps">
+          </tbody>
+        </table>
+      </form>
+      <div>
+        <br />
+        <button id="btnSave" class="btn btn-secondary fw-bold border-white bg-white">Save</button>
+        <p aria-live="polite" id="pSaveSuccess"></p>
+      </div>
     </main>
     <footer class="mt-auto text-white-50">
       <hr />
       <div class="row">
         <div class="col">
-          <p>footer</p>
+          <footer></footer>
         </div>
       </div>
       <nav class="nav nav-masthead justify-content-center float-md-end">

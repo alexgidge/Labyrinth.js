@@ -6,6 +6,7 @@ class MapService {
         var allMaps = JSONMaps.Maps;
 
         if (playerMaps) {
+            allMaps = [];
             playerMaps.Maps.forEach(element => {
                 allMaps.push(element);
             });
@@ -25,7 +26,7 @@ class MapService {
         return map;
     }
 
-    static async SaveMap(mapJSON) {
+    static async SaveMaps(mapJSON) {
         PlayerPrefs.SavePlayerPref('maps', mapJSON);
     }
 }

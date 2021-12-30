@@ -43,7 +43,7 @@ class Item extends WorldModule {
                 if (this.Unlock(items) == true) {
                     Engine.Current.EngineAudio.PlaySound(this.World, "ITEM", this.ItemType, this.unlockSound, false, location.x, location.y);
                     Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " unlocked");
-                    Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.GoodColour, 500);
+                    Engine.Current.EngineGraphics.ChangeGameBackground(Engine.Current.EngineGraphics.GoodColour, 250);
                 } else {
                     Engine.Current.EngineAudio.PlaySound(this.World, "ITEM", this.ItemType, this.useLocked, false, location.x, location.y);
                     Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.ItemType + " is locked");

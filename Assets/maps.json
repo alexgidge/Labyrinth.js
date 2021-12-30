@@ -1,108 +1,8 @@
 {
     "Maps": [
         {
-            "ID": "DevelopmentRoom",
-            "Text": "Development Room",
-            "Hidden": "true",
-            "Room": {
-                "Tiles": [
-                    {
-                        "x": 0,
-                        "y": 0,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": 1,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": 2,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": 3,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -1,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -2,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 0,
-                        "y": -3,
-                        "TileType": "FLOOR_TILE"
-                    }
-                ],
-                "Items": [
-                    {
-                        "ItemType": "DOOR",
-                        "x": 0,
-                        "y": 3,
-                        "ItemStartState": "LOCKED",
-                        "Pickupable": false,
-                        "Lockable": true,
-                        "UnlockedByItem": "KEY"
-                    },
-                    {
-                        "ItemType": "KEY",
-                        "x": 0,
-                        "y": -3,
-                        "ItemStartState": "ENABLED",
-                        "Pickupable": true,
-                        "Lockable": false,
-                        "UnlockedByItem": ""
-                    }
-                ],
-                "Spawns": [
-                    {
-                        "CharacterType": "PLAYER",
-                        "Team": 1,
-                        "x": 0,
-                        "y": 0,
-                        "minDamage": 100,
-                        "maxDamage": 100,
-                        "maxHealth": 50,
-                        "turnsPerMove": 2,
-                        "turnsPerAttack": 4
-                    },
-                    {
-                        "CharacterType": "EYE",
-                        "Team": 2,
-                        "x": 0,
-                        "y": -2,
-                        "minDamage": 300,
-                        "maxDamage": 300,
-                        "maxHealth": 200,
-                        "turnsPerMove": 128,
-                        "turnsPerAttack": 256
-                    },
-                    {
-                        "CharacterType": "BEAST",
-                        "Team": 2,
-                        "x": 0,
-                        "y": 2,
-                        "minDamage": 25,
-                        "maxDamage": 25,
-                        "maxHealth": 50,
-                        "turnsPerMove": 64,
-                        "turnsPerAttack": 8
-                    }
-                ]
-            }
-        },
-        {
             "ID": "Labryinth-Easy",
             "Text": "Easy Labyrinth",
-            "Hidden": "False",
             "Room": {
                 "Tiles": [
                     {
@@ -743,7 +643,6 @@
         {
             "ID": "Labryinth-Medium",
             "Text": "Medium Labyrinth",
-            "Hidden": "False",
             "Room": {
                 "Tiles": [
                     {
@@ -1384,7 +1283,6 @@
         {
             "ID": "Labryinth-Hard",
             "Text": "Hard Labyrinth",
-            "Hidden": "False",
             "Room": {
                 "Tiles": [
                     {
@@ -2029,6 +1927,83 @@
                         "maxHealth": 50,
                         "turnsPerMove": 1,
                         "turnsPerAttack": 20
+                    }
+                ]
+            }
+        },
+        {
+            "ID": "Labryinth-Empty",
+            "Text": "Empty Labyrinth",
+            "Room": {
+                "Tiles": [
+                    {
+                        "x": 0,
+                        "y": 0,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 0,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    }
+                ],
+                "Items": [
+                    {
+                        "ItemType": "DOOR",
+                        "x": 0,
+                        "y": 3,
+                        "ItemStartState": "LOCKED",
+                        "Pickupable": false,
+                        "Lockable": true,
+                        "UnlockedByItem": "KEY"
+                    },
+                    {
+                        "ItemType": "KEY",
+                        "x": 0,
+                        "y": 2,
+                        "ItemStartState": "ENABLED",
+                        "Pickupable": true,
+                        "Lockable": false,
+                        "UnlockedByItem": ""
+                    }
+                ],
+                "Spawns": [
+                    {
+                        "CharacterType": "PLAYER",
+                        "Team": 1,
+                        "x": 0,
+                        "y": 0,
+                        "minDamage": 10,
+                        "maxDamage": 10,
+                        "maxHealth": 50,
+                        "turnsPerMove": 4,
+                        "turnsPerAttack": 1
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 0,
+                        "y": 1,
+                        "minDamage": 10,
+                        "maxDamage": 10,
+                        "maxHealth": 10,
+                        "turnsPerMove": 100,
+                        "turnsPerAttack": 10
                     }
                 ]
             }
