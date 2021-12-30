@@ -19,6 +19,7 @@ async function StartUp() {
     ResizeCanvas();
     await InitialiseGame(mapName);//TODO: Level select
     $('#canvGameArea').keyup(CanvasKeydown);
+    $('#canvGameArea').keydown(CanvasKeyPress);
     console.log("--------------------------STARTING---------------------------");
     setTimeout(StartGame, 1500);
 }
@@ -51,6 +52,10 @@ async function StartGame() {
 
 function CanvasKeydown(e) {
     if (input) { input.OnButtonDown(e); }
+}
+
+function CanvasKeyPress(e) {
+    if (input) { input.OnButtonDown(e, true); }
 }
 
 function EngineTick() {

@@ -2,11 +2,11 @@ class EngineInput {
     constructor(_playerInput) {
         this.PlayerInput = _playerInput;
     }
-    InputPressed(inputType) {
+    InputPressed(inputType, held) {
         if (inputType == InputType.Escape) {
             //TODO: Canvas.blur()
         } else {
-            this.PlayerInput.InputPressed(inputType)
+            this.PlayerInput.InputPressed(inputType, held)
         }
     }
 }

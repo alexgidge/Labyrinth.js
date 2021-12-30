@@ -40,7 +40,7 @@ class Character extends WorldModule {
         //Engine.Current.EngineGraphics.AddTextToDisplayQueue(this.Type + " entered the room.");
         this.OnSpawn(location);
     }
-    Move(direction) {
+    Move(direction, keyHeld) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             var entity = this.World.GetEntity(this.Identifier);
             var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
@@ -73,13 +73,13 @@ class Character extends WorldModule {
                     this.OnCollision(targetLocation, null);
                 }
             }
-            else {
+            else if (!keyHeld) {
                 Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.denied1Sound, false, targetLocation.x, targetLocation.y);//TODO: constructor instead of each PlaySound() call
             }
 
         }
     }
-    Attack(direction) {
+    Attack(direction, keyHeld) {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             var entity = this.World.GetEntity(this.Identifier);//Get self //TODO: Refactor into property on class set at constructor;
             var targetLocation = new Vector2(entity.Transform.Position.x + direction.x, entity.Transform.Position.y + direction.y);
@@ -101,7 +101,7 @@ class Character extends WorldModule {
                 }
 
             }
-            else {
+            else if (!keyHeld) {
                 Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.denied2Sound, false, targetLocation.x, targetLocation.y);
             }
         }

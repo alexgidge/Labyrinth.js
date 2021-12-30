@@ -7,10 +7,10 @@ class WebInput {
         this.engineInput = _engineInput;
         this.Controls = controls;
     }
-    OnButtonDown(e) {
+    OnButtonDown(e, held) {
         //if (e.keyCode != 27) {//Escape
         var inputType = this.GetInputTypeByKeyCode(e.keyCode);
-        this.engineInput.InputPressed(inputType);
+        this.engineInput.InputPressed(inputType, held);
         //}
     }
     GetInputTypeByKeyCode(keycode) {
