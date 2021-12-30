@@ -27,6 +27,9 @@
   <script src="../node_modules/howler/dist/howler.core.min.js"></script>
   <script src="../node_modules/howler/dist/howler.spatial.min.js"></script>
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- ENGINE -->
+  <script src="../Engine/Engine.js"></script>
+  <script src="../Engine/Audio.js"></script>
   <!-- SCRIPTS HERE -->
   <script src="PlayerPrefs.js"></script>
   <script src="../Services/SoundService.js"></script>
@@ -52,9 +55,25 @@
       <!-- PAGE CONTENT -->
 
       <h1>Audio Settings</h1>
-      <p>These settings are currently only saved in the browser so may break and/or reset back to default.</p>
-      <hr />
+      <div class="row">
+        <p></p>
+        <p>These settings are currently only saved in the browser so may break and/or reset back to default.</p>
+      </div>
+
       <form id="frmSettings" name="settings">
+
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Sound</th>
+              <th scope="col">Listen</th>
+              <th scope="col">Volume</th>
+              <th scope="col">MP3 File</th>
+            </tr>
+          </thead>
+          <tbody id="settingsBody">
+          </tbody>
+        </table>
       </form>
       <div>
         <br />

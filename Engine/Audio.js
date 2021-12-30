@@ -2,10 +2,11 @@ class EngineAudio {
     async PlaySound(world, SoundEntity, SoundEntitySubType, SoundName, looping = false, audioX = 0, audioY = 0, audioZ = 0)//TODO: Sound library instead of passing file path
     {//TODO: Delays
         try {
-            var playerPosition = world.GetPlayerEntity().Transform.Position;
+            var playerPosition = (0, 0);
+            if (world) {
+                playerPosition = world.GetPlayerEntity().Transform.Position;
+            }
             var soundMeta = await SoundService.GetAudioAsset(SoundEntity, SoundEntitySubType, SoundName);
-
-
             var location = "../Assets/Audio/" + soundMeta.FileName;
 
             var distance = 1;
@@ -22,7 +23,7 @@ class EngineAudio {
             var sound = new Howl({
                 src: [location],
                 volume: soundVolume
-            });
+            });//TODO: Sounds by groups & subgroups
 
             var walking = sound.play();
 

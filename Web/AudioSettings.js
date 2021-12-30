@@ -29,7 +29,41 @@ async function PopulateAudioSettingsForm() {
         settingsList.push(soundSetting);
     });
 
-    $('#frmSettings').html(settingsList.map(AudioSettingsTemplate).join(''));
+    $('#settingsBody').html(settingsList.map(AudioSettingsTemplate).join(''));
+
+    $('.btn-listen-to-audio').click(function (evt) {
+        var name = $(this).val();
+        var names = name.split('-');
+        var volume = $('#' + name + '-Volume').val();
+        StopAllAudio();
+        PlayAudio(names[1], names[2], names[0], volume);
+        evt.preventDefault();
+    });
+}
+var sound;//TODO: Move to audio engine
+async function PlayAudio(SoundEntity, SoundEntitySubType, SoundName, volume) {
+    var soundMeta = await SoundService.GetAudioAsset(SoundEntity, SoundEntitySubType, SoundName);
+    var location = "../Assets/Audio/" + soundMeta.FileName;
+
+
+    var soundVolume = soundMeta.Volume;//Default for non-specified audio
+    if (volume) { soundVolume = volume; }//Overwrite if provided
+
+    //TODO: Rewrite and wrap howl implementation
+    sound = new Howl({
+        src: [location],
+        volume: soundVolume
+    });
+
+    var walking = sound.play();
+
+    sound.stereo(soundVolume, walking);//TODO: Why is volume needed twice? I'm just slightly confused but it's working
+}
+
+function StopAllAudio() {
+    if (sound) {
+        sound.stop();
+    }
 }
 
 async function SaveAudioSettingsForm(evt) {
@@ -38,7 +72,7 @@ async function SaveAudioSettingsForm(evt) {
     var form = $('#frmSettings').serializeArray();
     var audioSettings = [];
     form.forEach(element => {
-        var names = element.name.split(':');
+        var names = element.name.split('-');
         var name = names[0];
 
         var playerSoundSetting = {};
@@ -89,18 +123,18 @@ async function SaveAudioSettingsForm(evt) {
 
 //TODO: React or similar lightweight front end framework
 const AudioSettingsTemplate = ({ SoundType, SoundSubType, SoundDisplayName, SoundName, Volume, FileName }) => `
-<div class="row">
-<div>
-<label>${SoundSubType} ${SoundType} ${SoundDisplayName}</label>
-</div>
-<div class="col">
-<label for="${SoundName}:${SoundType}:${SoundSubType}:Volume">Volume</label>
-<input type="text" class="form-control" name="${SoundName}:${SoundType}:${SoundSubType}:Volume" id="${SoundName}:${SoundType}:${SoundSubType}:Volume" value="${Volume}"></input>
-<br/>
-</div>
-<div class="col">
-<label for="${SoundName}:${SoundType}:${SoundSubType}:File">Audio File</label>
-<input type="text" class="form-control" name="${SoundName}:${SoundType}:${SoundSubType}:File" id="${SoundName}:${SoundType}:${SoundSubType}:File" value="${FileName}"></input>
-</div>
-</div>
+<tr>
+<td>
+<label for="btn${SoundName}-${SoundType}-${SoundSubType}-Listen">${SoundSubType} ${SoundType} ${SoundDisplayName}</label>
+</td>
+<td >
+<button id="btn${SoundName}-${SoundType}-${SoundSubType}-Listen" value="${SoundName}-${SoundType}-${SoundSubType}" class="btn btn-light btn-listen-to-audio">Listen</button>
+</td>
+<td>
+<input type="text" class="form-control" name="${SoundName}-${SoundType}-${SoundSubType}-Volume" id="${SoundName}-${SoundType}-${SoundSubType}-Volume" value="${Volume}"></input>
+</td>
+<td>
+<input type="text" class="form-control" name="${SoundName}-${SoundType}-${SoundSubType}-File" id="${SoundName}-${SoundType}-${SoundSubType}-File" value="${FileName}"></input>
+</td>
+</tr>
 `

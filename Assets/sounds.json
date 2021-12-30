@@ -2,7 +2,7 @@
     "Sounds": [
         {
             "AudioLocation": "GameData",
-            "SoundName": "GAME-WIN",
+            "SoundName": "GAMEWIN",
             "SoundDisplayName": "Won",
             "SoundType": "AMBIENT",
             "SoundSubType": "GAME",
@@ -11,7 +11,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "GAME-LOSE",
+            "SoundName": "GAMELOSE",
             "SoundDisplayName": "Lost",
             "SoundType": "AMBIENT",
             "SoundSubType": "GAME",
@@ -29,7 +29,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "DRAW-WEAPON",
+            "SoundName": "DRAWWEAPON",
             "SoundDisplayName": "Draw Weapon",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
@@ -56,7 +56,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "WALK-BUMP",
+            "SoundName": "WALKBUMP",
             "SoundDisplayName": "Walk, bump into object",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
@@ -74,7 +74,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "ATTACK-BUMP",
+            "SoundName": "ATTACKBUMP",
             "SoundDisplayName": "Attack, clash with object",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
@@ -83,7 +83,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "DAMAGE-TAKEN",
+            "SoundName": "DAMAGETAKEN",
             "SoundDisplayName": "Damage Taken",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
@@ -101,7 +101,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "DAMAGE-DEALT",
+            "SoundName": "DAMAGEDEALT",
             "SoundDisplayName": "Attack, hit enemy",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
@@ -110,7 +110,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "KILL-DEALT",
+            "SoundName": "KILLDEALT",
             "SoundDisplayName": "Attack, enemy killed",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
@@ -119,7 +119,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "ATTACK-DENIED",
+            "SoundName": "ATTACKDENIED",
             "SoundDisplayName": "Attack not ready",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
@@ -128,7 +128,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "WALK-DENIED",
+            "SoundName": "WALKDENIED",
             "SoundDisplayName": "Walk not ready",
             "SoundType": "CHARACTER",
             "SoundSubType": "PLAYER",
@@ -173,7 +173,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "ATTACK-BUMP",
+            "SoundName": "ATTACKBUMP",
             "SoundDisplayName": "Attack, clash with object",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
@@ -182,7 +182,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "DAMAGE-TAKEN",
+            "SoundName": "DAMAGETAKEN",
             "SoundDisplayName": "Damage Taken",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
@@ -200,7 +200,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "DAMAGE-DEALT",
+            "SoundName": "DAMAGEDEALT",
             "SoundDisplayName": "Attack, opponent damaged",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
@@ -209,7 +209,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "KILL-DEALT",
+            "SoundName": "KILLDEALT",
             "SoundDisplayName": "Opponent Killed",
             "SoundType": "CHARACTER",
             "SoundSubType": "EYE",
@@ -254,7 +254,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "ATTACK-BUMP",
+            "SoundName": "ATTACKBUMP",
             "SoundDisplayName": "Attack, clash with object",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
@@ -263,7 +263,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "DAMAGE-TAKEN",
+            "SoundName": "DAMAGETAKEN",
             "SoundDisplayName": "Damage taken",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
@@ -281,7 +281,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "DAMAGE-DEALT",
+            "SoundName": "DAMAGEDEALT",
             "SoundDisplayName": "Attack, opponent hit",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
@@ -290,7 +290,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "KILL-DEALT",
+            "SoundName": "KILLDEALT",
             "SoundDisplayName": "Attack, opponent killed",
             "SoundType": "CHARACTER",
             "SoundSubType": "BEAST",
@@ -299,7 +299,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "USE-DISABLED",
+            "SoundName": "USEDISABLED",
             "SoundDisplayName": "Use, not allowed",
             "SoundType": "ITEM",
             "SoundSubType": "DOOR",
@@ -308,7 +308,7 @@
         },
         {
             "AudioLocation": "GameData",
-            "SoundName": "USE-LOCKED",
+            "SoundName": "USELOCKED",
             "SoundDisplayName": "Use, locked",
             "SoundType": "ITEM",
             "SoundSubType": "DOOR",

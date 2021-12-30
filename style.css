@@ -23,6 +23,11 @@ button {
   text-shadow: none; /* Prevent inheritance from `body` */
 }
 
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
 /*
  * Base structure
  */
