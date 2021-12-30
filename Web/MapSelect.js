@@ -20,4 +20,4 @@ async function PopulateMaps() {
     });
 }
 
-const MapButtonTemplate = ({ map, text }) => ` <a class="nav-link" href="Settings.html" id="${map}">${text}</a>`
+const MapButtonTemplate = ({ map, text, style }) => `<a class="nav-link" id="${map}" style="${style}">${text}</a>`
