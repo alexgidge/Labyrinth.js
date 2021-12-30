@@ -20,9 +20,6 @@ $(function () {
     $('#btnMapManager').click(function (evt) {
         window.location.href = 'Web/MapManager.html';
     });
-    $('#btnCode').click(function (evt) {
-        window.location.href = 'https://github.com/alexgidge/labyrinth.js';
-    });
     $('#btnAbout').click(function (evt) {
         window.location.href = 'Web/About.html';
     });
