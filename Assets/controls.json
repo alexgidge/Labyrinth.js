@@ -2,42 +2,42 @@
     "Controls": [
         {
             "action": "MOVE-UP",
-            "text": "Up Movement",
+            "text": "Up Movement (W = 87)",
             "key": "87"
         },
         {
             "action": "MOVE-LEFT",
-            "text": "Left Movement",
+            "text": "Left Movement (A = 65)",
             "key": "65"
         },
         {
             "action": "MOVE-DOWN",
-            "text": "Down Movement",
+            "text": "Down Movement (S = 83)",
             "key": "83"
         },
         {
             "action": "MOVE-RIGHT",
-            "text": "Right Movement",
+            "text": "Right Movement (D = 68)",
             "key": "68"
         },
         {
             "action": "ACTION-UP",
-            "text": "Up Action",
+            "text": "Up Action (Up key = 38)",
             "key": "38"
         },
         {
             "action": "ACTION-LEFT",
-            "text": "Left Action",
+            "text": "Left Action (Left key = 37)",
             "key": "37"
         },
         {
             "action": "ACTION-DOWN",
-            "text": "Down Action",
+            "text": "Down Action (Down key = 40)",
             "key": "40"
         },
         {
             "action": "ACTION-RIGHT",
-            "text": "Right Action",
+            "text": "Right Action (Right key = 39)",
             "key": "39"
         }
     ]
