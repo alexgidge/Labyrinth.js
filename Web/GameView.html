@@ -1,77 +1,80 @@
 <!DOCTYPE html>
 <html lang="en-gb">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Labyrinth | Audio Game</title>
-  </head>
-  <body>
-    <style>
-      html,
-      body {
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow: hidden;
-      }
-    </style>
-    <!-- TODO: modules and import -->
-    <script src="../node_modules/howler/dist/howler.core.min.js"></script>
-    <script src="../node_modules/howler/dist/howler.spatial.min.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 
-    <!--Common-->
-    <script src="../common/Mafs.js"></script>
-    <script src="../common/Identifiable.js"></script>
-    <script src="../common/NamedRange.js"></script>
-    <script src="../common/Directions.js"></script>
-    <!--POCO-->
-    <script src="../Engine/World/Entity.js"></script>
-    <script src="../Engine/World/GameWorld.js"></script>
-    <script src="../Engine/World/Module.js"></script>
-    <script src="../Engine/World/Tile.js"></script>
-    <script src="../Engine/World/Transform.js"></script>
-    <!--DATA-->
-    <script src="PlayerPrefs.js"></script>
-    <script src="../Assets/TileMapModels.js"></script>
-    <script src="../Assets/AssetDataAccess.js"></script>
-    <!-- Services -->
-    <script src="../Services/MapService.js"></script>
-    <script src="../Services/ControlsService.js"></script>
-    <script src="../Services/SettingsService.js"></script>
-    <script src="../Services/SoundService.js"></script>
-    <!--Game-->
-    <script src="../Game/Character/Character.js"></script>
-    <script src="../Game/World/Tile.js"></script>
-    <script src="../Game/World/World.js"></script>
-    <script src="../Game/Player/Player.js"></script>
-    <script src="../Game/Player/PlayerInput.js"></script>
-    <script src="../Game/Enemy/Enemy.js"></script>
-    <script src="../Game/Item/Item.js"></script>
-    <script src="../Game/Game.js"></script>
-    <script src="../Game/TurnManager.js"></script>
-    <!--Engine-->
-    <!--IOC needed to reorder these-->
-    <script src="../Engine/Engine.js"></script>
-    <script src="../Engine/Audio.js"></script>
-    <script src="../Engine/Graphics.js"></script>
-    <script src="../Engine/Input.js"></script>
-    <!--Web View-->
-    <script src="WebInput.js"></script>
-    <script src="GameView.js"></script>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Labyrinth | Audio Game</title>
+</head>
 
-    <script src="header.js"></script>
-    <div id="divPageHeader"></div>
+<body>
+  <style>
+    html,
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+  </style>
+  <!-- TODO: modules and import -->
+  <script src="../node_modules/howler/dist/howler.core.min.js"></script>
+  <script src="../node_modules/howler/dist/howler.spatial.min.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 
-    <button id="btnRestart">Restart</button>
-    <p>Please play with headphones</p>
-    <p>Movement - W, A, S, D.</p>
-    <p>Attack - Up, Left, Down and Right arrow keys.</p>
-    <hr />
-    <!-- TODO: Localisation -->
-    <!-- TODO: Load keys from settings file -->
-    <div id="divGameText" aria-live="assertive"></div>
-    <div id="divCanvas">
-      <canvas id="canvGameArea" width="250" height="250" tabindex="1">Game Canvas</canvas>
-    </div>
-  </body>
+  <!--Common-->
+  <script src="../common/Mafs.js"></script>
+  <script src="../common/Identifiable.js"></script>
+  <script src="../common/NamedRange.js"></script>
+  <script src="../common/Directions.js"></script>
+  <!--POCO-->
+  <script src="../Engine/World/Entity.js"></script>
+  <script src="../Engine/World/GameWorld.js"></script>
+  <script src="../Engine/World/Module.js"></script>
+  <script src="../Engine/World/Tile.js"></script>
+  <script src="../Engine/World/Transform.js"></script>
+  <!--DATA-->
+  <script src="PlayerPrefs.js"></script>
+  <script src="../Assets/TileMapModels.js"></script>
+  <script src="../Assets/AssetDataAccess.js"></script>
+  <!-- Services -->
+  <script src="../Services/MapService.js"></script>
+  <script src="../Services/ControlsService.js"></script>
+  <script src="../Services/SettingsService.js"></script>
+  <script src="../Services/SoundService.js"></script>
+  <!--Game-->
+  <script src="../Game/Character/Character.js"></script>
+  <script src="../Game/World/Tile.js"></script>
+  <script src="../Game/World/World.js"></script>
+  <script src="../Game/Player/Player.js"></script>
+  <script src="../Game/Player/PlayerInput.js"></script>
+  <script src="../Game/Enemy/Enemy.js"></script>
+  <script src="../Game/Item/Item.js"></script>
+  <script src="../Game/Game.js"></script>
+  <script src="../Game/TurnManager.js"></script>
+  <!--Engine-->
+  <!--IOC needed to reorder these-->
+  <script src="../Engine/Engine.js"></script>
+  <script src="../Engine/Audio.js"></script>
+  <script src="../Engine/Graphics.js"></script>
+  <script src="../Engine/Input.js"></script>
+  <!--Web View-->
+  <script src="WebInput.js"></script>
+  <script src="GameView.js"></script>
+
+  <script src="header.js"></script>
+
+
+  <button id="btnRestart">Restart</button>
+  <p>Please play with headphones</p>
+  <p>Movement - W, A, S, D.</p>
+  <p>Attack - Up, Left, Down and Right arrow keys.</p>
+  <hr />
+  <!-- TODO: Localisation -->
+  <!-- TODO: Load keys from settings file -->
+  <div id="divGameText" aria-live="assertive"></div>
+  <div id="divCanvas">
+    <canvas id="canvGameArea" width="250" height="250" tabindex="1">Game Canvas</canvas>
+  </div>
+</body>
+
 </html>

@@ -5,7 +5,7 @@ $(function () {
 
 async function PopulateCurrentControls() {
     var controls = await ControlsService.LoadControlMappings();
-    $('#divKeyMappingsList').html(controls.map(KeyMappingTemplate).join(''));
+    $('#frmControls').html(controls.map(KeyMappingTemplate).join(''));
 }
 
 function SaveControls() {
@@ -20,9 +20,12 @@ function SaveControls() {
 
 //TODO: React or similar lightweight front end framework
 const KeyMappingTemplate = ({ text, action, key }) => `
-<div>
-<label>${text}</label>
-<input type="text" name="${action}" id="txt${action}" value="${key}"></input><!--<button id="btn${action}Listener">Listen for ${text}</button>-->
-<br/>
+<div class="row">
+<div class="col">
+<label for="txt${action}">${text}</label>
+</div>
+<div class="col">
+<input type="text" class="form-control" name="${action}" id="txt${action}" value="${key}"></input><!--<button id="btn${action}Listener">Listen for ${text}</button>-->
+</div>
 </div>
 `

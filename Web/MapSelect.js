@@ -7,12 +7,7 @@ async function PopulateMaps() {
     var maps = []
 
     mapAssets.forEach(element => {
-        if (element.Hidden == "true") {
-            maps.push({ map: element.ID, text: element.Text, style: "display:none;" });
-        }
-        else {
-            maps.push({ map: element.ID, text: element.Text });
-        }
+        maps.push({ map: element.ID, text: element.Text });
     });
 
 
@@ -25,4 +20,4 @@ async function PopulateMaps() {
     });
 }
 
-const MapButtonTemplate = ({ map, text, style }) => `<button id="${map}" style="${style}">${text}</button>`
+const MapButtonTemplate = ({ map, text }) => ` <a class="nav-link" href="Settings.html" id="${map}">${text}</a>`

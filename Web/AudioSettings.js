@@ -1,4 +1,7 @@
 //TODO: Refactor UI
+
+
+
 $(function () {
     PopulateAudioSettingsForm();
     $('#btnSaveAudio').click(function (evt) {
@@ -26,7 +29,7 @@ async function PopulateAudioSettingsForm() {
         settingsList.push(soundSetting);
     });
 
-    $('#divFormContent').html(settingsList.map(AudioSettingsTemplate).join(''));
+    $('#frmSettings').html(settingsList.map(AudioSettingsTemplate).join(''));
 }
 
 async function SaveAudioSettingsForm(evt) {
@@ -82,10 +85,18 @@ async function SaveAudioSettingsForm(evt) {
 
 //TODO: React or similar lightweight front end framework
 const AudioSettingsTemplate = ({ SoundType, SoundSubType, SoundDisplayName, SoundName, Volume, FileName }) => `
+<div class="row">
 <div>
 <label>${SoundSubType} ${SoundType} ${SoundDisplayName}</label>
-<input type="text" name="${SoundName}:${SoundType}:${SoundSubType}:Volume" id="${SoundName}:${SoundType}:${SoundSubType}:Volume" value="${Volume}"></input>
-<input type="text" name="${SoundName}:${SoundType}:${SoundSubType}:File" id="${SoundName}:${SoundType}:${SoundSubType}:File" value="${FileName}"></input>
-<br/>
+</div>
+<div class="col">
+<label for="${SoundName}:${SoundType}:${SoundSubType}:Volume">Volume</label>
+<input type="text" class="form-control" name="${SoundName}:${SoundType}:${SoundSubType}:Volume" id="${SoundName}:${SoundType}:${SoundSubType}:Volume" value="${Volume}"></input>
+
+</div>
+<div class="col">
+<label for="${SoundName}:${SoundType}:${SoundSubType}:Volume">Audio File</label>
+<input type="text" class="form-control" name="${SoundName}:${SoundType}:${SoundSubType}:File" id="${SoundName}:${SoundType}:${SoundSubType}:File" value="${FileName}"></input>
+</div>
 </div>
 `
