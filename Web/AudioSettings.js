@@ -95,7 +95,7 @@ const AudioSettingsTemplate = ({ SoundType, SoundSubType, SoundDisplayName, Soun
 
 </div>
 <div class="col">
-<label for="${SoundName}:${SoundType}:${SoundSubType}:Volume">Audio File</label>
+<label for="${SoundName}:${SoundType}:${SoundSubType}:File">Audio File</label>
 <input type="text" class="form-control" name="${SoundName}:${SoundType}:${SoundSubType}:File" id="${SoundName}:${SoundType}:${SoundSubType}:File" value="${FileName}"></input>
 </div>
 </div>

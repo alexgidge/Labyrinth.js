@@ -22,7 +22,7 @@ function SaveControls() {
 const KeyMappingTemplate = ({ text, action, key }) => `
 <div class="row">
 <div class="col">
-<label for="txt${action}">${text}</label>
+<label for="txt${action}" for="txt${action}">${text}</label>
 </div>
 <div class="col">
 <input type="text" class="form-control" name="${action}" id="txt${action}" value="${key}"></input><!--<button id="btn${action}Listener">Listen for ${text}</button>-->
