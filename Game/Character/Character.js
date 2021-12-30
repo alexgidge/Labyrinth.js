@@ -2,18 +2,18 @@ class Character extends WorldModule {
 
     //TODO: Method for having different values for diff character types
     deathSound = 'DEATH';
-    damageTakenSound = 'DAMAGE-TAKEN';
-    damageGivenSound = 'DAMAGE-DEALT';
-    killDealtSound = 'KILL-DEALT';
-    denied1Sound = 'ATTACK-DENIED';
-    denied2Sound = 'WALK-DENIED';
-    bounceOffWallSound = 'WALK-BUMP';
+    damageTakenSound = 'DAMAGETAKEN';
+    damageGivenSound = 'DAMAGEDEALT';
+    killDealtSound = 'KILLDEALT';
+    denied1Sound = 'ATTACKDENIED';
+    denied2Sound = 'WALKDENIED';
+    bounceOffWallSound = 'WALKBUMP';
     footStepsSound = 'WALK';
     swingWeaponSound = 'ATTACK';
-    weaponClashedSound = 'ATTACK-BUMP';
+    weaponClashedSound = 'ATTACKBUMP';
     spawnSound = 'SPAWN';
     breathe = 'EMOTE';
-    drawWeapon = 'DRAW-WEAPON';
+    drawWeapon = 'DRAWWEAPON';
     Emote = 'EMOTE';
 
     constructor(world, minDamage, maxDamage, maxHealth, turnsPerMove, turnsPerAttack, team) {
