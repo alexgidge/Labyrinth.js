@@ -20,7 +20,7 @@ async function StartUp() {
     await InitialiseGame(mapName);//TODO: Level select
     $('#canvGameArea').keyup(CanvasKeydown);
     console.log("--------------------------STARTING---------------------------");
-    await StartGame();
+    setTimeout(StartGame, 1500);
 }
 async function InitialiseGame(mapName) {
     var map = await MapService.GetMap(mapName);//TODO: Param passed from level select.
@@ -50,7 +50,7 @@ async function StartGame() {
 }
 
 function CanvasKeydown(e) {
-    input.OnButtonDown(e)
+    if (input) { input.OnButtonDown(e); }
 }
 
 function EngineTick() {

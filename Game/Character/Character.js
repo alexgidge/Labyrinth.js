@@ -54,7 +54,7 @@ class Character extends WorldModule {
                         } else if (element.EntityType == EntityType.Tile.Value) {
                             if (element && element.Module.TileType == TileType.Floor.Value) {
                                 this.World.MoveEntity(entity, targetLocation);
-                                this.OnMove(targetLocation, element);
+                                this.OnMove(targetLocation, direction);
                             } else if (!element || element.Module.TileType == TileType.Null.Value || element.Module.TileType == TileType.Wall.Value) {//TODO: Refactor. I don't like this collision check being here
                                 this.OnCollision(targetLocation, element.Module);
                             }
@@ -147,7 +147,7 @@ class Character extends WorldModule {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.deathSound, false, location.x, location.y);
             this.State = CharacterStateType.Dead.Value;
-            this.OnDeath();
+            if (this.OnDeath) this.OnDeath();
         }
     }
 
@@ -155,20 +155,24 @@ class Character extends WorldModule {
         if (CharacterStateType.Compare(this.State, CharacterStateType.Alive)) {
             if (!targetTile || !targetTile.TileType || targetTile.TileType == TileType.Wall || targetTile.TileType == TileType.Null) {
                 Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.bounceOffWallSound, false, targetLocation.x, targetLocation.y);
+                if (this.OnWallBumped) this.OnWallBumped();
             }
         }
     }
 
-    OnMove(newLocation) {
+    OnMove(newLocation, direction) {
         Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.footStepsSound, false, newLocation.x, newLocation.y);
+        if (this.OnMoveCompleted) this.OnMoveCompleted(direction);
     }
 
     OnAttackMiss(targetLocation, tileType) {
         if (tileType && tileType == TileType.Floor.Value) {
             Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.swingWeaponSound, false, targetLocation.x, targetLocation.y);
+            if (this.OnAttackMissed) this.OnAttackMissed();
         }
         else {
             Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.weaponClashedSound, false, targetLocation.x, targetLocation.y);
+            if (this.OnAttackHitWall) this.OnAttackHitWall();
         }
     }
 

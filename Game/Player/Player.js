@@ -8,6 +8,22 @@ class Player extends Character {
     //TODO: Could you get a different output source per player for splitear play
     OnEnemyCollide(targetLocation, characterAtTarget) {
         Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.bounceOffWallSound, false, targetLocation.x, targetLocation.y);//TODO: Change to different bounce sound. bump 
+        Engine.Current.EngineGraphics.AddTextToDisplayQueue("you bumped into something living...");
+    }
+
+    OnWallBumped() {
+        Engine.Current.EngineGraphics.AddTextToDisplayQueue("you bumped into something solid");
+    }
+    OnMoveCompleted(moveDirection) {
+        Engine.Current.EngineGraphics.AddTextToDisplayQueue("you moved " + DirectionType.GetDirectionType(moveDirection));
+    }
+
+    OnAttackMissed() {
+        Engine.Current.EngineGraphics.AddTextToDisplayQueue("you swung your sword through the air");
+    }
+
+    OnAttackHitWall() {
+        Engine.Current.EngineGraphics.AddTextToDisplayQueue("your sword hit a wall.");
     }
 
     OnDeath() {

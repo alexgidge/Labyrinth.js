@@ -1,7 +1,7 @@
 class Item extends WorldModule {
     useEnabled = 'USE';
-    useDisabled = 'USE-DISABLED';
-    useLocked = 'USE-LOCKED';
+    useDisabled = 'USEDISABLED';
+    useLocked = 'USELOCKED';
     pickupSound = 'PICKUP';
     unlockSound = 'UNLOCK';
 
