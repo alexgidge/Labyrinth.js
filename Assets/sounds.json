@@ -12,7 +12,7 @@
         {
             "AudioLocation": "GameData",
             "SoundName": "GAME-LOSE",
-            "SoundDisplayName": "Won",
+            "SoundDisplayName": "Lost",
             "SoundType": "AMBIENT",
             "SoundSubType": "GAME",
             "FileName": "Blastwave_FX_RattlesnakeShakeTail_BWU.58.mp3",
