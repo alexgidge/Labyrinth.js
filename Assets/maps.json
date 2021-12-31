@@ -2,7 +2,7 @@
     "Maps": [
         {
             "ID": "Labryinth-Easy",
-            "Text": "Easy Labyrinth",
+            "Text": "Labyrinth 1",
             "Room": {
                 "Tiles": [
                     {
@@ -385,7 +385,7 @@
                         "minDamage": 10,
                         "maxDamage": 10,
                         "maxHealth": 100,
-                        "turnsPerMove": 2,
+                        "turnsPerMove": 3,
                         "turnsPerAttack": 2
                     },
                     {
@@ -402,7 +402,7 @@
                     {
                         "CharacterType": "BEAST",
                         "Team": 2,
-                        "x": 17,
+                        "x": 14,
                         "y": -12,
                         "minDamage": 25,
                         "maxDamage": 25,
@@ -426,7 +426,7 @@
         },
         {
             "ID": "Labryinth-Medium",
-            "Text": "Average Labyrinth",
+            "Text": "Labyrinth 2",
             "Room": {
                 "Tiles": [
                     {
@@ -761,7 +761,12 @@
                     },
                     {
                         "x": 8,
-                        "y": -43,
+                        "y": -13,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 8,
+                        "y": -14,
                         "TileType": "FLOOR_TILE"
                     },
                     {
@@ -772,11 +777,6 @@
                     {
                         "x": 8,
                         "y": -16,
-                        "TileType": "FLOOR_TILE"
-                    },
-                    {
-                        "x": 8,
-                        "y": -17,
                         "TileType": "FLOOR_TILE"
                     },
                     {
@@ -923,7 +923,7 @@
                         "y": -35,
                         "minDamage": 10,
                         "maxDamage": 10,
-                        "maxHealth": 75,
+                        "maxHealth": 100,
                         "turnsPerMove": 2,
                         "turnsPerAttack": 2
                     },
@@ -943,8 +943,8 @@
                         "Team": 2,
                         "x": 8,
                         "y": -2,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
                         "turnsPerMove": 18,
                         "turnsPerAttack": 10
@@ -954,8 +954,8 @@
                         "Team": 2,
                         "x": 12,
                         "y": -4,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
                         "turnsPerMove": 15,
                         "turnsPerAttack": 8
@@ -965,51 +965,51 @@
                         "Team": 2,
                         "x": 8,
                         "y": -16,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
-                        "turnsPerMove": 6,
-                        "turnsPerAttack": 3
+                        "turnsPerMove": 8,
+                        "turnsPerAttack": 5
                     },
                     {
                         "CharacterType": "BEAST",
                         "Team": 2,
                         "x": 15,
                         "y": -12,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
-                        "turnsPerMove": 6,
-                        "turnsPerAttack": 3
+                        "turnsPerMove": 8,
+                        "turnsPerAttack": 12
                     },
                     {
                         "CharacterType": "BEAST",
                         "Team": 2,
                         "x": 18,
                         "y": -15,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
-                        "turnsPerMove": 6,
-                        "turnsPerAttack": 3
+                        "turnsPerMove": 5,
+                        "turnsPerAttack": 13
                     },
                     {
                         "CharacterType": "BEAST",
                         "Team": 2,
                         "x": 24,
                         "y": -13,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
-                        "turnsPerMove": 6,
-                        "turnsPerAttack": 3
+                        "turnsPerMove": 12,
+                        "turnsPerAttack": 6
                     }
                 ]
             }
         },
         {
             "ID": "Labryinth-Hard",
-            "Text": "Hard Labyrinth",
+            "Text": "Labyrinth 3",
             "Room": {
                 "Tiles": [
                     {
@@ -1619,9 +1619,9 @@
                         "Team": 1,
                         "x": 0,
                         "y": -33,
-                        "minDamage": 10,
-                        "maxDamage": 10,
-                        "maxHealth": 75,
+                        "minDamage": 15,
+                        "maxDamage": 15,
+                        "maxHealth": 100,
                         "turnsPerMove": 2,
                         "turnsPerAttack": 1
                     },
@@ -1632,9 +1632,9 @@
                         "y": -17,
                         "minDamage": 100,
                         "maxDamage": 100,
-                        "maxHealth": 125,
-                        "turnsPerMove": 20,
-                        "turnsPerAttack": 30
+                        "maxHealth": 100,
+                        "turnsPerMove": 80,
+                        "turnsPerAttack": 45
                     },
                     {
                         "CharacterType": "EYE",
@@ -1643,17 +1643,17 @@
                         "y": -15,
                         "minDamage": 100,
                         "maxDamage": 100,
-                        "maxHealth": 125,
-                        "turnsPerMove": 20,
-                        "turnsPerAttack": 30
+                        "maxHealth": 100,
+                        "turnsPerMove": 60,
+                        "turnsPerAttack": 75
                     },
                     {
                         "CharacterType": "BEAST",
                         "Team": 2,
                         "x": 0,
                         "y": -24,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
                         "turnsPerMove": 14,
                         "turnsPerAttack": 8
@@ -1663,8 +1663,8 @@
                         "Team": 2,
                         "x": 4,
                         "y": -8,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
                         "turnsPerMove": 15,
                         "turnsPerAttack": 8
@@ -1674,8 +1674,8 @@
                         "Team": 2,
                         "x": 3,
                         "y": -25,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
                         "turnsPerMove": 6,
                         "turnsPerAttack": 3
@@ -1685,8 +1685,8 @@
                         "Team": 2,
                         "x": 8,
                         "y": -2,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
                         "turnsPerMove": 6,
                         "turnsPerAttack": 3
@@ -1696,8 +1696,8 @@
                         "Team": 2,
                         "x": 9,
                         "y": -14,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
                         "turnsPerMove": 6,
                         "turnsPerAttack": 3
@@ -1707,8 +1707,8 @@
                         "Team": 2,
                         "x": 12,
                         "y": -4,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
                         "turnsPerMove": 6,
                         "turnsPerAttack": 3
@@ -1718,8 +1718,8 @@
                         "Team": 2,
                         "x": 15,
                         "y": -13,
-                        "minDamage": 25,
-                        "maxDamage": 25,
+                        "minDamage": 15,
+                        "maxDamage": 15,
                         "maxHealth": 50,
                         "turnsPerMove": 6,
                         "turnsPerAttack": 3
