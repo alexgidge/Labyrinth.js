@@ -304,7 +304,7 @@
             "SoundType": "ITEM",
             "SoundSubType": "DOOR",
             "FileName": "zapsplat_household_door_front_wooden_knocks_fist_hard_21929.mp3",
-            "Volume": 1
+            "Volume": 1.3
         },
         {
             "AudioLocation": "GameData",
