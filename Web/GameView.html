@@ -1,181 +1,194 @@
 <!DOCTYPE html>
 <html lang="en-gb" class="h-100">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Labyrinth | Audio Game</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../style.css" />
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Labyrinth | Audio Game</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
+    }
+  </style>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+  <style>
+    html,
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  </style>
 
-    <style>
-      html,
-      body {
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow: hidden;
-      }
-    </style>
+  <!-- SCRIPTS HERE -->
 
-    <!-- SCRIPTS HERE -->
+  <!-- TODO: modules and import -->
+  <script src="../node_modules/howler/dist/howler.core.min.js"></script>
+  <script src="../node_modules/howler/dist/howler.spatial.min.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 
-    <!-- TODO: modules and import -->
-    <script src="../node_modules/howler/dist/howler.core.min.js"></script>
-    <script src="../node_modules/howler/dist/howler.spatial.min.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <!--Common-->
+  <script src="../common/Mafs.js"></script>
+  <script src="../common/Identifiable.js"></script>
+  <script src="../common/NamedRange.js"></script>
+  <script src="../common/Directions.js"></script>
+  <!--POCO-->
+  <script src="../Engine/World/Entity.js"></script>
+  <script src="../Engine/World/GameWorld.js"></script>
+  <script src="../Engine/World/Module.js"></script>
+  <script src="../Engine/World/Tile.js"></script>
+  <script src="../Engine/World/Transform.js"></script>
+  <!--DATA-->
+  <script src="PlayerPrefs.js"></script>
+  <script src="../Assets/TileMapModels.js"></script>
+  <script src="../Assets/AssetDataAccess.js"></script>
+  <!-- Services -->
+  <script src="../Services/MapService.js"></script>
+  <script src="../Services/ControlsService.js"></script>
+  <script src="../Services/SettingsService.js"></script>
+  <script src="../Services/SoundService.js"></script>
+  <!--Game-->
+  <script src="../Game/Character/Character.js"></script>
+  <script src="../Game/World/Tile.js"></script>
+  <script src="../Game/World/World.js"></script>
+  <script src="../Game/Player/Player.js"></script>
+  <script src="../Game/Player/PlayerInput.js"></script>
+  <script src="../Game/Enemy/Enemy.js"></script>
+  <script src="../Game/Item/Item.js"></script>
+  <script src="../Game/Game.js"></script>
+  <script src="../Game/TurnManager.js"></script>
+  <!--Engine-->
+  <!--IOC needed to reorder these-->
+  <script src="../Engine/Engine.js"></script>
+  <script src="../Engine/Audio.js"></script>
+  <script src="../Engine/Graphics.js"></script>
+  <script src="../Engine/Input.js"></script>
+  <!--Web View-->
+  <script src="WebInput.js"></script>
+  <script src="GameView.js"></script>
+</head>
 
-    <!--Common-->
-    <script src="../common/Mafs.js"></script>
-    <script src="../common/Identifiable.js"></script>
-    <script src="../common/NamedRange.js"></script>
-    <script src="../common/Directions.js"></script>
-    <!--POCO-->
-    <script src="../Engine/World/Entity.js"></script>
-    <script src="../Engine/World/GameWorld.js"></script>
-    <script src="../Engine/World/Module.js"></script>
-    <script src="../Engine/World/Tile.js"></script>
-    <script src="../Engine/World/Transform.js"></script>
-    <!--DATA-->
-    <script src="PlayerPrefs.js"></script>
-    <script src="../Assets/TileMapModels.js"></script>
-    <script src="../Assets/AssetDataAccess.js"></script>
-    <!-- Services -->
-    <script src="../Services/MapService.js"></script>
-    <script src="../Services/ControlsService.js"></script>
-    <script src="../Services/SettingsService.js"></script>
-    <script src="../Services/SoundService.js"></script>
-    <!--Game-->
-    <script src="../Game/Character/Character.js"></script>
-    <script src="../Game/World/Tile.js"></script>
-    <script src="../Game/World/World.js"></script>
-    <script src="../Game/Player/Player.js"></script>
-    <script src="../Game/Player/PlayerInput.js"></script>
-    <script src="../Game/Enemy/Enemy.js"></script>
-    <script src="../Game/Item/Item.js"></script>
-    <script src="../Game/Game.js"></script>
-    <script src="../Game/TurnManager.js"></script>
-    <!--Engine-->
-    <!--IOC needed to reorder these-->
-    <script src="../Engine/Engine.js"></script>
-    <script src="../Engine/Audio.js"></script>
-    <script src="../Engine/Graphics.js"></script>
-    <script src="../Engine/Input.js"></script>
-    <!--Web View-->
-    <script src="WebInput.js"></script>
-    <script src="GameView.js"></script>
-  </head>
-
-  <body class="d-flex w-100 h-100 text-center text-white bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
-        <div>
-          <h3 class="float-md-start mb-0">Labyrinth</h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link" aria-current="page" href="../index.html">Home</a>
-            <a class="nav-link" href="Help.html" id="btnHelp" disabled>Help</a>
-          </nav>
-        </div>
-      </header>
-
-      <main class="px-3">
-        <!-- PAGE CONTENT -->
-        <div class="row">
-          <p>Please play with headphones. <br />Select the game canvas below then play with or without a narrator</p>
-        </div>
-        <div class="row">
-          <p>
-            Default Movement Controls: W, A, S, D.<br />
-            Default Attack Controls: Up, Left, Down and Right arrow keys.<br />Press R to restart the current level.
-          </p>
-        </div>
-        <!-- TODO: Localisation -->
-        <div id="divCanvas" class="row">
-          <canvas id="canvGameArea" class="col" tabindex="1">Game Canvas</canvas>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div id="divGameText" aria-live="polite"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <button id="btnRestart" class="btn btn-lg btn-light">Restart</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col"></div>
-          <div class="col"><button id="btnW" class="btn btn-lg btn-light">W</button></div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-        </div>
-        <div class="row">
-          <div class="col"><button id="btnA" class="btn btn-lg btn-light">A</button></div>
-          <div class="col"></div>
-          <div class="col"><button id="btnD" class="btn btn-lg btn-light">D</button></div>
-          <div class="col"></div>
-          <div class="col"></div>
-        </div>
-        <div class="row">
-          <div class="col"></div>
-          <div class="col"><button id="btnS" class="btn btn-lg btn-light">S</button></div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-        </div>
-        <div class="row">
-          <div class="col"></div>
-          <div class="col">
-            <button id="btnUp" class="btn btn-lg btn-light">Up</button>
-          </div>
-          <div class="col"></div>
-        </div>
-        <div class="row">
-          <div class="col"><button id="btnLeft" class="btn btn-lg btn-light">Left</button></div>
-          <div class="col"></div>
-          <div class="col"><button id="btnRight" class="btn btn-lg btn-light">Right</button></div>
-        </div>
-        <div class="row">
-          <div class="col"></div>
-          <div class="col">
-            <button type="button" id="btnDown" class="btn btn-lg btn-light">Down</button>
-          </div>
-          <div class="col"></div>
-        </div>
-      </main>
-      <footer class="mt-auto text-white-50">
-        <hr />
-        <div class="row">
-          <div class="col">
-            <footer></footer>
-          </div>
-        </div>
+<body class="d-flex w-100 h-100 text-center text-white bg-dark">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">Labyrinth</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link" href="Settings.html" id="btnSettings" disabled>Game Settings</a>
-          <a class="nav-link" href="AudioSettings.html" id="btnAudioSettings">Audio Settings</a>
-          <a class="nav-link" href="GraphicsSettings.html" id="btnGraphicsSettings" disabled>Graphics Settings</a>
-          <a class="nav-link" href="Controls.html" id="btnControls">Controls</a>
-          <a class="nav-link" href="MapManager.html" id="btnMapManager" disabled>Level Editor</a>
-          <a class="nav-link" id="anchCode" href="https://github.com/alexgidge/labyrinth.js" target="_blank"
-            >Game Code (External link)</a
-          >
+          <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+          <a class="nav-link" href="Help.html" id="btnHelp" disabled>Help</a>
         </nav>
-      </footer>
-    </div>
-  </body>
+      </div>
+    </header>
+
+    <main class="px-3">
+      <!-- PAGE CONTENT -->
+
+      <div class="row">
+        <p>Please play with headphones. <br />Select the game canvas below then play with or without a narrator</p>
+      </div>
+      <div class="row">
+        <p>
+          Default Movement Controls: W, A, S, D.<br />
+          Default Attack Controls: Up, Left, Down and Right arrow keys.<br />Press R to restart the current level.
+        </p>
+      </div>
+
+
+      <!-- TODO: Localisation -->
+      <div class="row">
+        <div class="col">
+          <button id="btnRestart" class="btn btn-lg btn-light">Restart</button>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col">
+          <div id="divGameText" aria-live="polite">Loading...</div>
+        </div>
+      </div>
+      <div id="divCanvas" class="row">
+        <hr />
+        <canvas id="canvGameArea" class="col" tabindex="1">Game Canvas</canvas>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"><button id="btnW" class="btn btn-lg btn-light">Move Up
+          </button></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"><button id="btnA" class="btn btn-lg btn-light">Move Left</button></div>
+        <div class="col"></div>
+        <div class="col"><button id="btnD" class="btn btn-lg btn-light">Move Right</button></div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"><button id="btnS" class="btn btn-lg btn-light">Move Down</button></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col">
+          <button id="btnUp" class="btn btn-lg btn-light">Attack Up</button>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"><button id="btnLeft" class="btn btn-lg btn-light">Attack Left</button></div>
+        <div class="col"></div>
+        <div class="col"><button id="btnRight" class="btn btn-lg btn-light">Attack Right</button></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col">
+          <button type="button" id="btnDown" class="btn btn-lg btn-light">Attack Down</button>
+        </div>
+        <div class="col"></div>
+      </div>
+    </main>
+    <footer class="mt-auto text-white-50">
+      <hr />
+      <div class="row">
+        <div class="col">
+          <footer></footer>
+        </div>
+      </div>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="Settings.html" id="btnSettings" disabled>Game Settings</a>
+        <a class="nav-link" href="AudioSettings.html" id="btnAudioSettings">Audio Settings</a>
+        <a class="nav-link" href="GraphicsSettings.html" id="btnGraphicsSettings" disabled>Graphics Settings</a>
+        <a class="nav-link" href="Controls.html" id="btnControls">Controls</a>
+        <a class="nav-link" href="MapManager.html" id="btnMapManager" disabled>Level Editor</a>
+        <a class="nav-link" id="anchCode" href="https://github.com/alexgidge/labyrinth.js" target="_blank">Game Code
+          (External link)</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+
 </html>
