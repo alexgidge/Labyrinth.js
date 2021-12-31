@@ -45,18 +45,18 @@ async function StartGame() {
     var engineInput = new EngineInput(playerInput);
 
     var controls = await ControlsService.LoadControlMappings();
-    input = new WebInput(engineInput, controls);
-
+    Input = new WebInput(engineInput, controls);
 
     setInterval(EngineTick, TickFrequency);//10 ticks per second
+    $('#canvGameArea').focus();
 }
 
 function CanvasKeydown(e) {
-    if (input) { input.OnButtonDown(e); }
+    if (Input) { Input.OnButtonDown(e); }
 }
 
 function CanvasKeyPress(e) {
-    if (input) { input.OnButtonDown(e, true); }
+    if (Input) { Input.OnButtonDown(e, true); }
 }
 
 function EngineTick() {
