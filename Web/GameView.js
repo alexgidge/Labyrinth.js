@@ -7,9 +7,6 @@ var Input;
 
 $(function () {
     StartUp();
-    $('#btnRestart').click(function (evt) {
-        location.reload();
-    });
 });
 async function StartUp() {
     var urlParams = new URLSearchParams(window.location.search);
@@ -24,11 +21,11 @@ async function StartUp() {
     console.log("--------------------------STARTING---------------------------");
     setTimeout(StartGame, 1500);
 }
+
 async function InitialiseGame(mapName) {
     var map = await MapService.GetMap(mapName);//TODO: Param passed from level select.
     var game = new Game(map, function () { location.reload(); });
     game.InitialiseGame();
-
 
     var engineGraphics = new EngineGraphics();
     var engineAudio = new EngineAudio();
@@ -47,9 +44,42 @@ async function StartGame() {
     var controls = await ControlsService.LoadControlMappings();
     Input = new WebInput(engineInput, controls);
 
+    SetupButtons(Input);
+
     setInterval(EngineTick, TickFrequency);//10 ticks per second
     $('#canvGameArea').focus();
 }
+
+function SetupButtons(WebInput) {
+    $('#btnRestart').click(function (evt) {
+        Input.OnInputPressed(InputType.RestartGame.Value);
+    });
+    $('#btnW').click(function () {
+        Input.OnInputPressed(InputType.MoveForward.Value);
+    });
+    $('#btnA').click(function () {
+        Input.OnInputPressed(InputType.MoveLeft.Value);
+    });
+    $('#btnS').click(function () {
+        Input.OnInputPressed(InputType.MoveBack.Value);
+    });
+    $('#btnD').click(function () {
+        Input.OnInputPressed(InputType.MoveRight.Value);
+    });
+    $('#btnUp').click(function () {
+        Input.OnInputPressed(InputType.ActionForward.Value);
+    });
+    $('#btnLeft').click(function () {
+        Input.OnInputPressed(InputType.ActionLeft.Value);
+    });
+    $('#btnDown').click(function () {
+        Input.OnInputPressed(InputType.ActionBack.Value);
+    });
+    $('#btnRight').click(function () {
+        Input.OnInputPressed(InputType.ActionRight.Value);
+    });
+}
+
 
 function CanvasKeydown(e) {
     if (Input) { Input.OnButtonDown(e); }
@@ -99,7 +129,6 @@ function SetGameBackground(colour) {
 }
 
 function ResizeCanvas() {
-
     var w = $(window).width();
     var h = $(window).height();
 

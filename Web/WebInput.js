@@ -13,6 +13,9 @@ class WebInput {
         this.engineInput.InputPressed(inputType, held);
         //}
     }
+    OnInputPressed(inputType, held) {
+        this.engineInput.InputPressed(inputType, held);
+    }
     GetInputTypeByKeyCode(keycode) {
         var inputType = InputType.NullValue.Value;
         this.Controls.forEach(element => {
