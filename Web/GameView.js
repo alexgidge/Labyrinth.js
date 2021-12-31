@@ -20,6 +20,11 @@ async function StartUp() {
     $('#canvGameArea').keydown(CanvasKeyPress);
     console.log("--------------------------STARTING---------------------------");
     setTimeout(StartGame, 1500);
+    $('#btnOnScreenControls').click(function () {
+        $('#divOnscreenControls').show();
+        $(this).hide();
+        $('#btnOnScreenControlsHide').show();
+    });
 }
 
 async function InitialiseGame(mapName) {
