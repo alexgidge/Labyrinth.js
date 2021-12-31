@@ -101,72 +101,77 @@
       <div class="row">
         <p>
           Default Movement Controls: W, A, S, D.<br />
-          Default Attack Controls: Up, Left, Down and Right arrow keys.<br />Press R to restart the current level.
+          Default Attack Controls: Up, Left, Down and Right arrow keys.<br />
+          Press R to restart the current level.
         </p>
       </div>
 
+      <div id="divCanvas" class="row">
+        <canvas id="canvGameArea" class="col" tabindex="1">Game Canvas</canvas>
+      </div>
+      <div class="row">
+        <div class="col">
 
-      <!-- TODO: Localisation -->
+          <br />
+          <div id="divGameText" aria-live="polite">Loading...</div>
+          <br />
+        </div>
+      </div>
       <div class="row">
         <div class="col">
           <button id="btnRestart" class="btn btn-lg btn-light">Restart</button>
         </div>
       </div>
-      <hr />
       <div class="row">
-        <div class="col">
-          <div id="divGameText" aria-live="polite">Loading...</div>
+        <br />
+      </div>
+      <!-- TODO: Localisation -->
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2"><button id="btnW" class="btn btn-lg btn-block btn-light">Move Up
+          </button><br /></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-2"><button id="btnA" class="btn btn-lg btn-block  btn-light">Move Left</button></div>
+        <div class="col-2"></div>
+        <div class="col-2"><button id="btnD" class="btn btn-lg btn-block  btn-light">Move Right</button></div>
+        <div class="col-2"></div>
+        <div class="col-2">
+          <button id="btnUp" class="btn btn-lg btn-block  btn-light">Attack Up</button>
         </div>
-      </div>
-      <div id="divCanvas" class="row">
-        <hr />
-        <canvas id="canvGameArea" class="col" tabindex="1">Game Canvas</canvas>
-        <hr />
+        <div class="col-2"></div>
       </div>
       <div class="row">
-        <div class="col"></div>
-        <div class="col"><button id="btnW" class="btn btn-lg btn-light">Move Up
-          </button></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-      <div class="row">
-        <div class="col"><button id="btnA" class="btn btn-lg btn-light">Move Left</button></div>
-        <div class="col"></div>
-        <div class="col"><button id="btnD" class="btn btn-lg btn-light">Move Right</button></div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-      <div class="row">
-        <div class="col"></div>
-        <div class="col"><button id="btnS" class="btn btn-lg btn-light">Move Down</button></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-      <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col">
-          <button id="btnUp" class="btn btn-lg btn-light">Attack Up</button>
+        <div class="col-2"></div>
+        <div class="col-2"><button id="btnS" class="btn btn-lg btn-block  btn-light">Move Down</button></div>
+        <div class="col-2"></div>
+        <div class="col-2">
+          <div class="col-2"><button id="btnLeft" class="btn btn-lg btn-block  btn-light">Attack Left</button></div>
         </div>
-        <div class="col"></div>
+        <div class="col-2">
+        </div>
+        <div class="col-2"><button id="btnRight" class="btn btn-lg btn-block  btn-light">Attack Right</button></div>
       </div>
       <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"><button id="btnLeft" class="btn btn-lg btn-light">Attack Left</button></div>
-        <div class="col"></div>
-        <div class="col"><button id="btnRight" class="btn btn-lg btn-light">Attack Right</button></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"><button type="button" id="btnDown" class="btn btn-lg btn-block  btn-light">Attack
+            Down</button></div>
+        <div class="col-2"></div>
       </div>
       <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col">
-          <button type="button" id="btnDown" class="btn btn-lg btn-light">Attack Down</button>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2">
+
         </div>
         <div class="col"></div>
       </div>
