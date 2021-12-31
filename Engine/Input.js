@@ -15,6 +15,8 @@ class EngineInput {
 //TODO: Controller input HTML5 Gamepad
 //TODO: Touch? Other?
 class InputType extends NamedRange {
+    static RestartGame = new InputType('RESTART');
+
     static MoveForward = new InputType('MOVE-UP');
     static MoveLeft = new InputType('MOVE-LEFT');
     static MoveRight = new InputType('MOVE-RIGHT');

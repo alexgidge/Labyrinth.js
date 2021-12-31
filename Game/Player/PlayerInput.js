@@ -6,6 +6,8 @@ class PlayerInput {
     InputPressed(inputType, held) {
         //console.log(inputType.Value);
         switch (inputType) {
+            case InputType.RestartGame.Value:
+                location.reload();
             case InputType.MoveForward.Value:
                 this.Player.Module.Move(new Vector2(0, 1), held);
                 break;

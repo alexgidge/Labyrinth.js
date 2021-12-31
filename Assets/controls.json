@@ -1,6 +1,11 @@
 {
     "Controls": [
         {
+            "action": "RESTART",
+            "text": "Restart (R = 82)",
+            "key": "82"
+        },
+        {
             "action": "MOVE-UP",
             "text": "Up Movement (W = 87)",
             "key": "87"
