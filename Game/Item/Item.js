@@ -15,7 +15,7 @@ class Item extends WorldModule {
         this.Lockable = lockable;
         this.UnlockedByItem = unlockedby;
         this.World = world;
-        this.IdleTurns = 40;
+        this.IdleTurns = 50;
         this.lastIdleTurn = 0;
     }
     Spawn() {

@@ -7,6 +7,8 @@ var Input;
 
 $(function () {
     StartUp();
+    $(this).keydown(CanvasKeydown);
+    $(this).keyup(CanvasKeyPress);
 });
 async function StartUp() {
     var urlParams = new URLSearchParams(window.location.search);
@@ -18,6 +20,7 @@ async function StartUp() {
     await InitialiseGame(mapName);//TODO: Level select
     $('#canvGameArea').keyup(CanvasKeydown);
     $('#canvGameArea').keydown(CanvasKeyPress);
+
     console.log("--------------------------STARTING---------------------------");
     setTimeout(StartGame, 1500);
     $('#btnOnScreenControls').click(function () {
@@ -138,5 +141,5 @@ function ResizeCanvas() {
     var h = $(window).height();
 
     $(GameCanvas).css("width", Math.ceil(320, w) + "px");
-    $(GameCanvas).css("height", Math.ceil(240, h) + "px");
+    $(GameCanvas).css("height", Math.ceil(140, h) + "px");
 }

@@ -2,7 +2,7 @@
     "Maps": [
         {
             "ID": "Labryinth-Easy",
-            "Text": "Labyrinth 1",
+            "Text": "Labyrinth (Easy)",
             "Room": {
                 "Tiles": [
                     {
@@ -426,7 +426,7 @@
         },
         {
             "ID": "Labryinth-Medium",
-            "Text": "Labyrinth 2",
+            "Text": "Labyrinth (Hard)",
             "Room": {
                 "Tiles": [
                     {
@@ -941,13 +941,13 @@
                     {
                         "CharacterType": "BEAST",
                         "Team": 2,
-                        "x": 8,
-                        "y": -2,
+                        "x": 5,
+                        "y": -17,
                         "minDamage": 15,
                         "maxDamage": 15,
                         "maxHealth": 50,
                         "turnsPerMove": 18,
-                        "turnsPerAttack": 10
+                        "turnsPerAttack": 6
                     },
                     {
                         "CharacterType": "BEAST",
@@ -956,7 +956,7 @@
                         "y": -4,
                         "minDamage": 15,
                         "maxDamage": 15,
-                        "maxHealth": 50,
+                        "maxHealth": 60,
                         "turnsPerMove": 15,
                         "turnsPerAttack": 8
                     },
@@ -1009,7 +1009,7 @@
         },
         {
             "ID": "Labryinth-Hard",
-            "Text": "Labyrinth 3",
+            "Text": "Labyrinth (Impossible)",
             "Room": {
                 "Tiles": [
                     {
@@ -1723,6 +1723,221 @@
                         "maxHealth": 50,
                         "turnsPerMove": 6,
                         "turnsPerAttack": 3
+                    }
+                ]
+            }
+        },
+        {
+            "ID": "Labryinth-Arena",
+            "Text": "Beast Arena",
+            "Room": {
+                "Tiles": [
+                    {
+                        "x": 0,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": 1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": 1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": 1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 5,
+                        "y": 1,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": 2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": 2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": 2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 5,
+                        "y": 2,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": 3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": 3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": 3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 5,
+                        "y": 3,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 5,
+                        "y": 4,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 1,
+                        "y": 5,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 2,
+                        "y": 5,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 3,
+                        "y": 5,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 4,
+                        "y": 5,
+                        "TileType": "FLOOR_TILE"
+                    },
+                    {
+                        "x": 5,
+                        "y": 5,
+                        "TileType": "FLOOR_TILE"
+                    }
+                ],
+                "Items": [
+                    {
+                        "ItemType": "DOOR",
+                        "x": 0,
+                        "y": 4,
+                        "ItemStartState": "LOCKED",
+                        "Pickupable": false,
+                        "Lockable": true,
+                        "UnlockedByItem": "KEY"
+                    },
+                    {
+                        "ItemType": "KEY",
+                        "x": 5,
+                        "y": 5,
+                        "ItemStartState": "ENABLED",
+                        "Pickupable": true,
+                        "Lockable": false,
+                        "UnlockedByItem": ""
+                    }
+                ],
+                "Spawns": [
+                    {
+                        "CharacterType": "PLAYER",
+                        "Team": 1,
+                        "x": 3,
+                        "y": 2,
+                        "minDamage": 10,
+                        "maxDamage": 10,
+                        "maxHealth": 100,
+                        "turnsPerMove": 1,
+                        "turnsPerAttack": 1
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 2,
+                        "y": 5,
+                        "minDamage": 10,
+                        "maxDamage": 10,
+                        "maxHealth": 50,
+                        "turnsPerMove": 13,
+                        "turnsPerAttack": 8
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 1,
+                        "y": 5,
+                        "minDamage": 13,
+                        "maxDamage": 13,
+                        "maxHealth": 50,
+                        "turnsPerMove": 24,
+                        "turnsPerAttack": 12
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 2,
+                        "y": 2,
+                        "minDamage": 13,
+                        "maxDamage": 13,
+                        "maxHealth": 50,
+                        "turnsPerMove": 32,
+                        "turnsPerAttack": 15
+                    },
+                    {
+                        "CharacterType": "BEAST",
+                        "Team": 2,
+                        "x": 1,
+                        "y": 1,
+                        "minDamage": 12,
+                        "maxDamage": 12,
+                        "maxHealth": 50,
+                        "turnsPerMove": 16,
+                        "turnsPerAttack": 5
                     }
                 ]
             }

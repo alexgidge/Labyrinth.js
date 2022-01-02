@@ -33,7 +33,7 @@ class Player extends Character {
     OnSpawn(location) {
         Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.breathe, false, location.x, location.y);//TODO: Check X,Y & Z. 
         Engine.Current.EngineAudio.PlaySound(this.World, "CHARACTER", this.Type, this.drawWeapon, false, location.x, location.y - 1, - 1);
-        Engine.Current.EngineGraphics.AddTextToDisplayQueue("you woke up in a cold wet room...");
+        Engine.Current.EngineGraphics.AddTextToDisplayQueue("you wake up in a dark stone passageway...");
         Engine.Current.EngineGraphics.ChangeGameBackground('black', 2000);
     }
 
